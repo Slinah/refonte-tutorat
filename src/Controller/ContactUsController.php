@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+
+class ContactUsController extends AbstractController
+{
+    /**
+     * @Route("/contactUs", name="contact_us")
+     */
+    public function index()
+    {
+        return $this->render('contact_us/index.html.twig');
+    }
+}

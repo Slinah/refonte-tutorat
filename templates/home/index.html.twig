@@ -3,10 +3,10 @@
 
 {% block body %}
     <h1>Tutorat & Entraide</h1>
-    <a href="#">Les cours</a>
+    <a href="{{ path('courses') }}">Les cours</a>
     <br />
 
-    <a href="#">Le tutorat c'est quoi ?</a>
+    <div>Le tutorat c'est quoi ?</div>
     <br />
 
     <a href="#">En savoir plus</a>
@@ -14,22 +14,22 @@
 
     <h3>Participer</h3>
     <div>
-        <a href="{{ path('home') }}">Les cours</a>
+        <a href="{{ path('courses') }}">Les cours</a>
     </div>
 
     <div>
-        <a href="#">Donner un cours</a>
+        <a href="{{ path('give_courses') }}">Donner un cours</a>
     </div>
 
     <div>
-        <a href="#">Suggérer un cours</a>
+        <a href="{{ path('suggest_courses') }}">Suggérer un cours</a>
     </div>
     <br />
 
-    <a href="#">Pourquoi donner un cours ?</a>
+    <div>Pourquoi donner un cours ?</div>
     <br />
 
-    <a href="{{ path('home') }}">Les cours</a>
+    <a href="{{ path('courses') }}">Les cours</a>
     <br />
 
     <a href="#">En savoir plus</a>
