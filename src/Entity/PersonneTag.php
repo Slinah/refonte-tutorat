@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * PersonneTag
  *
  * @ORM\Table(name="personne_tag", indexes={@ORM\Index(name="Fk_NiveauTag", columns={"id_niveau"}), @ORM\Index(name="Fk_PersonneTag", columns={"id_personne"}), @ORM\Index(name="Fk_MatiereTag", columns={"id_matiere"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\PersonneTagRepository")
  */
 class PersonneTag
 {
@@ -47,6 +47,42 @@ class PersonneTag
      * })
      */
     private $idPersonne;
+
+    public function getIdMatiere(): ?Matiere
+    {
+        return $this->idMatiere;
+    }
+
+    public function setIdMatiere(?Matiere $idMatiere): self
+    {
+        $this->idMatiere = $idMatiere;
+
+        return $this;
+    }
+
+    public function getIdNiveau(): ?Niveau
+    {
+        return $this->idNiveau;
+    }
+
+    public function setIdNiveau(?Niveau $idNiveau): self
+    {
+        $this->idNiveau = $idNiveau;
+
+        return $this;
+    }
+
+    public function getIdPersonne(): ?Personne
+    {
+        return $this->idPersonne;
+    }
+
+    public function setIdPersonne(?Personne $idPersonne): self
+    {
+        $this->idPersonne = $idPersonne;
+
+        return $this;
+    }
 
 
 }

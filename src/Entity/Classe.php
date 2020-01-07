@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Classe
  *
  * @ORM\Table(name="classe", indexes={@ORM\Index(name="Fk_Promo", columns={"id_promo"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ClasseRepository")
  */
 class Classe
 {
@@ -37,6 +37,35 @@ class Classe
      * })
      */
     private $idPromo;
+
+    public function getIdClasse(): ?string
+    {
+        return $this->idClasse;
+    }
+
+    public function getClasse(): ?string
+    {
+        return $this->classe;
+    }
+
+    public function setClasse(string $classe): self
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    public function getIdPromo(): ?Promo
+    {
+        return $this->idPromo;
+    }
+
+    public function setIdPromo(?Promo $idPromo): self
+    {
+        $this->idPromo = $idPromo;
+
+        return $this;
+    }
 
 
 }

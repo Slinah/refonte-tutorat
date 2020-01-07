@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Personne
  *
  * @ORM\Table(name="personne", indexes={@ORM\Index(name="Fk_Classe", columns={"id_classe"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\PersonneRepository")
  */
 class Personne
 {
@@ -133,6 +135,185 @@ class Personne
         $this->idArchive = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idCours = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idProposition = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdPersonne(): ?string
+    {
+        return $this->idPersonne;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getRole(): ?int
+    {
+        return $this->role;
+    }
+
+    public function setRole(int $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getMdp(): ?string
+    {
+        return $this->mdp;
+    }
+
+    public function setMdp(string $mdp): self
+    {
+        $this->mdp = $mdp;
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(?string $token): self
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getIdClasse(): ?Classe
+    {
+        return $this->idClasse;
+    }
+
+    public function setIdClasse(?Classe $idClasse): self
+    {
+        $this->idClasse = $idClasse;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Archive[]
+     */
+    public function getIdArchive(): Collection
+    {
+        return $this->idArchive;
+    }
+
+    public function addIdArchive(Archive $idArchive): self
+    {
+        if (!$this->idArchive->contains($idArchive)) {
+            $this->idArchive[] = $idArchive;
+        }
+
+        return $this;
+    }
+
+    public function removeIdArchive(Archive $idArchive): self
+    {
+        if ($this->idArchive->contains($idArchive)) {
+            $this->idArchive->removeElement($idArchive);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cours[]
+     */
+    public function getIdCours(): Collection
+    {
+        return $this->idCours;
+    }
+
+    public function addIdCour(Cours $idCour): self
+    {
+        if (!$this->idCours->contains($idCour)) {
+            $this->idCours[] = $idCour;
+        }
+
+        return $this;
+    }
+
+    public function removeIdCour(Cours $idCour): self
+    {
+        if ($this->idCours->contains($idCour)) {
+            $this->idCours->removeElement($idCour);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Proposition[]
+     */
+    public function getIdProposition(): Collection
+    {
+        return $this->idProposition;
+    }
+
+    public function addIdProposition(Proposition $idProposition): self
+    {
+        if (!$this->idProposition->contains($idProposition)) {
+            $this->idProposition[] = $idProposition;
+        }
+
+        return $this;
+    }
+
+    public function removeIdProposition(Proposition $idProposition): self
+    {
+        if ($this->idProposition->contains($idProposition)) {
+            $this->idProposition->removeElement($idProposition);
+        }
+
+        return $this;
     }
 
 }

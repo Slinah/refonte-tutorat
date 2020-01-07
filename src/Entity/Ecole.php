@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Ecole
  *
  * @ORM\Table(name="ecole")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EcoleRepository")
  */
 class Ecole
 {
@@ -27,6 +27,23 @@ class Ecole
      * @ORM\Column(name="intitule", type="text", length=65535, nullable=false)
      */
     private $intitule;
+
+    public function getIdEcole(): ?string
+    {
+        return $this->idEcole;
+    }
+
+    public function getIntitule(): ?string
+    {
+        return $this->intitule;
+    }
+
+    public function setIntitule(string $intitule): self
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
 
 
 }

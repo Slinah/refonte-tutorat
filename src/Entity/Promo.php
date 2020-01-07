@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Promo
  *
  * @ORM\Table(name="promo", indexes={@ORM\Index(name="Fk_Ecole", columns={"id_ecole"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\PromoRepository")
  */
 class Promo
 {
@@ -59,6 +61,91 @@ class Promo
     {
         $this->idArchive = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idCours = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdPromo(): ?string
+    {
+        return $this->idPromo;
+    }
+
+    public function getPromo(): ?string
+    {
+        return $this->promo;
+    }
+
+    public function setPromo(string $promo): self
+    {
+        $this->promo = $promo;
+
+        return $this;
+    }
+
+    public function getIdEcole(): ?Ecole
+    {
+        return $this->idEcole;
+    }
+
+    public function setIdEcole(?Ecole $idEcole): self
+    {
+        $this->idEcole = $idEcole;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Archive[]
+     */
+    public function getIdArchive(): Collection
+    {
+        return $this->idArchive;
+    }
+
+    public function addIdArchive(Archive $idArchive): self
+    {
+        if (!$this->idArchive->contains($idArchive)) {
+            $this->idArchive[] = $idArchive;
+            $idArchive->addIdPromo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdArchive(Archive $idArchive): self
+    {
+        if ($this->idArchive->contains($idArchive)) {
+            $this->idArchive->removeElement($idArchive);
+            $idArchive->removeIdPromo($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cours[]
+     */
+    public function getIdCours(): Collection
+    {
+        return $this->idCours;
+    }
+
+    public function addIdCour(Cours $idCour): self
+    {
+        if (!$this->idCours->contains($idCour)) {
+            $this->idCours[] = $idCour;
+            $idCour->addIdPromo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdCour(Cours $idCour): self
+    {
+        if ($this->idCours->contains($idCour)) {
+            $this->idCours->removeElement($idCour);
+            $idCour->removeIdPromo($this);
+        }
+
+        return $this;
     }
 
 }

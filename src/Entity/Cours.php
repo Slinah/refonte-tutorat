@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Cours
  *
  * @ORM\Table(name="cours", indexes={@ORM\Index(name="Fk_Matiere", columns={"id_matiere"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CoursRepository")
  */
 class Cours
 {
@@ -130,6 +132,197 @@ class Cours
     {
         $this->idPromo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idPersonne = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdCours(): ?string
+    {
+        return $this->idCours;
+    }
+
+    public function getIntitule(): ?string
+    {
+        return $this->intitule;
+    }
+
+    public function setIntitule(string $intitule): self
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    public function getHeure(): ?string
+    {
+        return $this->heure;
+    }
+
+    public function setHeure(string $heure): self
+    {
+        $this->heure = $heure;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getCommentaires(): ?string
+    {
+        return $this->commentaires;
+    }
+
+    public function setCommentaires(?string $commentaires): self
+    {
+        $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    public function getNbinscrits(): ?int
+    {
+        return $this->nbinscrits;
+    }
+
+    public function setNbinscrits(?int $nbinscrits): self
+    {
+        $this->nbinscrits = $nbinscrits;
+
+        return $this;
+    }
+
+    public function getNbparticipants(): ?int
+    {
+        return $this->nbparticipants;
+    }
+
+    public function setNbparticipants(?int $nbparticipants): self
+    {
+        $this->nbparticipants = $nbparticipants;
+
+        return $this;
+    }
+
+    public function getDuree(): ?float
+    {
+        return $this->duree;
+    }
+
+    public function setDuree(?float $duree): self
+    {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getSecu(): ?string
+    {
+        return $this->secu;
+    }
+
+    public function setSecu(string $secu): self
+    {
+        $this->secu = $secu;
+
+        return $this;
+    }
+
+    public function getSalle(): ?string
+    {
+        return $this->salle;
+    }
+
+    public function setSalle(?string $salle): self
+    {
+        $this->salle = $salle;
+
+        return $this;
+    }
+
+    public function getIdMatiere(): ?Matiere
+    {
+        return $this->idMatiere;
+    }
+
+    public function setIdMatiere(?Matiere $idMatiere): self
+    {
+        $this->idMatiere = $idMatiere;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Promo[]
+     */
+    public function getIdPromo(): Collection
+    {
+        return $this->idPromo;
+    }
+
+    public function addIdPromo(Promo $idPromo): self
+    {
+        if (!$this->idPromo->contains($idPromo)) {
+            $this->idPromo[] = $idPromo;
+        }
+
+        return $this;
+    }
+
+    public function removeIdPromo(Promo $idPromo): self
+    {
+        if ($this->idPromo->contains($idPromo)) {
+            $this->idPromo->removeElement($idPromo);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Personne[]
+     */
+    public function getIdPersonne(): Collection
+    {
+        return $this->idPersonne;
+    }
+
+    public function addIdPersonne(Personne $idPersonne): self
+    {
+        if (!$this->idPersonne->contains($idPersonne)) {
+            $this->idPersonne[] = $idPersonne;
+            $idPersonne->addIdCour($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdPersonne(Personne $idPersonne): self
+    {
+        if ($this->idPersonne->contains($idPersonne)) {
+            $this->idPersonne->removeElement($idPersonne);
+            $idPersonne->removeIdCour($this);
+        }
+
+        return $this;
     }
 
 }
