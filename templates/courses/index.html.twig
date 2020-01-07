@@ -9,28 +9,31 @@
     <br />
 
     <h3>Cette semaine</h3>
-    <div>
-        <p>matière</p>
-        <p>Date</p>
-        <p>Thème = matière ?</p>
-        <p>Difficultés</p>
-        <p>Intitulé</p>
-        <a href="#">S'inscrire</a>
-    </div>
+
+    {% for cours in cours %}
+        <div>
+            <p><b>{{ cours.idMatiere.intitule }}</b></p>
+            <p>{{ cours.date |date('d/m/Y') }} à {{ cours.heure }}</p>
+            <p>Thème ?</p>
+            <p>Difficultés ?</p>
+            <p>{{ cours.intitule }}</p>
+            <a href="#">S'inscrire</a>
+        </div>
+    {% endfor %}
     <br />
 
     <h3>La semaine prochaine</h3>
     <div>
-        <p> du cours</p>
-        <p>Description</p>
+        <p>Matière</p>
+        <p>Intitulé du cours</p>
         <a href="#">S'inscrire</a>
     </div>
     <br />
 
     <h3>Plus tard</h3>
     <div>
+        <p>Matière</p>
         <p>Intitulé du cours</p>
-        <p>Description</p>
         <a href="#">S'inscrire</a>
     </div>
     <br />

@@ -7,16 +7,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Personne
- *
  * @ORM\Table(name="personne", indexes={@ORM\Index(name="Fk_Classe", columns={"id_classe"})})
  * @ORM\Entity(repositoryClass="App\Repository\PersonneRepository")
  */
 class Personne
 {
     /**
-     * @var string
-     *
      * @ORM\Column(name="id_personne", type="string", length=40, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -24,50 +20,36 @@ class Personne
     private $idPersonne;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="nom", type="text", length=65535, nullable=false)
      */
     private $nom;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="prenom", type="text", length=65535, nullable=false)
      */
     private $prenom;
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="role", type="integer", nullable=false)
      */
     private $role = '0';
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="mdp", type="text", length=65535, nullable=false)
      */
     private $mdp;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="mail", type="text", length=65535, nullable=false)
      */
     private $mail;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(name="token", type="text", length=65535, nullable=true, options={"default"="NULL"})
      */
     private $token = 'NULL';
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(name="image", type="text", length=65535, nullable=true, options={"default"="NULL"})
      */
     private $image = 'NULL';

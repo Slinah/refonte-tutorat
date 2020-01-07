@@ -5,8 +5,6 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PersonneTag
- *
  * @ORM\Table(name="personne_tag", indexes={@ORM\Index(name="Fk_NiveauTag", columns={"id_niveau"}), @ORM\Index(name="Fk_PersonneTag", columns={"id_personne"}), @ORM\Index(name="Fk_MatiereTag", columns={"id_matiere"})})
  * @ORM\Entity(repositoryClass="App\Repository\PersonneTagRepository")
  */

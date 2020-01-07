@@ -7,16 +7,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Promo
- *
  * @ORM\Table(name="promo", indexes={@ORM\Index(name="Fk_Ecole", columns={"id_ecole"})})
  * @ORM\Entity(repositoryClass="App\Repository\PromoRepository")
  */
 class Promo
 {
     /**
-     * @var string
-     *
      * @ORM\Column(name="id_promo", type="string", length=40, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -24,8 +20,6 @@ class Promo
     private $idPromo;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="promo", type="text", length=65535, nullable=false)
      */
     private $promo;
