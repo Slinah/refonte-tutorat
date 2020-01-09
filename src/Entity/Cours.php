@@ -7,12 +7,16 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="cours", indexes={@ORM\Index(name="Fk_Matiere", columns={"id_matiere"})})
- * @ORM\Entity(repositoryClass="App\Repository\CoursRepository")
+ * Cours
+ *
+ * @ORM\Table(name="cours", indexes={@ORM\Index(name="Fk_Matiere", columns={"id_matiere"}), @ORM\Index(name="fk_cours_promo1_idx", columns={"id_promo"})})
+ * @ORM\Entity
  */
 class Cours
 {
     /**
+     * @var string
+     *
      * @ORM\Column(name="id_cours", type="string", length=40, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -20,51 +24,71 @@ class Cours
     private $idCours;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="intitule", type="text", length=65535, nullable=false)
      */
     private $intitule;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="heure", type="text", length=65535, nullable=false)
      */
     private $heure;
 
     /**
+     * @var \DateTime
+     *
      * @ORM\Column(name="date", type="date", nullable=false)
      */
     private $date;
 
     /**
+     * @var string|null
+     *
      * @ORM\Column(name="commentaires", type="text", length=65535, nullable=true, options={"default"="NULL"})
      */
     private $commentaires = 'NULL';
 
     /**
+     * @var int|null
+     *
      * @ORM\Column(name="nbInscrits", type="integer", nullable=true, options={"default"="NULL"})
      */
     private $nbinscrits = 'NULL';
 
     /**
+     * @var int|null
+     *
      * @ORM\Column(name="nbParticipants", type="integer", nullable=true, options={"default"="NULL"})
      */
     private $nbparticipants = 'NULL';
 
     /**
+     * @var float|null
+     *
      * @ORM\Column(name="duree", type="float", precision=10, scale=0, nullable=true, options={"default"="NULL"})
      */
     private $duree = 'NULL';
 
     /**
+     * @var int
+     *
      * @ORM\Column(name="status", type="integer", nullable=false)
      */
     private $status = '0';
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="secu", type="text", length=65535, nullable=false)
      */
     private $secu;
 
     /**
+     * @var string|null
+     *
      * @ORM\Column(name="salle", type="text", length=65535, nullable=true, options={"default"="NULL"})
      */
     private $salle = 'NULL';
@@ -80,17 +104,12 @@ class Cours
     private $idMatiere;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Promo
      *
-     * @ORM\ManyToMany(targetEntity="Promo", inversedBy="idCours")
-     * @ORM\JoinTable(name="cours_promo",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_cours", referencedColumnName="id_cours")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_promo", referencedColumnName="id_promo")
-     *   }
-     * )
+     * @ORM\ManyToOne(targetEntity="Promo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_promo", referencedColumnName="id_promo")
+     * })
      */
     private $idPromo;
 
@@ -106,7 +125,6 @@ class Cours
      */
     public function __construct()
     {
-        $this->idPromo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idPersonne = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -247,28 +265,14 @@ class Cours
         return $this;
     }
 
-    /**
-     * @return Collection|Promo[]
-     */
-    public function getIdPromo(): Collection
+    public function getIdPromo(): ?Promo
     {
         return $this->idPromo;
     }
 
-    public function addIdPromo(Promo $idPromo): self
+    public function setIdPromo(?Promo $idPromo): self
     {
-        if (!$this->idPromo->contains($idPromo)) {
-            $this->idPromo[] = $idPromo;
-        }
-
-        return $this;
-    }
-
-    public function removeIdPromo(Promo $idPromo): self
-    {
-        if ($this->idPromo->contains($idPromo)) {
-            $this->idPromo->removeElement($idPromo);
-        }
+        $this->idPromo = $idPromo;
 
         return $this;
     }

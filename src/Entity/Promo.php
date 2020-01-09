@@ -7,12 +7,16 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Promo
+ *
  * @ORM\Table(name="promo", indexes={@ORM\Index(name="Fk_Ecole", columns={"id_ecole"})})
- * @ORM\Entity(repositoryClass="App\Repository\PromoRepository")
+ * @ORM\Entity
  */
 class Promo
 {
     /**
+     * @var string
+     *
      * @ORM\Column(name="id_promo", type="string", length=40, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -20,6 +24,8 @@ class Promo
     private $idPromo;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="promo", type="text", length=65535, nullable=false)
      */
     private $promo;
@@ -44,9 +50,9 @@ class Promo
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Cours", mappedBy="idPromo")
+     * @ORM\ManyToMany(targetEntity="Proposition", mappedBy="idPromo")
      */
-    private $idCours;
+    private $idProposition;
 
     /**
      * Constructor
@@ -54,7 +60,7 @@ class Promo
     public function __construct()
     {
         $this->idArchive = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idCours = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idProposition = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getIdPromo(): ?string
@@ -115,28 +121,28 @@ class Promo
     }
 
     /**
-     * @return Collection|Cours[]
+     * @return Collection|Proposition[]
      */
-    public function getIdCours(): Collection
+    public function getIdProposition(): Collection
     {
-        return $this->idCours;
+        return $this->idProposition;
     }
 
-    public function addIdCour(Cours $idCour): self
+    public function addIdProposition(Proposition $idProposition): self
     {
-        if (!$this->idCours->contains($idCour)) {
-            $this->idCours[] = $idCour;
-            $idCour->addIdPromo($this);
+        if (!$this->idProposition->contains($idProposition)) {
+            $this->idProposition[] = $idProposition;
+            $idProposition->addIdPromo($this);
         }
 
         return $this;
     }
 
-    public function removeIdCour(Cours $idCour): self
+    public function removeIdProposition(Proposition $idProposition): self
     {
-        if ($this->idCours->contains($idCour)) {
-            $this->idCours->removeElement($idCour);
-            $idCour->removeIdPromo($this);
+        if ($this->idProposition->contains($idProposition)) {
+            $this->idProposition->removeElement($idProposition);
+            $idProposition->removeIdPromo($this);
         }
 
         return $this;

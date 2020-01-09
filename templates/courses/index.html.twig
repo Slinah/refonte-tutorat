@@ -9,16 +9,15 @@
     <br />
 
     <h3>Cette semaine</h3>
-
     {% for cours in cours %}
-        <div>
-            <p><b>{{ cours.idMatiere.intitule }}</b></p>
-            <p>{{ cours.date |date('d/m/Y') }} à {{ cours.heure }}</p>
-            <p>Thème ?</p>
-            <p>Difficultés ?</p>
-            <p>{{ cours.intitule }}</p>
-            <a href="#">S'inscrire</a>
-        </div>
+            <div>
+                <p><b>{{ cours.idMatiere.intitule }}</b></p>
+                <p>{{ cours.date |date('d/m/Y') }} à {{ cours.heure }}</p>
+                <p>Tags</p>
+                <p>{{ cours.idPromo.promo }}</p>
+                <p>{{ cours.intitule }}</p>
+                <button>S'inscrire</button>
+            </div>
     {% endfor %}
     <br />
 
@@ -26,7 +25,7 @@
     <div>
         <p>Matière</p>
         <p>Intitulé du cours</p>
-        <a href="#">S'inscrire</a>
+        <button>S'inscrire</button>
     </div>
     <br />
 
@@ -34,7 +33,7 @@
     <div>
         <p>Matière</p>
         <p>Intitulé du cours</p>
-        <a href="#">S'inscrire</a>
+        <button>S'inscrire</button>
     </div>
     <br />
 
