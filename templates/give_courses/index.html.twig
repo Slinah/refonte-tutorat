@@ -2,8 +2,34 @@
 
 {% block body %}
     <h3>Donner un cours</h3>
-    <p>Cours suggérés</p>
+    <p>Cours suggérés : </p>
 
-    <h4>Formulaire</h4>
+    {{ form_start(form) }}
+    {{ form_label(form.intitule) }}
+    <br />
+    {{ form_widget(form.intitule) }}
+    <br /><br />
+
+    {{ form_label(form.date) }}
+    <br />
+    {{ form_widget(form.date) }}
+    <br /><br />
+
+    {{ form_row(form.heure) }}
+    <br />
+
+    {{ form_label(form.idMatiere) }}
+    <br />
+    {{ form_widget(form.idMatiere) }}
+    <br /><br />
+
+    {{ form_label(form.idPromo) }}
+    <br />
+    {{ form_widget(form.idPromo) }}
+    <br /><br />
+
+    <button>Ajouter le cours</button>
+    {{ form_end(form) }}
+
 
 {% endblock %}

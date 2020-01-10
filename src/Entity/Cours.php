@@ -31,9 +31,9 @@ class Cours
     private $intitule;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="heure", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="heure", type="time", nullable=false)
      */
     private $heure;
 
@@ -133,6 +133,13 @@ class Cours
         return $this->idCours;
     }
 
+    public function setIdCours(string $idCours): self
+    {
+        $this->idCours = $idCours;
+
+        return $this;
+    }
+
     public function getIntitule(): ?string
     {
         return $this->intitule;
@@ -145,12 +152,12 @@ class Cours
         return $this;
     }
 
-    public function getHeure(): ?string
+    public function getHeure(): ?\DateTimeInterface
     {
         return $this->heure;
     }
 
-    public function setHeure(string $heure): self
+    public function setHeure(\DateTimeInterface $heure): self
     {
         $this->heure = $heure;
 

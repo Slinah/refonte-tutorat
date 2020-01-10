@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PersonneTag
  *
- * @ORM\Table(name="personne_tag", indexes={@ORM\Index(name="Fk_NiveauTag", columns={"id_niveau"}), @ORM\Index(name="Fk_PersonneTag", columns={"id_personne"}), @ORM\Index(name="Fk_MatiereTag", columns={"id_matiere"})})
+ * @ORM\Table(name="personne_tag", indexes={@ORM\Index(name="Fk_MatiereTag", columns={"id_matiere"}), @ORM\Index(name="Fk_NiveauTag", columns={"id_niveau"}), @ORM\Index(name="Fk_PersonneTag", columns={"id_personne"})})
  * @ORM\Entity
  */
 class PersonneTag
@@ -27,9 +27,7 @@ class PersonneTag
     /**
      * @var \Niveau
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Niveau")
+     * @ORM\ManyToOne(targetEntity="Niveau")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_niveau", referencedColumnName="id_niveau")
      * })

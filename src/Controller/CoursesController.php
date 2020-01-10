@@ -18,12 +18,10 @@ class CoursesController extends AbstractController
     {
         $cours = $repository->findAll();
 
-        //$promo= $repo->find()
         //$dateNow = date('d/m/Y');
 
         return $this->render('courses/index.html.twig', [
             "cours"=>$cours,
-            //"promo"=>$promo
             //"dateNow"=>$dateNow
         ]);
     }

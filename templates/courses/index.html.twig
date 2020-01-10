@@ -8,33 +8,34 @@
     <a href="{{ path('suggest_courses') }}">Suggérer un cours</a>
     <br />
 
-    <h3>Cette semaine</h3>
-    {% for cours in cours %}
-            <div>
-                <p><b>{{ cours.idMatiere.intitule }}</b></p>
-                <p>{{ cours.date |date('d/m/Y') }} à {{ cours.heure }}</p>
-                <p>Tags</p>
-                <p>{{ cours.idPromo.promo }}</p>
-                <p>{{ cours.intitule }}</p>
-                <button>S'inscrire</button>
-            </div>
-    {% endfor %}
-    <br />
-
-    <h3>La semaine prochaine</h3>
-    <div>
-        <p>Matière</p>
-        <p>Intitulé du cours</p>
-        <button>S'inscrire</button>
-    </div>
-    <br />
-
-    <h3>Plus tard</h3>
-    <div>
-        <p>Matière</p>
-        <p>Intitulé du cours</p>
-        <button>S'inscrire</button>
-    </div>
-    <br />
+    {% if dateNow >= LundisemaineCourante and dateNow <= DimanchesemaineCourante %}
+        <h3>Cette semaine</h3>
+        {% for cours in cours %}
+                <div>
+                    <p><b>{{ cours.idMatiere.intitule }}</b></p>
+                    <p>{{ cours.date |date('d/m/Y') }} à {{ cours.heure }}</p>
+                    <p>{{ cours.idPromo.promo }}</p>
+                    <p>{{ cours.intitule }}</p>
+                    <button>S'inscrire</button>
+                </div>
+        {% endfor %}
+        <br />
+    {% elseif dateNow >= LundisemaineSuivante and dateNow <= DimanchesemaineSuivante %}
+        <h3>La semaine prochaine</h3>
+        <div>
+            <p>Matière</p>
+            <p>Intitulé du cours</p>
+            <button>S'inscrire</button>
+        </div>
+        <br />
+    {% else %}
+        <h3>Plus tard</h3>
+        <div>
+            <p>Matière</p>
+            <p>Intitulé du cours</p>
+            <button>S'inscrire</button>
+        </div>
+        <br />
+    {% endif %}
 
 {% endblock %}
