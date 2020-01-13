@@ -18,11 +18,21 @@ class CoursesController extends AbstractController
     {
         $cours = $repository->findAll();
 
-        //$dateNow = date('d/m/Y');
+        $dateNow = new \DateTime('now');
+
+        $LundisemaineCourante = new \DateTime('now');
+        $DimanchesemaineCourante = new \DateTime('now');
+
+        $LundisemaineSuivante = "2020-01-13";
+        $DimanchesemaineSuivante = "2020-01-19";
 
         return $this->render('courses/index.html.twig', [
             "cours"=>$cours,
-            //"dateNow"=>$dateNow
+            "dateNow"=>$dateNow,
+            "LundisemaineCourante"=>$LundisemaineCourante,
+            "DimanchesemaineCourante"=>$DimanchesemaineCourante,
+            "LundisemaineSuivante"=>$LundisemaineCourante,
+            "DimanchesemaineSuivante"=>$DimanchesemaineCourante
         ]);
     }
 }

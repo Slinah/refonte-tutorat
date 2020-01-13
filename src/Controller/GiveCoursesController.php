@@ -19,6 +19,7 @@ class GiveCoursesController extends AbstractController
 
         $GiveCourses = new Cours();
         $form=$this->createForm(GiveCoursesType::class, $GiveCourses);
+        $GiveCourses->setDuree(0);
         $GiveCourses->setStatus(0);
         $GiveCourses->setSecu("secu");
         $form->handleRequest($request);

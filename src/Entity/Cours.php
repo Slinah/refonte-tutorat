@@ -5,8 +5,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 
 /**
  * Cours
@@ -18,6 +16,7 @@ class Cours
 {
     /**
      * @var string
+     *
      * @ORM\Column(name="id_cours", type="string", length=40, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
@@ -132,13 +131,6 @@ class Cours
     public function getIdCours(): ?string
     {
         return $this->idCours;
-    }
-
-    public function setIdCours(string $idCours): self
-    {
-        $this->idCours = $idCours;
-
-        return $this;
     }
 
     public function getIntitule(): ?string

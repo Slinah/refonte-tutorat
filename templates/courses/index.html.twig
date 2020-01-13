@@ -8,34 +8,47 @@
     <a href="{{ path('suggest_courses') }}">Suggérer un cours</a>
     <br />
 
-    {% if dateNow >= LundisemaineCourante and dateNow <= DimanchesemaineCourante %}
-        <h3>Cette semaine</h3>
+    <h3>Cette semaine</h3>
+    {% if dateNow >= LundisemaineCourante or dateNow <= DimanchesemaineCourante %}
         {% for cours in cours %}
                 <div>
                     <p><b>{{ cours.idMatiere.intitule }}</b></p>
-                    <p>{{ cours.date |date('d/m/Y') }} à {{ cours.heure }}</p>
+                    <p>{{ cours.date |format_datetime('full', 'none', locale='fr') }} à {{ cours.heure |format_time('short', locale='fr') }}</p>
                     <p>{{ cours.idPromo.promo }}</p>
                     <p>{{ cours.intitule }}</p>
                     <button>S'inscrire</button>
                 </div>
         {% endfor %}
         <br />
-    {% elseif dateNow >= LundisemaineSuivante and dateNow <= DimanchesemaineSuivante %}
-        <h3>La semaine prochaine</h3>
-        <div>
-            <p>Matière</p>
-            <p>Intitulé du cours</p>
-            <button>S'inscrire</button>
-        </div>
-        <br />
     {% else %}
-        <h3>Plus tard</h3>
-        <div>
-            <p>Matière</p>
-            <p>Intitulé du cours</p>
-            <button>S'inscrire</button>
-        </div>
-        <br />
+        <p>Pas de cours</p>
     {% endif %}
 
+    <h3>La semaine prochaine</h3>
+    {% if dateNow >= LundisemaineSuivante and dateNow <= DimanchesemaineSuivante %}
+        {% for cours in cours %}
+            <div>
+                <p><b>{{ cours.idMatiere.intitule }}</b></p>
+                <p>{{ cours.intitule }}</p>
+                <button>S'inscrire</button>
+            </div>
+        {% endfor %}
+        <br />
+    {% else %}
+        <p>Pas de cours</p>
+    {% endif %}
+
+    <h3>Plus tard</h3>
+    {% if dateNow > DimanchesemaineSuivante %}
+        {% for cours in cours %}
+            <div>
+                <p><b>{{ cours.idMatiere.intitule }}</b></p>
+                <p>{{ cours.intitule }}</p>
+                <button>S'inscrire</button>
+            </div>
+        {% endfor %}
+        <br />
+    {% else %}
+        <p>Pas de cours</p>
+    {% endif %}
 {% endblock %}
