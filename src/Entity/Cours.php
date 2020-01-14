@@ -87,6 +87,13 @@ class Cours
     private $secu;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="stage", type="integer", nullable=true, options={"default"="NULL"})
+     */
+    private $stage = '0';
+
+    /**
      * @var string|null
      *
      * @ORM\Column(name="salle", type="text", length=65535, nullable=true, options={"default"="NULL"})
@@ -237,6 +244,18 @@ class Cours
     public function setSecu(string $secu): self
     {
         $this->secu = $secu;
+
+        return $this;
+    }
+
+    public function getStage(): ?int
+    {
+        return $this->stage;
+    }
+
+    public function setStage(?int $stage): self
+    {
+        $this->stage = $stage;
 
         return $this;
     }

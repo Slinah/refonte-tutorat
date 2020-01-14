@@ -29,7 +29,7 @@ class SuggestCoursesController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em-> persist($proposition);
             $em->flush();
-            $this->addFlash('success', 'Matière ajoutée avec succès !');
+            $this->addFlash('success', 'Suggestion ajoutée avec succès !');
 
             return $this->redirectToRoute("suggest_courses");
         }

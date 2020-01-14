@@ -21,7 +21,6 @@ class GiveCoursesController extends AbstractController
         $GiveCourses = new Cours();
         $form=$this->createForm(GiveCoursesType::class, $GiveCourses);
         $GiveCourses->setDuree(0);
-        $GiveCourses->setStatus(0);
         $GiveCourses->setSecu("secu");
         $form->handleRequest($request);
 
@@ -36,7 +35,7 @@ class GiveCoursesController extends AbstractController
 
         return $this->render('give_courses/index.html.twig', [
             "suggest"=>$suggest,
-            'form'=>$form->createView(),
+            'form'=>$form->createView()
         ]);
     }
 }

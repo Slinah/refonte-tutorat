@@ -3,11 +3,25 @@
 {% block body %}
     <h3>Les stages</h3>
 
-    <p>Donner un stage</p>
+    <p><a href="{{ path('add_internship') }}">Donner un stage</a></p>
     <p>Participer</p>
 
     <p>Barre de recherche</p>
 
-    <p>Cours</p>
-    <button>S'inscrire</button>
+    <p>Stages disponible :</p>
+    {% if cours is not null %}
+        {% for cours in cours %}
+            <div>
+                <p><b>{{ cours.idMatiere.intitule }}</b></p>
+                <p><i>Date du prochain cours :</i><br />
+                    {{ cours.date |format_datetime('full', 'none', locale='fr') }} à {{ cours.heure |format_time('short', locale='fr') }}</p>
+                <p>{{ cours.idPromo.promo }}</p>
+                <p>{{ cours.intitule }}</p>
+                <button>S'inscrire</button>
+            </div>
+        {% endfor %}
+        <br />
+    {% else %}
+        <p>Pas de stages</p>
+    {% endif %}
 {% endblock %}

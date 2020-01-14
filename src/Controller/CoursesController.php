@@ -16,7 +16,7 @@ class CoursesController extends AbstractController
      */
     public function index(CoursRepository $repository, PromoRepository $repo)
     {
-        $cours = $repository->findAll();
+        $cours = $repository->findCourses();
 
         $dateNow = new \DateTime('now');
 

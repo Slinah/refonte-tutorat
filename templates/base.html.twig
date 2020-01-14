@@ -20,6 +20,13 @@
         <a href="{{ path('admin') }}">Pannel Admin</a> / <a href="{{ path('my_profil') }}">Mon profil</a>
     </div>
     {# End navBar #}
+
+    {# Message de succès #}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
 </header>
 
 {% block body %}{% endblock %}
