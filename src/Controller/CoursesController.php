@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
 use App\Repository\PromoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
 
@@ -16,7 +18,7 @@ class CoursesController extends AbstractController
      */
     public function index(CoursRepository $repository, PromoRepository $repo)
     {
-        $cours = $repository->findCourses();
+        $courses = $repository->findCourses();
 
         $dateNow = new \DateTime('now');
 
@@ -27,12 +29,39 @@ class CoursesController extends AbstractController
         $DimanchesemaineSuivante = "2020-01-19";
 
         return $this->render('courses/index.html.twig', [
-            "cours"=>$cours,
+            "courses"=>$courses,
             "dateNow"=>$dateNow,
             "LundisemaineCourante"=>$LundisemaineCourante,
             "DimanchesemaineCourante"=>$DimanchesemaineCourante,
             "LundisemaineSuivante"=>$LundisemaineCourante,
             "DimanchesemaineSuivante"=>$DimanchesemaineCourante
+        ]);
+    }
+
+    /**
+     * @Route("/courses/update-courses/{id}", name="update_courses")
+     */
+    public function updateCourses(CoursRepository $repo, Request $request, $id)
+    {
+        //chercher objet à modif
+        $courses = $repo->find($id);
+
+        //Création form
+        $form=$this->createForm(UpdateCoursesType::class, $courses);
+
+        //récup données POST
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($courses);
+            $em->flush();
+
+            return $this->redirectToRoute("internship");
+        }
+
+        return $this->render('courses/updateCourses.html.twig', [
+            'form'=>$form->createView()
         ]);
     }
 }

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Modifier un cours</h3>
+
+    {{ form_start(form) }}
+    {{ form_label(form.intitule) }}
+    <br />
+    {{ form_widget(form.intitule) }}
+    <br /><br />
+
+    {{ form_label(form.date) }}
+    <br />
+    {{ form_widget(form.date) }}
+    <br /><br />
+
+    {{ form_row(form.heure) }}
+    <br />
+
+    <button>Modifier le stage</button>
+    {{ form_end(form) }}
+
+{% endblock %}
