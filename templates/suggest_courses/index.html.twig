@@ -2,4 +2,68 @@
 
 {% block body %}
     <h1>Suggérer un cours</h1>
+
+    <h3>Liste des propositions</h3>
+    <table border="1">
+        <tr>
+            <th>Matière</th>
+            <th>Difficulté</th>
+            <th>Votes</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for suggest in suggestList %}
+            {% if suggest is not empty %}
+                <tr>
+                    <td>{{ suggest.idMatiere.intitule }}</td>
+                    <td>
+                        {% for promo in suggest.idPromo %}
+                            {{ promo.promo }}
+                        {% endfor %}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            {% else %}
+                <tr>Il n'y a pas de cours suggérer</tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <br />
+
+    <h3>Suggerer un cours</h3>
+    {{ form_start(formProposition) }}
+
+    {{ form_label(formProposition.idMatiere) }}
+    <br />
+    {{ form_widget(formProposition.idMatiere) }}
+    <br /><br />
+
+    {{ form_label(formProposition.idPromo) }}
+    <br />
+    {{ form_widget(formProposition.idPromo) }}
+    <br /><br />
+
+    {{ form_label(formProposition.idPersonne) }}
+    <br />
+    {{ form_widget(formProposition.idPersonne) }}
+
+    <br /><br />
+    <button>Ajouter la proposition</button>
+
+    {{ form_end(formProposition) }}
+    <br />
+
+    <h3>Ajouter une matière</h3>
+    {{ form_start(formMatiere) }}
+
+    {{ form_label(formMatiere.intitule) }}
+    <br />
+    {{ form_widget(formMatiere.intitule) }}
+
+    <br /><br />
+    <button>Ajouter la matière</button>
+
+    {{ form_end(formMatiere) }}
 {% endblock %}

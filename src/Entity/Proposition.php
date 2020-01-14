@@ -19,7 +19,7 @@ class Proposition
      *
      * @ORM\Column(name="id_proposition", type="string", length=40, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idProposition;
 
@@ -51,6 +51,7 @@ class Proposition
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Promo", inversedBy="idProposition")
+     *
      * @ORM\JoinTable(name="proposition_promo",
      *   joinColumns={
      *     @ORM\JoinColumn(name="id_proposition", referencedColumnName="id_proposition")

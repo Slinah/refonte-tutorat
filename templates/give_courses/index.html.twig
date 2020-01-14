@@ -3,6 +3,16 @@
 {% block body %}
     <h3>Donner un cours</h3>
     <p>Cours suggérés : </p>
+    {% for suggest in suggest %}
+        {% if suggest is not empty %}
+            <p>{{ suggest.idMatiere.intitule }} :
+            {% for promo in suggest.idPromo %}
+                {{ promo.promo }}
+            {% endfor %}</p>
+        {% else %}
+            <tr>Il n'y a pas de cours suggérer</tr>
+        {% endif %}
+    {% endfor %}
 
     {{ form_start(form) }}
     {{ form_label(form.intitule) }}

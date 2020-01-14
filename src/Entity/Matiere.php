@@ -17,7 +17,7 @@ class Matiere
      *
      * @ORM\Column(name="id_matiere", type="string", length=40, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idMatiere;
 
@@ -27,6 +27,13 @@ class Matiere
      * @ORM\Column(name="intitule", type="text", length=65535, nullable=false)
      */
     private $intitule;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="validationAdmin", type="integer", nullable=false)
+     */
+    private $validationadmin;
 
     public function getIdMatiere(): ?string
     {
@@ -41,6 +48,18 @@ class Matiere
     public function setIntitule(string $intitule): self
     {
         $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    public function getValidationadmin(): ?int
+    {
+        return $this->validationadmin;
+    }
+
+    public function setValidationadmin(int $validationadmin): self
+    {
+        $this->validationadmin = $validationadmin;
 
         return $this;
     }
