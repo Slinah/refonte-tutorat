@@ -56,11 +56,13 @@ class CoursesController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($courses);
             $em->flush();
+            $this->addFlash('success', 'Cours modifié avec succès !');
 
             return $this->redirectToRoute("internship");
         }
 
         return $this->render('courses/updateCourses.html.twig', [
+            "courses"=>$courses,
             'form'=>$form->createView()
         ]);
     }

@@ -3,6 +3,9 @@
 {% block body %}
     <h3>Modifier un stage</h3>
 
+    <p><b>{{ internship.idMatiere.intitule }}</b></p>
+    <p>{{ internship.idPromo.promo }}</p>
+
     {{ form_start(form) }}
     {{ form_label(form.intitule) }}
     <br />

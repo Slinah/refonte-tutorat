@@ -68,11 +68,13 @@ class InternshipController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($internship);
             $em->flush();
+            $this->addFlash('success', 'Stage modifié avec succès !');
 
             return $this->redirectToRoute("courses");
         }
 
         return $this->render('internship/updateInternship.html.twig', [
+            "internship"=>$internship,
             'form'=>$form->createView()
         ]);
     }

@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d9fbe570-81e5-466e-be7b-c01b4acdfb9a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CoursesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/InternshipController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InternshipController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/courses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/courses/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/internship/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/internship/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/courses/updateCourses.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/courses/updateCourses.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/internship/updateInternship.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/internship/updateInternship.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,10 +22,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/internship/index.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+            <state relative-caret-position="375">
+              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+              <folding>
+                <element signature="e#34#59#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -56,8 +70,6 @@
         <option value="$PROJECT_DIR$/src/Repository/MatiereRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/ForumController.php" />
         <option value="$PROJECT_DIR$/templates/forum/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
-        <option value="$PROJECT_DIR$/templates/admin/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Archive.php" />
         <option value="$PROJECT_DIR$/src/Entity/Classe.php" />
         <option value="$PROJECT_DIR$/src/Entity/Ecole.php" />
@@ -67,7 +79,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Personne.php" />
         <option value="$PROJECT_DIR$/src/Entity/Niveau.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/Form/MatiereType.php" />
         <option value="$PROJECT_DIR$/templates/suggest_courses/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/SuggestCoursesType.php" />
@@ -84,12 +95,17 @@
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/SuggestCoursesController.php" />
         <option value="$PROJECT_DIR$/src/Form/UpdateInternshipType.php" />
-        <option value="$PROJECT_DIR$/templates/internship/updateInternship.html.twig" />
         <option value="$PROJECT_DIR$/templates/courses/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/courses/updateCourses.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/CoursesController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/InternshipController.php" />
         <option value="$PROJECT_DIR$/templates/internship/index.html.twig" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/templates/courses/updateCourses.html.twig" />
+        <option value="$PROJECT_DIR$/templates/internship/updateInternship.html.twig" />
+        <option value="$PROJECT_DIR$/templates/admin/updateMatiere.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/UpdateMatiereType.php" />
+        <option value="$PROJECT_DIR$/src/Controller/InternshipController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/CoursesController.php" />
+        <option value="$PROJECT_DIR$/templates/admin/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
       </list>
     </option>
   </component>
@@ -208,8 +224,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="212" />
-    <option name="y" value="115" />
+    <option name="x" value="200" />
+    <option name="y" value="21" />
     <option name="width" value="1520" />
     <option name="height" value="945" />
   </component>
@@ -218,7 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,6 +267,12 @@
               <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
               <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="courses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -260,56 +281,16 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="internship" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="twig" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="twig" type="462c0819:PsiDirectoryNode" />
-              <item name="extra-bundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="twig" type="462c0819:PsiDirectoryNode" />
-              <item name="extra-bundle" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="twig" type="462c0819:PsiDirectoryNode" />
-              <item name="intl-extra" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="twig" type="462c0819:PsiDirectoryNode" />
-              <item name="intl-extra" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChatonBDD" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebProduction git lab" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -317,11 +298,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\stage_epsi_tutorat\templates\courses" />
+      <recent name="C:\laragon\www\stage_epsi_tutorat\templates\admin" />
       <recent name="C:\laragon\www\stage_epsi_tutorat\src\Form" />
+      <recent name="C:\laragon\www\stage_epsi_tutorat\templates\courses" />
       <recent name="C:\laragon\www\stage_epsi_tutorat\templates\internship" />
       <recent name="C:\laragon\www\stage_epsi_tutorat\templates" />
-      <recent name="C:\laragon\www\stage_epsi_tutorat\src\Controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -354,18 +335,19 @@
       <workItem from="1578643848634" duration="4588000" />
       <workItem from="1578658870719" duration="4984000" />
       <workItem from="1578903392971" duration="12630000" />
-      <workItem from="1578990719454" duration="15145000" />
+      <workItem from="1578990719454" duration="15567000" />
+      <workItem from="1579076285338" duration="11480000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79203000" />
+    <option name="totallyTimeSpent" value="91105000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="170" y="92" width="1216" height="756" extended-state="0" />
+    <frame x="160" y="17" width="1216" height="756" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16608997" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16868512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -390,14 +372,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Builder/ManyToManyAssociationBuilder.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Builder/OneToManyAssociationBuilder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/QueryBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-24921" />
@@ -444,13 +418,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Archive.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -527,34 +494,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Personne.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="45" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Niveau.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/MatiereType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#28#51#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -565,13 +508,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/AddInternshipType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/AddInternshipType.php" />
     <entry file="file://$PROJECT_DIR$/src/Entity/Matiere.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -638,13 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -662,13 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/GiveCoursesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="30" column="69" lean-forward="true" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Cours.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -683,31 +606,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/courses/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/internship/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="97" lean-forward="true" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="97" />
+        <state relative-caret-position="85">
+          <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/internship/updateInternship.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Personne.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+        <state relative-caret-position="-102">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/courses/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="18" column="83" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/courses/updateCourses.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state relative-caret-position="102">
+          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/MatiereType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="86" lean-forward="true" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
+          <folding>
+            <element signature="e#28#51#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/internship/updateInternship.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/InternshipController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+        <state relative-caret-position="423">
+          <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
           <folding>
             <element signature="e#34#55#0#PHP" expanded="true" />
           </folding>
@@ -716,18 +670,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/CoursesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-          <folding>
-            <element signature="e#34#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="321">
+          <caret line="58" column="70" lean-forward="true" selection-start-line="58" selection-start-column="70" selection-end-line="58" selection-end-column="70" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/internship/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Form/UpdateMatiereType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+        <state relative-caret-position="204">
+          <caret line="17" column="120" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/updateMatiere.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GiveCoursesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="30" column="69" lean-forward="true" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+          <folding>
+            <element signature="e#34#59#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
