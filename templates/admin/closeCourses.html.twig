@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cloturer un cours</h1>
+
+    <p><b>{{ course.intitule }}</b></p>
+
+    {{ form_start(form) }}
+
+    {{ form_label(form.duree) }}
+    <br />
+    {{ form_widget(form.duree) }}
+    <br />
+    <br />
+
+    {{ form_label(form.nbparticipants) }}
+    <br />
+    {{ form_widget(form.nbparticipants) }}
+    <br />
+    <br />
+
+    {{ form_label(form.commentaires) }}
+    <br />
+    {{ form_widget(form.commentaires) }}
+    <br />
+
+    <button>Cloturer le cours</button>
+    {{ form_end(form) }}
+{% endblock %}

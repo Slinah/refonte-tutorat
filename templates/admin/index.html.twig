@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
-
 {% block body %}
     <h1>Pannel Admin</h1>
 
@@ -15,7 +13,7 @@
             <th></th>
             <th></th>
         </tr>
-        {% for student in peoples %}
+        {% for student in students %}
             <tr>
                 <td>{{ student.nom }}</td>
                 <td>{{ student.prenom }}</td>
@@ -34,7 +32,7 @@
                         <button>Demote</button>
                     {% endif %}
                 </td>
-                <td><button>Expulser</button></td>
+                <td><a href="{{ path('delete_student', { 'id':student.idPersonne }) }}">Expulser</a></td>
             </tr>
         {% endfor %}
     </table>
@@ -73,15 +71,15 @@
                     {% endif %}
                 </td>
                 <td>{% if course.status is same as(0) %}
-                        <button>Clore le cours</button>
+                        <a href="{{ path('close_course', { 'id':course.idCours }) }}">Clore le cours</a>
                     {% endif %}
                 </td>
                 <td>
                     {% if course.status is same as(0) %}
-                        <button>Annulé le cours</button>
+                        <a href="{{ path('cancel_course', { 'id':course.idCours }) }}">Annuler le cours</a>
                     {% endif %}
                 </td>
-                <td><button>Supprimer le cours</button></td>
+                <td><a href="{{ path('delete_course', { 'id':course.idCours }) }}">Supprimer le cours</a></td>
             </tr>
         {% endfor %}
     </table>
@@ -119,15 +117,15 @@
                     {% endif %}
                 </td>
                 <td>{% if internship.status is same as(0) %}
-                        <button>Clore le cours</button>
+                        <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage</a>
                     {% endif %}
                 </td>
                 <td>
                     {% if internship.status is same as(0) %}
-                        <button>Annulé le cours</button>
+                        <a href="{{ path('delete_course', { 'id':internship.idCours }) }}">Annulé le stage</a>
                     {% endif %}
                 </td>
-                <td><button>Supprimer le cours</button></td>
+                <td><a href="{{ path('delete_course', { 'id':internship.idCours }) }}">Supprimer le stage</a></td>
             </tr>
         {% endfor %}
     </table>
