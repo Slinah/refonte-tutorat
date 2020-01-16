@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cloturer un cours</h1>
+    <h1>Cloturer un cours / un stage</h1>
 
     <p><b>{{ course.intitule }}</b></p>
 
@@ -22,7 +22,7 @@
     {{ form_label(form.commentaires) }}
     <br />
     {{ form_widget(form.commentaires) }}
-    <br />
+    <br /><br />
 
     <button>Cloturer le cours</button>
     {{ form_end(form) }}

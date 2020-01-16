@@ -1,5 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Annuler un cours</h1>
+    <h1>Voulez vous vraiment annuler ce cours ?</h1>
+
+    <p><b>{{ course.intitule }}</b></p>
+
+    {{ form_start(form) }}
+
+    {{ form_label(form.commentaires) }}
+    <br />
+    {{ form_widget(form.commentaires) }}
+    <br /><br />
+
+    <button>Annuler le cours</button>
+    {{ form_end(form) }}
 {% endblock %}

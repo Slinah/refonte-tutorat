@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\CancelCoursesType;
 use App\Form\CloseCoursesType;
 use App\Form\MatiereType;
 use App\Form\UpdateCoursesType;
@@ -64,7 +65,7 @@ class AdminController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($course);
             $em->flush();
-            $this->addFlash('success', 'Cours clos avec succès !');
+            $this->addFlash('success', 'Cours / stage clos avec succès !');
 
             return $this->redirectToRoute("admin");
         }
@@ -78,17 +79,27 @@ class AdminController extends AbstractController
     /**
      * @Route("/cancel-course/{id}", name="cancel_course")
      */
-    public function cancelCourse(CoursRepository $repo, $id)
+    public function cancelCourse(CoursRepository $repo, $id, Request $request)
     {
-        $courses = $repo->find($id);
-        $courses->setStatus(2);
+        $course = $repo->find($id);
+        $course->setStatus(2);
 
-        $em=$this->getDoctrine()->getManager();
-        $em->persist($courses);
-        $em->flush();
-        $this->addFlash('success', 'Cours annulé avec succès !');
+        $form=$this->createForm(CancelCoursesType::class, $course);
+        $form->handleRequest($request);
 
-        return $this->redirectToRoute("admin");
+        if ($form->isSubmitted() && $form->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($course);
+            $em->flush();
+            $this->addFlash('success', 'Cours / stage annulé avec succès !');
+
+            return $this->redirectToRoute("admin");
+        }
+
+        return $this->render('admin/cancelCourses.html.twig', [
+            "course"=>$course,
+            "form"=>$form->createView()
+        ]);
     }
 
     /**
@@ -97,10 +108,11 @@ class AdminController extends AbstractController
     public function deleteCourse(CoursRepository $repo, $id)
     {
         $course = $repo->find($id);
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($course);
         $em->flush();
-        $this->addFlash('success', 'Cours supprimé avec succès !');
+        $this->addFlash('success', 'Cours / stage supprimé avec succès !');
 
         return $this->redirectToRoute("admin");
     }

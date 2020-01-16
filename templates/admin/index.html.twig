@@ -122,7 +122,7 @@
                 </td>
                 <td>
                     {% if internship.status is same as(0) %}
-                        <a href="{{ path('delete_course', { 'id':internship.idCours }) }}">Annulé le stage</a>
+                        <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
                     {% endif %}
                 </td>
                 <td><a href="{{ path('delete_course', { 'id':internship.idCours }) }}">Supprimer le stage</a></td>

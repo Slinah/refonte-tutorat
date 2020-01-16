@@ -49,7 +49,7 @@ class Cours
      *
      * @ORM\Column(name="commentaires", type="text", length=65535, nullable=true, options={"default"="NULL"})
      */
-    private $commentaires = 'NULL';
+    private $commentaires;
 
     /**
      * @var int|null
