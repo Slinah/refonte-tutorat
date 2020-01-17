@@ -10,18 +10,25 @@
     <p>Stages disponible :</p>
     {% if internship is not null %}
         {% for internship in internship %}
-            <div>
-                <p><b>{{ internship.idMatiere.intitule }}</b></p>
-                <p><i>Date du prochain cours :</i><br />
-                    {{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</p>
-                <p>{{ internship.idPromo.promo }}</p>
-                <p>{{ internship.intitule }}</p>
-                <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier</a>
-                <button>S'inscrire</button>
-            </div>
+            {% if internship.status is same as(0) %}
+                <div>
+                    <p><b>{{ internship.idMatiere.intitule }}</b></p>
+                    <p><i>Date du prochain cours :</i><br />
+                        {{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</p>
+                    <p>{{ internship.idPromo.promo }}</p>
+                    <p>{{ internship.intitule }}</p>
+                    <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
+                    <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
+                    <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                    <button>S'inscrire</button>
+                </div>
+            {% endif %}
         {% endfor %}
         <br />
     {% else %}
         <p>Pas de stages</p>
     {% endif %}
+    <div>
+        {{ knp_pagination_render(internship) }}
+    </div>
 {% endblock %}

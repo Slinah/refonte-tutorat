@@ -9,47 +9,53 @@
     <br />
 
     <h3>Cette semaine</h3>
-    {% if dateNow >= LundisemaineCourante or dateNow <= DimanchesemaineCourante %}
-        {% for courses in courses %}
-                <div>
-                    <p><b>{{ courses.idMatiere.intitule }}</b></p>
-                    <p>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</p>
-                    <p>{{ courses.idPromo.promo }}</p>
-                    <p>{{ courses.intitule }}</p>
-                    <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier</a>
-                    <button>S'inscrire</button>
-                </div>
-        {% endfor %}
-        <br />
-    {% else %}
-        <p>Pas de cours</p>
-    {% endif %}
+    {% for courses in courses %}
+        {% if courses.status is same as(0) %}
+            <div>
+                <p><b>{{ courses.idMatiere.intitule }}</b></p>
+                <p>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</p>
+                <p>{{ courses.idPromo.promo }}</p>
+                <p>{{ courses.intitule }}</p>
+                <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                <button>S'inscrire</button>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <br />
+    <div>
+        {{ knp_pagination_render(courses) }}
+    </div>
+
 
     <h3>La semaine prochaine</h3>
-    {% if dateNow >= LundisemaineSuivante and dateNow <= DimanchesemaineSuivante %}
-        {% for courses in courses %}
+    {% for courses in courses %}
+        {% if courses.status is same as(0) %}
             <div>
                 <p><b>{{ courses.idMatiere.intitule }}</b></p>
                 <p>{{ courses.intitule }}</p>
                 <button>S'inscrire</button>
             </div>
-        {% endfor %}
-        <br />
-    {% else %}
-        <p>Pas de cours</p>
-    {% endif %}
+        {% endif %}
+    {% endfor %}
+    <br />
+    <div>
+        {{ knp_pagination_render(courses) }}
+    </div>
 
     <h3>Plus tard</h3>
-    {% if dateNow > DimanchesemaineSuivante %}
-        {% for courses in courses %}
+    {% for courses in courses %}
+        {% if courses.status is same as(0) %}
             <div>
                 <p><b>{{ courses.idMatiere.intitule }}</b></p>
                 <p>{{ courses.intitule }}</p>
                 <button>S'inscrire</button>
             </div>
-        {% endfor %}
-        <br />
-    {% else %}
-        <p>Pas de cours</p>
-    {% endif %}
+        {% endif %}
+    {% endfor %}
+    <br />
+    <div>
+        {{ knp_pagination_render(courses) }}
+    </div>
 {% endblock %}

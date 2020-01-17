@@ -13,20 +13,42 @@ use App\Repository\PersonneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 class AdminController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin")
      */
-    public function index(MatiereRepository $matiereRepo, PersonneRepository $personneRepo, CoursRepository $coursRepo ,Request $request)
+    public function index(MatiereRepository $matiereRepo, PersonneRepository $personneRepo, CoursRepository $coursRepo ,Request $request, PaginatorInterface $paginator)
     {
-        $students=$personneRepo->findAll();
+        $students = $personneRepo->findAll();
+        $students = $paginator->paginate(
+            $students,
+            $request->query->getInt('page', 1),
+            10
+        );
 
-        $courses=$coursRepo->findCourses();
-        $internship=$coursRepo->findInternship();
+        $courses = $coursRepo->findCourses();
+        $courses = $paginator->paginate(
+            $courses,
+            $request->query->getInt('page', 1),
+            15
+        );
 
-        $matieres=$matiereRepo->findAll();
+        $internship = $coursRepo->findInternship();
+        $internship = $paginator->paginate(
+            $internship,
+            $request->query->getInt('page', 1),
+            10
+        );
+
+        $matieres = $matiereRepo->findAll();
+        $matieres = $paginator->paginate(
+            $matieres,
+            $request->query->getInt('page', 1),
+            10
+        );
 
         return $this->render('admin/index.html.twig', [
             "students"=>$students,
@@ -37,7 +59,35 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/delete_student/{id}", name="delete_student")
+     * @Route("/promote-student/{id}", name="promote_student")
+     */
+    public function PromoteStudent(PersonneRepository $repo, $id)
+    {
+        $student = $repo->find($id);
+        $student->setRole(1);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $this->addFlash('success', 'Elève promu avec succès !');
+
+        return $this->redirectToRoute("admin");
+    }
+
+    /**
+     * @Route("/demote-student/{id}", name="demote_student")
+     */
+    public function DemoteStudent(PersonneRepository $repo, $id)
+    {
+        $student = $repo->find($id);
+        $student->setRole(0);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $this->addFlash('success', 'Elève retrogradé avec succès !');
+
+        return $this->redirectToRoute("admin");
+    }
+
+    /**
+     * @Route("/delete-student/{id}", name="delete_student")
      */
     public function deleteStudent(PersonneRepository $repo, $id)
     {

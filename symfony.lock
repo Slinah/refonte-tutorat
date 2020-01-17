@@ -90,8 +90,17 @@
     "egulias/email-validator": {
         "version": "2.1.13"
     },
+    "friendsofsymfony/user-bundle": {
+        "version": "2.x-dev"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "knplabs/knp-components": {
+        "version": "v2.3.1"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.1.0"
     },
     "monolog/monolog": {
         "version": "2.0.2"
@@ -121,9 +130,6 @@
         "version": "1.0.1"
     },
     "psr/container": {
-        "version": "1.0.0"
-    },
-    "psr/event-dispatcher": {
         "version": "1.0.0"
     },
     "psr/link": {
@@ -189,6 +195,9 @@
     },
     "symfony/css-selector": {
         "version": "v5.0.2"
+    },
+    "symfony/debug": {
+        "version": "v4.4.2"
     },
     "symfony/debug-bundle": {
         "version": "4.1",
@@ -329,18 +338,6 @@
             "./config/packages/test/monolog.yaml"
         ]
     },
-    "symfony/notifier": {
-        "version": "5.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.0",
-            "ref": "c31585e252b32fe0e1f30b1f256af553f4a06eb9"
-        },
-        "files": [
-            "./config/packages/notifier.yaml"
-        ]
-    },
     "symfony/options-resolver": {
         "version": "v5.0.2"
     },
@@ -445,6 +442,9 @@
     },
     "symfony/string": {
         "version": "v5.0.2"
+    },
+    "symfony/templating": {
+        "version": "v4.4.2"
     },
     "symfony/test-pack": {
         "version": "v1.0.6"

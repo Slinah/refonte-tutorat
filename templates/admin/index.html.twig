@@ -27,16 +27,18 @@
                 </td>
                 <td>
                     {% if student.role is same as(0) %}
-                        <button>Promote</button>
+                        <a href="{{ path('promote_student', { 'id':student.idPersonne }) }}">Promote</a>
                     {% elseif student.role is same as(1) %}
-                        <button>Demote</button>
+                        <a href="{{ path('demote_student', { 'id':student.idPersonne }) }}">Demote</a>
                     {% endif %}
                 </td>
                 <td><a href="{{ path('delete_student', { 'id':student.idPersonne }) }}">Expulser</a></td>
             </tr>
         {% endfor %}
     </table>
-    <p>Pagination</p>
+    <div>
+        {{ knp_pagination_render(students) }}
+    </div>
     
     <h3>Cours</h3>
     <table border="1">
@@ -83,7 +85,9 @@
             </tr>
         {% endfor %}
     </table>
-    <p>Pagination</p>
+    <div>
+        {{ knp_pagination_render(courses) }}
+    </div>
 
     <h3>Stages</h3>
     <table border="1">
@@ -129,7 +133,9 @@
             </tr>
         {% endfor %}
     </table>
-    <p>Pagination</p>
+    <div>
+        {{ knp_pagination_render(internship) }}
+    </div>
 
     <h3>Matières</h3>
     <table border="1">
@@ -154,5 +160,7 @@
             </tr>
         {% endfor %}
     </table>
-    <p>Pagination</p>
+    <div>
+        {{ knp_pagination_render(matieres) }}
+    </div>
 {% endblock %}

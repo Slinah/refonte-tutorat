@@ -6,6 +6,7 @@ use App\Entity\Cours;
 use App\Form\GiveCoursesType;
 use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,9 +16,14 @@ class InternshipController extends AbstractController
     /**
      * @Route("/internship", name="internship")
      */
-    public function index(CoursRepository $repo)
+    public function index(CoursRepository $repo, PaginatorInterface $paginator, Request $request)
     {
         $internship= $repo->findInternship();
+        $internship = $paginator->paginate(
+            $internship,
+            $request->query->getInt('page', 1),
+            4
+        );
 
         return $this->render('internship/index.html.twig', [
             "internship"=>$internship

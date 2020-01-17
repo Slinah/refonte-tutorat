@@ -6,6 +6,7 @@ use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
 use App\Repository\PromoRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,14 +17,19 @@ class CoursesController extends AbstractController
     /**
      * @Route("/courses", name="courses")
      */
-    public function index(CoursRepository $repository, PromoRepository $repo)
+    public function index(CoursRepository $repository, PromoRepository $repo, PaginatorInterface $paginator, Request $request)
     {
         $courses = $repository->findCourses();
+        $courses = $paginator->paginate(
+            $courses,
+            $request->query->getInt('page', 1),
+            3
+        );
 
         $dateNow = new \DateTime('now');
 
-        $LundisemaineCourante = new \DateTime('now');
-        $DimanchesemaineCourante = new \DateTime('now');
+        $LundisemaineCourante = new \DateTime();
+        $DimanchesemaineCourante = new \DateTime();
 
         $LundisemaineSuivante = "2020-01-13";
         $DimanchesemaineSuivante = "2020-01-19";
