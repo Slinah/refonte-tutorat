@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Search\CourseSearch;
+use App\Form\CourseSearchType;
 use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
@@ -17,9 +19,13 @@ class CoursesController extends AbstractController
     /**
      * @Route("/courses", name="courses")
      */
-    public function index(CoursRepository $repository, PromoRepository $repo, PaginatorInterface $paginator, Request $request)
+    public function index(CoursRepository $repository, PaginatorInterface $paginator, Request $request)
     {
-        $courses = $repository->findCourses();
+        $courseSearch = new CourseSearch();
+        $formCourseSearch = $this->createForm(CourseSearchType::class, $courseSearch);
+        $formCourseSearch->handleRequest($request);
+
+        $courses = $repository->findCoursePagination($courseSearch);
         $courses = $paginator->paginate(
             $courses,
             $request->query->getInt('page', 1),
@@ -31,16 +37,17 @@ class CoursesController extends AbstractController
         $LundisemaineCourante = new \DateTime();
         $DimanchesemaineCourante = new \DateTime();
 
-        $LundisemaineSuivante = "2020-01-13";
-        $DimanchesemaineSuivante = "2020-01-19";
+        $LundisemaineSuivante = "2020-01-20";
+        $DimanchesemaineSuivante = "2020-01-26";
 
         return $this->render('courses/index.html.twig', [
+            "formCourseSearch"=> $formCourseSearch->createView(),
             "courses"=>$courses,
             "dateNow"=>$dateNow,
             "LundisemaineCourante"=>$LundisemaineCourante,
             "DimanchesemaineCourante"=>$DimanchesemaineCourante,
-            "LundisemaineSuivante"=>$LundisemaineCourante,
-            "DimanchesemaineSuivante"=>$DimanchesemaineCourante
+            "LundisemaineSuivante"=>$LundisemaineSuivante,
+            "DimanchesemaineSuivante"=>$DimanchesemaineSuivante
         ]);
     }
 

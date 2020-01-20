@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Cours;
+use App\Entity\Search\CourseSearch;
+use App\Form\CourseSearchType;
 use App\Form\GiveCoursesType;
 use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
@@ -18,7 +20,12 @@ class InternshipController extends AbstractController
      */
     public function index(CoursRepository $repo, PaginatorInterface $paginator, Request $request)
     {
-        $internship= $repo->findInternship();
+        $internshipSearch = new CourseSearch();
+        $formInternshipSearch = $this->createForm(CourseSearchType::class, $internshipSearch);
+        $formInternshipSearch->handleRequest($request);
+
+
+        $internship= $repo->findInternshipPagination($internshipSearch);
         $internship = $paginator->paginate(
             $internship,
             $request->query->getInt('page', 1),
@@ -26,6 +33,7 @@ class InternshipController extends AbstractController
         );
 
         return $this->render('internship/index.html.twig', [
+            "formInternshipSearch"=> $formInternshipSearch->createView(),
             "internship"=>$internship
         ]);
     }

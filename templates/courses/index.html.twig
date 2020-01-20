@@ -3,7 +3,53 @@
 {% block body %}
     <h1>Les cours</h1>
 
-    <p>Barre de recherche</p>
+    {#Barre de recherche#}
+    <div id="divRecherche">
+        <ul class="list-inline">
+            <li>
+                <form method="post">
+                    <input type="submit" value="Tous"/>
+                </form>
+            </li>
+            <li><button class="search-button">Plus de critères</button></li>
+        </ul>
+        <div class="form-div">
+            {{ form_start(formCourseSearch) }}
+            <label>Rechercher par : </label>
+            <select class="type-search">
+                <option value="">Choisissez une option</option>
+                <option value="date"> Date </option>
+                <option value="titre"> Titre </option>
+                <option value="matiere"> Matière </option>
+                <option value="promo"> Difficulté </option>
+            </select>
+            <br /><br />
+
+            <div class="date-search">
+                {{ form_row(formCourseSearch.date) }}
+                <br />
+            </div>
+
+            <div class="titre-search">
+                {{ form_row(formCourseSearch.intitule) }}
+                <br />
+            </div>
+
+            <div class="matiere-search">
+                {{ form_row(formCourseSearch.idMatiere) }}
+                <br />
+            </div>
+
+            <div class="promo-search">
+                {{ form_row(formCourseSearch.idPromo) }}
+                <br />
+            </div>
+
+            <button>Rechercher</button>
+            {{ form_end(formCourseSearch) }}
+            <br />
+        </div>
+    </div>
 
     <a href="{{ path('suggest_courses') }}">Suggérer un cours</a>
     <br />

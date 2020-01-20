@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>ScratchOverflow</title>
+        <title>ScratchOverflow</title>
 
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    {% endblock %}
-</head>
-<body>
-<header>
-    {# NavBar #}
-    <div>
-        <a href="{{ path('home') }}">ScratchOverFlow</a> / Tutorat : <a href="{{ path('courses') }}">Les cours</a>,
-        <a href="{{ path('internship') }}">Les stages</a> / <a href="{{ path('give_courses') }}">Donner un cours</a> /
-        <a href="{{ path('suggest_courses') }}">Suggérer un cours</a> / <a href="{{ path('forum') }}">Forum</a> /
-        <a href="{{ path('admin') }}">Pannel Admin</a> / <a href="{{ path('my_profil') }}">Mon profil</a>
-    </div>
-    {# End navBar #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        {% endblock %}
+    </head>
 
-    {# Message de succès #}
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-</header>
+    <body>
+        <header>
+            {# NavBar #}
+            <div>
+                <a href="{{ path('home') }}">ScratchOverFlow</a> / Tutorat : <a href="{{ path('courses') }}">Les cours</a>,
+                <a href="{{ path('internship') }}">Les stages</a> / <a href="{{ path('give_courses') }}">Donner un cours</a> /
+                <a href="{{ path('suggest_courses') }}">Suggérer un cours</a> / <a href="{{ path('forum') }}">Forum</a> /
+                <a href="{{ path('admin') }}">Pannel Admin</a> / <a href="{{ path('my_profil') }}">Mon profil</a>
+            </div>
+            {# End navBar #}
 
-{% block body %}{% endblock %}
+            {# Message de succès #}
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </header>
 
-{% block javascripts %}{% endblock %}
+        {% block body %}{% endblock %}
 
-<footer>
-    {# NavBar #}
-    <div>
-        <a href="{{ path('my_profil') }}">Mon profil</a> | <a href="{{ path('rules') }}">Règlement</a> | <a href="{{ path('contact_us') }}">Nous contacter</a>
-    </div>
-    {# End navBar #}
-</footer>
-</body>
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
+            <script src="{{ asset('js/script.js') }}"></script>
+        {% endblock %}
+
+        <footer>
+            {# NavBar #}
+            <div>
+                <a href="{{ path('my_profil') }}">Mon profil</a> | <a href="{{ path('rules') }}">Règlement</a> | <a href="{{ path('contact_us') }}">Nous contacter</a>
+            </div>
+            {# End navBar #}
+        </footer>
+    </body>
 </html>

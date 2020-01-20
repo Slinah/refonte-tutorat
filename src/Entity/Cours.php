@@ -68,9 +68,9 @@ class Cours
     /**
      * @var float|null
      *
-     * @ORM\Column(name="duree", type="float", precision=10, scale=0, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="duree", type="float", precision=10, scale=0, nullable=true)
      */
-    private $duree = 'NULL';
+    private $duree;
 
     /**
      * @var int

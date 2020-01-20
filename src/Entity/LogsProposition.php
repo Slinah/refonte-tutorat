@@ -31,9 +31,9 @@ class LogsProposition
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="heure", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="heure", type="datetime", nullable=true)
      */
-    private $heure = 'NULL';
+    private $heure;
 
     public function getIdLog(): ?string
     {
