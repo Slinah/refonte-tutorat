@@ -4,9 +4,21 @@ security:
         ROLE_ADMIN: ROLE_ADMIN
 
         # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+
+    encoders:
+        App\Entity\Personne:
+            algorithm: bcrypt
+            cost : 12  # plus il est important, mieux ce sera crypté
+
     providers:
-            fos_userbundle:
-                id: fos_user.user_provider.username
+        from_database :
+            entity:
+                class: App\Entity\Personne
+                property : mail
+            #fos_userbundle:
+                #id: fos_user.user_provider.username
+
+
 
     firewalls:
             dev:
@@ -15,11 +27,17 @@ security:
             main:
                 pattern: ^/
                 form_login:
-                    provider: fos_userbundle
+                    #provider: fos_userbundle
                     csrf_token_generator: security.csrf.token_manager
 
-                logout:       true
+                logout:
+                    path : /logout
+                    target : /  #Où est ce qu'on redirige apres logout
+
                 anonymous:    true
+                guard:
+                    authenticators:
+                        - App\Security\LoginFormAuthenticator
 
         # Easy way to control access for large sections of your site
         # Note: Only the *first* access control that matches will be used
@@ -28,3 +46,4 @@ security:
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin/, role: ROLE_ADMIN }
+

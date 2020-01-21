@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\User;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Personne
@@ -13,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="personne", indexes={@ORM\Index(name="Fk_Classe", columns={"id_classe"})})
  * @ORM\Entity
  */
-class Personne //extends BaseUser
+class Personne implements UserInterface //extends BaseUser
 {
     /**
      * @var string
@@ -48,9 +50,9 @@ class Personne //extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="mdp", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="password", type="text", length=65535, nullable=false)
      */
-    private $mdp;
+    private $password;
 
     /**
      * @var string
@@ -179,14 +181,14 @@ class Personne //extends BaseUser
         return $this;
     }
 
-    public function getMdp(): ?string
+    public function getPassword(): ?string
     {
-        return $this->mdp;
+        return $this->password;
     }
 
-    public function setMdp(string $mdp): self
+    public function setPassword(string $password): self
     {
-        $this->mdp = $mdp;
+        $this->password = $password;
 
         return $this;
     }
@@ -317,4 +319,30 @@ class Personne //extends BaseUser
         return $this;
     }
 
+    public function getRoles(): array{
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
 }
