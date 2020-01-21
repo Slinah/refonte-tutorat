@@ -25,6 +25,8 @@ class CoursesController extends AbstractController
         $formCourseSearch = $this->createForm(CourseSearchType::class, $courseSearch);
         $formCourseSearch->handleRequest($request);
 
+        //A voir pour faire une requête par semaine
+
         $courses = $repository->findCoursePagination($courseSearch);
         $courses = $paginator->paginate(
             $courses,

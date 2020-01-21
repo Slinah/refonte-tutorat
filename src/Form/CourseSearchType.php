@@ -20,12 +20,12 @@ class CourseSearchType extends AbstractType
         $builder
             ->add('intitule', TextType::class, ["label"=>"Intitulé du cours :", "required"=>false])
             ->add('date', DateType::class, ["label"=>"Date :", 'widget' => 'single_text', "required"=>false])
-            ->add('idMatiere', EntityType::class, ["class"=>Matiere::class, "choice_label" =>"intitule", "label"=>"Matière :", "required"=>false,
+            ->add('idMatiere', EntityType::class, ["class"=>Matiere::class, "label"=>"Matière :", "required"=>false,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('q')
                         ->where("q.validationadmin=1");
                 }])
-            ->add('idPromo', EntityType::class, ["class"=>Promo::class, "choice_label" =>"promo", "label"=>"Difficulté :", "required"=>false])
+            ->add('idPromo', EntityType::class, ["class"=>Promo::class, "label"=>"Difficulté :", "required"=>false])
         ;
     }
 
@@ -33,6 +33,7 @@ class CourseSearchType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => CourseSearch::class,
+            'csrf_protection' => false,
         ]);
     }
 }

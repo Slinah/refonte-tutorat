@@ -22,12 +22,11 @@ class CoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Cours::class);
     }
 
-    /**
-     * @return Query
-     */
-
-    public function findCoursePagination(CourseSearch $courseSearch): Query {
-        $query = $this->findCourses();
+    public function findCoursePagination(CourseSearch $courseSearch) {
+        $query = $this->createQueryBuilder('q')
+            ->Where('q.stage = 0')
+            ->andWhere('q.status = 0')
+            ->OrderBy("q.date", "DESC");
 
         if ($courseSearch->getDate()) {
             $query = $query
@@ -43,32 +42,25 @@ class CoursRepository extends ServiceEntityRepository
 
         if ($courseSearch->getIdMatiere()) {
             $query = $query
-                ->andWhere('q.idMatiere = :idMatiere')
-                ->setParameter('idMatiere', $courseSearch->getIdMatiere());
+                ->andWhere('q.idMatiere = :matiere')
+                ->setParameter('matiere', $courseSearch->getIdMatiere());
         }
 
         if ($courseSearch->getIdPromo()) {
             $query = $query
-                ->andWhere('q.idPromo.promo = :idPromo')
-                ->setParameter('idPromo', $courseSearch->getIdPromo());
+                ->andWhere('q.idPromo = :promo')
+                ->setParameter('promo', $courseSearch->getIdPromo());
         }
 
         return $query->getQuery();
     }
 
-    public function findCourses() : QueryBuilder
-    {
-        return $this->createQueryBuilder('q')
-            ->Where('q.stage = 0')
+    public function findInternshipPagination(CourseSearch $internshipSearch) {
+        $query = $this->createQueryBuilder('q')
+            ->Where('q.stage = 1')
+            ->andWhere('q.status = 0')
             ->OrderBy("q.date", "DESC")
-            ;
-    }
-
-
-
-
-    public function findInternshipPagination(CourseSearch $internshipSearch): Query {
-        $query = $this->findInternship();
+        ;
 
         if ($internshipSearch->getDate()) {
             $query = $query
@@ -95,13 +87,5 @@ class CoursRepository extends ServiceEntityRepository
         }
 
         return $query->getQuery();
-    }
-
-    public function findInternship() : QueryBuilder
-    {
-        return $this->createQueryBuilder('q')
-            ->Where('q.stage = 1')
-            ->OrderBy("q.date", "DESC")
-            ;
     }
 }

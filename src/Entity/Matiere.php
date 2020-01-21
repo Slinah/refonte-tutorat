@@ -35,6 +35,11 @@ class Matiere
      */
     private $validationadmin;
 
+    public function __toString()
+    {
+        return $this->intitule;
+    }
+
     public function getIdMatiere(): ?string
     {
         return $this->idMatiere;

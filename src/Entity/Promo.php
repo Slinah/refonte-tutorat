@@ -63,6 +63,11 @@ class Promo
         $this->idProposition = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->promo;
+    }
+
     public function getIdPromo(): ?string
     {
         return $this->idPromo;

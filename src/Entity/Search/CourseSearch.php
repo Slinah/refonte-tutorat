@@ -71,15 +71,15 @@ Class CourseSearch {
     /**
      * @return \Matiere|null
      */
-    public function getIdMatiere(): ?\Matiere
+    public function getIdMatiere(): ?\App\Entity\Matiere
     {
         return $this->idMatiere;
     }
 
     /**
-     * @param \Matiere|null $idMatiere
+     * @param \App\Entity\Matiere|null $idMatiere
      */
-    public function setIdMatiere(?\Matiere $idMatiere): void
+    public function setIdMatiere(?\App\Entity\Matiere $idMatiere): void
     {
         $this->idMatiere = $idMatiere;
     }
@@ -87,15 +87,15 @@ Class CourseSearch {
     /**
      * @return \Promo|null
      */
-    public function getIdPromo(): ?\Promo
+    public function getIdPromo(): ?\App\Entity\Promo
     {
         return $this->idPromo;
     }
 
     /**
-     * @param \Promo|null $idPromo
+     * @param \App\Entity\Promo|null $idPromo
      */
-    public function setIdPromo(?\Promo $idPromo): void
+    public function setIdPromo(?\App\Entity\Promo $idPromo): void
     {
         $this->idPromo = $idPromo;
     }
