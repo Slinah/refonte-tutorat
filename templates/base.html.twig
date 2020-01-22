@@ -16,19 +16,14 @@
             {# NavBar #}
             <div>
                 <a href="{{ path('home') }}">ScratchOverFlow</a> / Tutorat : <a href="{{ path('courses') }}">Les cours</a>,
-                <a href="{{ path('internship') }}">Les stages</a> /
-                {% if app.user %}
-                    <a href="{{ path('give_courses') }}">Donner un cours</a>
-                {% else %}
-                    <a href="{{ path('app_login') }}">Donner un cours</a>
-                {% endif %} /
+                <a href="{{ path('internship') }}">Les stages</a> / <a href="{{ path('give_courses') }}">Donner un cours</a> /
                 <a href="{{ path('suggest_courses') }}">Suggérer un cours</a> / <a href="{{ path('forum') }}">Forum</a>
                 {% if is_granted('ROLE_ADMIN') %}
-                     / <a href="{{ path('admin') }}">Pannel Admin</a>
+                      <a href="{{ path('admin') }}">Pannel Admin</a>
                 {% endif %}
-                {% if app.user %}
-                     / <a href="{{ path('my_profil') }}">Mon profil</a>
-                     / <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                      <a href="{{ path('my_profil') }}">Mon profil</a>
+                      <a href="{{ path('app_logout') }}">Se déconnecter</a>
                 {% else %}
                      / <a href="{{ path('app_login') }}">Se connecter</a>
                 {% endif %}
@@ -51,12 +46,14 @@
         {% endblock %}
 
         <footer>
+            {# NavBar #}
             <div>
-                {% if app.user %}
-                    <a href="{{ path('my_profil') }}">Mon profil</a> |
+                {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('my_profil') }}">Mon profil : {{ app.user.nom }} {{ app.user.prenom }}</a> |
                 {% endif %}
                 <a href="{{ path('rules') }}">Règlement</a> | <a href="{{ path('contact_us') }}">Nous contacter</a>
             </div>
+            {# End navBar #}
         </footer>
     </body>
 </html>
