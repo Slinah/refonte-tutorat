@@ -78,7 +78,6 @@ class AdminController extends AbstractController
     public function DemoteStudent(PersonneRepository $repo, $id)
     {
         $student = $repo->find($id);
-        $student->setRole(0);
         $em = $this->getDoctrine()->getManager();
         $em->flush();
         $this->addFlash('success', 'Elève retrogradé avec succès !');

@@ -37,7 +37,6 @@ class SuggestCoursesController extends AbstractController
 
         $matiere = new Matiere();
         $formMatiere=$this->createForm(MatiereType::class, $matiere);
-        $matiere->setValidationadmin(0);
         $formMatiere->handleRequest($request);
 
         if ($formMatiere->isSubmitted() && $formMatiere->isValid()){

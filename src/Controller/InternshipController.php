@@ -45,7 +45,6 @@ class InternshipController extends AbstractController
     {
         $addInternship = new Cours();
         $form=$this->createForm(GiveCoursesType::class, $addInternship);
-        $addInternship->setDuree(0);
         $addInternship->setSecu("secu");
         $addInternship->setStage(1);
         $form->handleRequest($request);

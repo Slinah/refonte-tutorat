@@ -33,7 +33,7 @@ class Matiere
      *
      * @ORM\Column(name="validationAdmin", type="integer", nullable=false)
      */
-    private $validationadmin;
+    private $validationadmin = '0';
 
     public function __toString()
     {

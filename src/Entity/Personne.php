@@ -103,21 +103,6 @@ class Personne implements UserInterface //extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Cours", inversedBy="idPersonne")
-     * @ORM\JoinTable(name="personne_cours",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_personne", referencedColumnName="id_personne")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_cours", referencedColumnName="id_cours")
-     *   }
-     * )
-     */
-    private $idCours;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
      * @ORM\ManyToMany(targetEntity="Proposition", inversedBy="idPersonne")
      * @ORM\JoinTable(name="personne_proposition",
      *   joinColumns={
@@ -136,7 +121,6 @@ class Personne implements UserInterface //extends BaseUser
     public function __construct()
     {
         $this->idArchive = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idCours = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idProposition = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -262,32 +246,6 @@ class Personne implements UserInterface //extends BaseUser
     {
         if ($this->idArchive->contains($idArchive)) {
             $this->idArchive->removeElement($idArchive);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Cours[]
-     */
-    public function getIdCours(): Collection
-    {
-        return $this->idCours;
-    }
-
-    public function addIdCour(Cours $idCour): self
-    {
-        if (!$this->idCours->contains($idCour)) {
-            $this->idCours[] = $idCour;
-        }
-
-        return $this;
-    }
-
-    public function removeIdCour(Cours $idCour): self
-    {
-        if ($this->idCours->contains($idCour)) {
-            $this->idCours->removeElement($idCour);
         }
 
         return $this;

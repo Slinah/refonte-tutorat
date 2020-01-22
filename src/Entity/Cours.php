@@ -120,21 +120,6 @@ class Cours
      */
     private $idPromo;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Personne", mappedBy="idCours")
-     */
-    private $idPersonne;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idPersonne = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     public function getIdCours(): ?string
     {
         return $this->idCours;
@@ -295,33 +280,4 @@ class Cours
 
         return $this;
     }
-
-    /**
-     * @return Collection|Personne[]
-     */
-    public function getIdPersonne(): Collection
-    {
-        return $this->idPersonne;
-    }
-
-    public function addIdPersonne(Personne $idPersonne): self
-    {
-        if (!$this->idPersonne->contains($idPersonne)) {
-            $this->idPersonne[] = $idPersonne;
-            $idPersonne->addIdCour($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdPersonne(Personne $idPersonne): self
-    {
-        if ($this->idPersonne->contains($idPersonne)) {
-            $this->idPersonne->removeElement($idPersonne);
-            $idPersonne->removeIdCour($this);
-        }
-
-        return $this;
-    }
-
 }
