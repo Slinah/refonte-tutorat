@@ -31,7 +31,7 @@ class Proposition
     private $secu;
 
     /**
-     * @var \Matiere
+     * @var \App\Entity\Matiere
      *
      * @ORM\ManyToOne(targetEntity="Matiere")
      * @ORM\JoinColumns({
@@ -67,8 +67,8 @@ class Proposition
      */
     public function __construct()
     {
-        $this->idPersonne = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idPromo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idPersonne = new ArrayCollection();
+        $this->idPromo = new ArrayCollection();
     }
 
     public function getIdProposition(): ?string

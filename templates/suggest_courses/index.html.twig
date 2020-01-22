@@ -10,20 +10,20 @@
             <th>Difficulté</th>
             <th>Votes</th>
             <th></th>
-            <th></th>
         </tr>
         {% for suggest in suggestList %}
             {% if suggest is not empty %}
                 <tr>
-                    <td>{{ suggest.idMatiere.intitule }}</td>
+                    <td>{{ suggest.idMatiere }}</td>
                     <td>
                         {% for promo in suggest.idPromo %}
                             {{ promo.promo }}
                         {% endfor %}
                     </td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <a href="{{ path('delete_suggest', { 'id':suggest.idProposition }) }}">Supprimer</a>
+                    </td>
                 </tr>
             {% else %}
                 <tr>Il n'y a pas de cours suggérer</tr>

@@ -29,14 +29,14 @@ class AdminController extends AbstractController
             10
         );
 
-        $courses = $coursRepo->findCourses();
+        $courses = $coursRepo->findCourseAdmin();
         $courses = $paginator->paginate(
             $courses,
             $request->query->getInt('page', 1),
             15
         );
 
-        $internship = $coursRepo->findInternship();
+        $internship = $coursRepo->findInternshipAdmin();
         $internship = $paginator->paginate(
             $internship,
             $request->query->getInt('page', 1),

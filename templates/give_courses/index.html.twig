@@ -5,9 +5,9 @@
     <p>Cours suggérés :
         {% for suggest in suggest %}
             {% if suggest is not empty %}
-                {{ suggest.idMatiere.intitule }} -
+                | {{ suggest.idMatiere.intitule }} -
                 {% for promo in suggest.idPromo %}
-                    {{ promo.promo }}
+                    {{ promo.promo }} |
                 {% endfor %}
             {% else %}
                 <tr>Il n'y a pas de cours suggérer</tr>

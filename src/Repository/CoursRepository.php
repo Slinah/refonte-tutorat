@@ -88,4 +88,20 @@ class CoursRepository extends ServiceEntityRepository
 
         return $query->getQuery();
     }
+
+    public function findCourseAdmin()
+    {
+        return $this->createQueryBuilder('q')
+            ->Where('q.stage = 0')
+            ->OrderBy("q.date", "DESC")
+        ;
+    }
+
+    public function findInternshipAdmin()
+    {
+        return $this->createQueryBuilder('q')
+            ->Where('q.stage = 1')
+            ->OrderBy("q.date", "DESC")
+            ;
+    }
 }

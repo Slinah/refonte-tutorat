@@ -44,7 +44,7 @@ class SuggestCoursesController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em-> persist($matiere);
             $em->flush();
-            $this->addFlash('success', 'Matière ajoutée avec succès !');
+            $this->addFlash('success', 'Matière ajoutée avec succès ! Attente de la validation par un Admin');
 
             return $this->redirectToRoute("suggest_courses");
         }
@@ -54,5 +54,19 @@ class SuggestCoursesController extends AbstractController
             "formProposition"=>$formProposition->createView(),
             "formMatiere"=>$formMatiere->createView()
         ]);
+    }
+
+    /**
+     * @Route("/delete-suggest/{id}", name="delete_suggest")
+     */
+    public function deleteStudent(PropositionRepository $repo, $id)
+    {
+        $suggest = $repo->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($suggest);
+        $em->flush();
+        $this->addFlash('success', 'Proposition supprimée avec succès !');
+
+        return $this->redirectToRoute("suggest_courses");
     }
 }

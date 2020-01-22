@@ -73,7 +73,7 @@ class CoursesController extends AbstractController
             $em->flush();
             $this->addFlash('success', 'Cours modifié avec succès !');
 
-            return $this->redirectToRoute("admin");
+            return $this->redirectToRoute("courses");
         }
 
         return $this->render('courses/updateCourses.html.twig', [
