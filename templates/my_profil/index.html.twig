@@ -1,15 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MyProfilController!{% endblock %}
-
 {% block body %}
     <h3>Mon profil</h3>
 
-    <p>Nom Prénom</p>
-
-    <p>Ecole</p>
-
-    <p>Classe</p>
+    <p>{{ app.user.nom }} {{ app.user.prenom }}</p>
+    <p>{{ app.user.idClasse.idPromo.idEcole.intitule }}</p>
+    <p>{{ app.user.idClasse.idPromo.promo }} - {{ app.user.idClasse.classe }}</p>
 
     <h3>Mes Récompenses</h3>
     <div>ProgressBar du niveau</div>

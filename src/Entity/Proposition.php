@@ -108,6 +108,14 @@ class Proposition
         return $this->idPersonne;
     }
 
+    /**
+     * @param Collection $idPersonne
+     */
+    public function setIdPersonne(Collection $idPersonne): void
+    {
+        $this->idPersonne = $idPersonne;
+    }
+
     public function addIdPersonne(Personne $idPersonne): self
     {
         if (!$this->idPersonne->contains($idPersonne)) {

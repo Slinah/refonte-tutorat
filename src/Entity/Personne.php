@@ -281,11 +281,15 @@ class Personne implements UserInterface //extends BaseUser
 
     public function getRoles(): array{
         $roles = $this->roles;
-        $roles[] = 'ROLE_USER';
+        if($this->getRole() === 0){
+            $roles[] = 'ROLE_USER';
+        }
+        elseif($this->getRole()===1){
+            $roles[] = 'ROLE_ADMIN';
+        }
+
         return array_unique($roles);
     }
-
-
 
     public function setRoles(array $roles): self
     {

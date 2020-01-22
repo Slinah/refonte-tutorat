@@ -39,8 +39,11 @@
     {{ form_widget(form.idPromo) }}
     <br /><br />
 
-    <button>Ajouter le cours</button>
+    {% if app.user %}
+        <button>Ajouter le cours</button>
+    {% else %}
+        <i>Il faut être connecter pour ajouter un cours</i>
+    {% endif %}
     {{ form_end(form) }}
-
 
 {% endblock %}

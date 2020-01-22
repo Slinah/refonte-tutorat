@@ -10,6 +10,8 @@ use App\Repository\PropositionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Doctrine\Common\Collections\Collection;
 
 class SuggestCoursesController extends AbstractController
 {
@@ -22,6 +24,13 @@ class SuggestCoursesController extends AbstractController
 
         $proposition = new Proposition();
         $formProposition=$this->createForm(SuggestCoursesType::class, $proposition);
+
+        //récup l'user connecter
+        $connectedUser = $this->getUser();
+        //$connectedUserCollection = Collection::class->$connectedUser;
+        //associe la proposition à cet user
+        //$proposition->setIdPersonne($connectedUserCollection);
+
         $proposition->setSecu("secu");
         $formProposition->handleRequest($request);
 
@@ -57,8 +66,9 @@ class SuggestCoursesController extends AbstractController
 
     /**
      * @Route("/delete-suggest/{id}", name="delete_suggest")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
-    public function deleteStudent(PropositionRepository $repo, $id)
+    public function deleteSuggest(PropositionRepository $repo, $id)
     {
         $suggest = $repo->find($id);
         $em = $this->getDoctrine()->getManager();

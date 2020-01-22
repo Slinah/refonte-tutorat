@@ -14,11 +14,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class AdminController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin")
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
     public function index(MatiereRepository $matiereRepo, PersonneRepository $personneRepo, CoursRepository $coursRepo ,Request $request, PaginatorInterface $paginator)
     {
@@ -60,6 +63,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/promote-student/{id}", name="promote_student")
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
     public function PromoteStudent(PersonneRepository $repo, $id)
     {
@@ -74,6 +78,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/demote-student/{id}", name="demote_student")
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
     public function DemoteStudent(PersonneRepository $repo, $id)
     {
@@ -87,6 +92,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/delete-student/{id}", name="delete_student")
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
     public function deleteStudent(PersonneRepository $repo, $id)
     {
@@ -101,6 +107,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/close-course/{id}", name="close_course")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
     public function closeCourse(CoursRepository $repo, $id, Request $request)
     {
@@ -127,6 +134,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/cancel-course/{id}", name="cancel_course")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
     public function cancelCourse(CoursRepository $repo, $id, Request $request)
     {
@@ -153,6 +161,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/delete_course/{id}", name="delete_course")
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
     public function deleteCourse(CoursRepository $repo, $id)
     {
@@ -168,6 +177,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/update-matiere/{id}", name="update_matiere")
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
     public function updateMatiere(MatiereRepository $repo, Request $request, $id)
     {
@@ -197,6 +207,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/delete_matiere/{id}", name="delete_matiere")
+     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
     public function deleteMatiere(MatiereRepository $repo, $id)
     {

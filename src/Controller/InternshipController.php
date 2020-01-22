@@ -12,6 +12,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class InternshipController extends AbstractController
 {
@@ -40,6 +41,7 @@ class InternshipController extends AbstractController
 
     /**
      * @Route("/internship/add-internship", name="add_internship")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
     public function addIntership(Request $request)
     {
@@ -65,6 +67,7 @@ class InternshipController extends AbstractController
 
     /**
      * @Route("/internship/update-internship/{id}", name="update_internship")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
     public function updateIntership(CoursRepository $repo, Request $request, $id)
     {

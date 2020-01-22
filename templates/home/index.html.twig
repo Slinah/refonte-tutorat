@@ -18,7 +18,11 @@
     </div>
 
     <div>
-        <a href="{{ path('give_courses') }}">Donner un cours</a>
+        {% if app.user %}
+            <a href="{{ path('give_courses') }}">Donner un cours</a>
+        {% else %}
+            <a href="{{ path('app_login') }}">Donner un cours</a>
+        {% endif %}
     </div>
 
     <div>

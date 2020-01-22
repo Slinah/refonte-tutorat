@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class CoursesController extends AbstractController
 {
@@ -55,6 +56,7 @@ class CoursesController extends AbstractController
 
     /**
      * @Route("/courses/update-courses/{id}", name="update_courses")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
     public function updateCourses(CoursRepository $repo, Request $request, $id)
     {

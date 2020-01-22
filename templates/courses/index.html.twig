@@ -62,9 +62,13 @@
                 <p>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</p>
                 <p>{{ courses.idPromo }}</p>
                 <p>{{ courses.intitule }}</p>
-                <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
-                <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
-                <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                {% if app.user %}
+                    {# if rangPersonne is same as(1) #}
+                    <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                    <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                    <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                    {# endif #}
+                {% endif %}
                 <button>S'inscrire</button>
             </div>
         {% endfor %}

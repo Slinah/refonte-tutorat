@@ -43,14 +43,13 @@
     {{ form_label(formProposition.idPromo) }}
     <br />
     {{ form_widget(formProposition.idPromo) }}
-    <br /><br />
-
-    {{ form_label(formProposition.idPersonne) }}
-    <br />
-    {{ form_widget(formProposition.idPersonne) }}
 
     <br /><br />
-    <button>Ajouter la proposition</button>
+    {% if app.user %}
+        <button>Ajouter la proposition</button>
+    {% else %}
+        <i>Il faut être connecter pour ajouter une suggestion</i>
+    {% endif %}
 
     {{ form_end(formProposition) }}
     <br />
@@ -63,7 +62,11 @@
     {{ form_widget(formMatiere.intitule) }}
 
     <br /><br />
-    <button>Ajouter la matière</button>
+    {% if app.user %}
+        <button>Ajouter la matière</button>
+    {% else %}
+        <i>Il faut être connecter pour ajouter une matière</i>
+    {% endif %}
 
     {{ form_end(formMatiere) }}
 {% endblock %}

@@ -10,6 +10,7 @@ use App\Repository\MatiereRepository;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -28,8 +29,7 @@ class SuggestCoursesType extends AbstractType
                     return $er->createQueryBuilder('q')
                         ->orderBy("q.promo", "ASC");
                 }])
-            ->add('idPersonne', EntityType::class, ["class"=>Personne::class, "choice_label" =>"nom", "label"=>"Personne :", "multiple"=>true,])
-        ;
+            ;
     }
 
 
