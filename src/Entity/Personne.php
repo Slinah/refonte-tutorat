@@ -22,7 +22,7 @@ class Personne implements UserInterface //extends BaseUser
      *
      * @ORM\Column(name="id_personne", type="string", length=40, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idPersonne;
 
@@ -319,11 +319,15 @@ class Personne implements UserInterface //extends BaseUser
         return $this;
     }
 
+    private $roles = [];
+
     public function getRoles(): array{
         $roles = $this->roles;
         $roles[] = 'ROLE_USER';
         return array_unique($roles);
     }
+
+
 
     public function setRoles(array $roles): self
     {

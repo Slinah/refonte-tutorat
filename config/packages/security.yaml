@@ -1,14 +1,14 @@
 security:
     role_hierarchy:
-        ROLE_USER:       ROLE_USER
+        ROLE_USER:  ROLE_USER
         ROLE_ADMIN: ROLE_ADMIN
 
         # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
 
     encoders:
-        App\Entity\Personne:
-            algorithm: bcrypt
-            cost : 12  # plus il est important, mieux ce sera crypté
+        App\Entity\Personne: plaintext
+            #algorithm: bcrypt
+            #cost : 12  # plus il est important, mieux ce sera crypté
 
     providers:
         from_database :

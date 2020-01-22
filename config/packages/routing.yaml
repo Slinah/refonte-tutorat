@@ -1,3 +1,10 @@
 framework:
     router:
         utf8: true
+
+#app :
+  # ressource : "@AppBundle/Controller/"
+   # type : annotation
+
+#fos_user:
+   # ressources: "@FOSUserBundle/Ressources/Config/routing/all.xml"
