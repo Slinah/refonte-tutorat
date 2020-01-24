@@ -11,21 +11,22 @@ security:
             #cost : 12  # plus il est important, mieux ce sera crypté
 
     providers:
-        #from_database :
-            #entity:
-                #class: App\Entity\Personne
-                #property : mail
+        from_database :
+            entity:
+                class: App\Entity\Personne
+                property : mail
+
         #fos_userbundle:
             # id: fos_user.user_provider.username_email
 
-        my_ldap:
-            ldap:
-                service: ldap
-                base_dn: dc=example,dc=com
-                search_dn: "cn=read-only-admin,dc=example,dc=com"
-                search_password: password
-                default_roles: ROLE_USER
-                uid_key: uid
+        #my_ldap:            #Aura également besoin d'etre config dans service.yaml
+            #ldap:
+                #service: ldap
+                #base_dn: dc=example,dc=com
+                #search_dn: "cn=read-only-admin,dc=example,dc=com"
+                #search_password: password
+                #default_roles: ROLE_USER
+                #uid_key: uid
 
 
 
