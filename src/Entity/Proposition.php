@@ -24,11 +24,14 @@ class Proposition
     private $idProposition;
 
     /**
-     * @var string
+     * @var \App\Entity\Personne
      *
-     * @ORM\Column(name="secu", type="text", length=65535, nullable=false)
+     * @ORM\ManyToOne(targetEntity="Personne")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_createur", referencedColumnName="id_personne")
+     * })
      */
-    private $secu;
+    private $idCreateur;
 
     /**
      * @var \App\Entity\Matiere
@@ -76,16 +79,14 @@ class Proposition
         return $this->idProposition;
     }
 
-    public function getSecu(): ?string
+    public function getIdCreateur(): Personne
     {
-        return $this->secu;
+        return $this->idCreateur;
     }
 
-    public function setSecu(string $secu): self
+    public function setIdCreateur(Personne $idCreateur): void
     {
-        $this->secu = $secu;
-
-        return $this;
+        $this->idCreateur = $idCreateur;
     }
 
     public function getIdMatiere(): ?Matiere
