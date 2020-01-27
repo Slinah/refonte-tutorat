@@ -25,12 +25,14 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
+#    Symfony\Component\Ldap\Ldap:
+#        arguments: ['@Symfony\Component\Ldap\Adapter\ExtLdap\Adapter']
+#    Symfony\Component\Ldap\Adapter\ExtLdap\Adapter:
     ldap:
         class: Symfony\Component\Ldap\LdapClient
         arguments:
-        - my-server   # host
-        - 389         # port
-        - 3           # version
-        - false       # SSL
-        - true        # TLS
+            - my-server   # host
+            - 389         # port
+            - 3           # version
+            - false       # SSL
+            - true        # TLS

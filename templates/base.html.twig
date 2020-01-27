@@ -19,10 +19,10 @@
                 <a href="{{ path('internship') }}">Les stages</a> / <a href="{{ path('give_courses') }}">Donner un cours</a> /
                 <a href="{{ path('suggest_courses') }}">Suggérer un cours</a> / <a href="{{ path('forum') }}">Forum</a>
                 {% if is_granted('ROLE_ADMIN') %}
-                      <a href="{{ path('admin') }}">Pannel Admin</a>
+                      / <a href="{{ path('admin') }}">Pannel Admin</a>
                 {% endif %}
                 {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-                      <a href="{{ path('my_profil') }}">Mon profil</a>
+                      / <a href="{{ path('my_profil') }}">Mon profil</a> /
                       <a href="{{ path('app_logout') }}">Se déconnecter</a>
                 {% else %}
                      / <a href="{{ path('app_login') }}">Se connecter</a>
@@ -49,7 +49,7 @@
             {# NavBar #}
             <div>
                 {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('my_profil') }}">Mon profil : {{ app.user.nom }} {{ app.user.prenom }}</a> |
+                    <a href="{{ path('my_profil') }}">Mon profil</a> |
                 {% endif %}
                 <a href="{{ path('rules') }}">Règlement</a> | <a href="{{ path('contact_us') }}">Nous contacter</a>
             </div>

@@ -9,6 +9,7 @@
             <th>Matière</th>
             <th>Difficulté</th>
             <th>Votes</th>
+
             <th></th>
         </tr>
         {% for suggest in suggestList %}
@@ -20,9 +21,13 @@
                             {{ promo.promo }}
                         {% endfor %}
                     </td>
-                    <td></td>
+                    <td>{#vote#}</td>
                     <td>
-                        <a href="{{ path('delete_suggest', { 'id':suggest.idProposition }) }}">Supprimer</a>
+                        {% for personne in suggest.idPersonne %}
+                            {% if app.user.idPersonne == personne.idPersonne or is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('delete_suggest', { 'id':suggest.idProposition }) }}">Supprimer</a>
+                            {% endif %}
+                        {% endfor %}
                     </td>
                 </tr>
             {% else %}

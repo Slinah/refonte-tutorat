@@ -21,14 +21,6 @@ class PersonneCours
      */
     private $idPersonne;
 
-    /*
-     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Personne", mappedBy="idCours")
-     */
-    //private $idPersonne;
-
     /**
      * @var \Cours
      *
@@ -40,22 +32,6 @@ class PersonneCours
      * })
      */
     private $idCours;
-
-    /*
-     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Cours", inversedBy="idPersonne")
-     * @ORM\JoinTable(name="personne_cours",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_personne", referencedColumnName="id_personne")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_cours", referencedColumnName="id_cours")
-     *   }
-     * )
-     */
-    //private $idCours;
 
     /**
      * @var int

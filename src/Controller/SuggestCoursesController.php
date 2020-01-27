@@ -11,7 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Doctrine\Common\Collections\Collection;
 
 class SuggestCoursesController extends AbstractController
 {
@@ -27,14 +26,14 @@ class SuggestCoursesController extends AbstractController
 
         //récup l'user connecter
         $connectedUser = $this->getUser();
-        //$connectedUserCollection = Collection::class->$connectedUser;
-        //associe la proposition à cet user
-        //$proposition->setIdPersonne($connectedUserCollection);
 
         $proposition->setSecu("secu");
         $formProposition->handleRequest($request);
 
         if ($formProposition->isSubmitted() && $formProposition->isValid()){
+            //associe la proposition à cet user
+            $connectedUser->getIdProposition()->add($proposition);
+
             $em = $this->getDoctrine()->getManager();
             $em-> persist($proposition);
             $em->flush();

@@ -11,24 +11,21 @@ security:
             #cost : 12  # plus il est important, mieux ce sera crypté
 
     providers:
-        #from_database :
-            #entity:
-                #class: App\Entity\Personne
-                #property : mail
-        #fos_userbundle:
-            # id: fos_user.user_provider.username_email
+        from_database :
+            entity:
+                class: App\Entity\Personne
+                property : mail
+#        fos_userbundle:
+#            id: fos_user.user_provider.username_email
 
-        my_ldap:
-            ldap:
-                service: ldap
-                base_dn: dc=example,dc=com
-                search_dn: "cn=read-only-admin,dc=example,dc=com"
-                search_password: password
-                default_roles: ROLE_USER
-                uid_key: uid
-
-
-
+#        my_ldap:
+#            ldap:
+#                service: ldap #ou Symfony\Component\Ldap\Ldap
+#                base_dn: dc=example,dc=com
+#                search_dn: "cn=read-only-admin,dc=example,dc=com"
+#                search_password: password
+#                default_roles: ROLE_USER
+#                uid_key: uid
 
     firewalls:
             dev:
@@ -37,7 +34,7 @@ security:
             main:
                 pattern: ^/
                 form_login:
-                    #provider: fos_userbundle
+                   # provider: fos_userbundle
                     csrf_token_generator: security.csrf.token_manager
 
                 logout:
@@ -46,7 +43,7 @@ security:
 
                 anonymous:    true
                 guard:
-                    authenticators:
+                    authenticator:
                         - App\Security\LoginFormAuthenticator
 
         # Easy way to control access for large sections of your site
