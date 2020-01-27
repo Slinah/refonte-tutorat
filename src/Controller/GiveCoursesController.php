@@ -31,6 +31,7 @@ class GiveCoursesController extends AbstractController
             $this->addFlash('success', 'Cours ajouté avec succès !');
 
             return $this->redirectToRoute("courses");
+            #return $this->redirectToRoute("swiftmailer");    Pour plus tard, on redirige vers l'envoie de l'email
         }
 
         return $this->render('give_courses/index.html.twig', [

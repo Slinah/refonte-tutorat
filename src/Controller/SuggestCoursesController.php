@@ -31,9 +31,13 @@ class SuggestCoursesController extends AbstractController
         $formProposition->handleRequest($request);
 
         if ($formProposition->isSubmitted() && $formProposition->isValid()){
+<<<<<<< HEAD
             //associe la proposition à cet user
             $connectedUser->getIdProposition()->add($proposition);
 
+=======
+            $proposition->getIdPersonne()->add($connectedUser);
+>>>>>>> 9becaf06a4eb7b3c621961e2de804699276ca5e8
             $em = $this->getDoctrine()->getManager();
             $em-> persist($proposition);
             $em->flush();
