@@ -19,24 +19,23 @@ class SuggestCoursesController extends AbstractController
      */
     public function index(Request $request, PropositionRepository $repo)
     {
+        //récup l'user connecter
+        if (!empty($this->getUser())) {
+            $connectedUser = $this->getUser();
+        }
+
+        // Afficher le tableau des propositions
         $suggestList = $repo->findAll();
 
+        // Formulaire d'ajout de proposition
         $proposition = new Proposition();
         $formProposition=$this->createForm(SuggestCoursesType::class, $proposition);
-
-        //récup l'user connecter
-        $connectedUser = $this->getUser();
-
-        $proposition->setSecu("secu");
         $formProposition->handleRequest($request);
 
         if ($formProposition->isSubmitted() && $formProposition->isValid()){
-
-            //associe la proposition à cet user
+            //associe la proposition à l'user co
             $connectedUser->getIdProposition()->add($proposition);
-
-
-            $proposition->getIdPersonne()->add($connectedUser);
+            $proposition->setIdCreateur($connectedUser);
 
             $em = $this->getDoctrine()->getManager();
             $em-> persist($proposition);
@@ -45,8 +44,9 @@ class SuggestCoursesController extends AbstractController
 
             return $this->redirectToRoute("suggest_courses");
         }
+        // Fin formulaire ajout proposition
 
-
+        // Formulaire ajout de matière
         $matiere = new Matiere();
         $formMatiere=$this->createForm(MatiereType::class, $matiere);
         $formMatiere->handleRequest($request);
@@ -59,12 +59,35 @@ class SuggestCoursesController extends AbstractController
 
             return $this->redirectToRoute("suggest_courses");
         }
+        // Fin formulaire ajout de matière
 
         return $this->render('suggest_courses/index.html.twig', [
             "suggestList"=>$suggestList,
+            //"votes"=>$votes,
             "formProposition"=>$formProposition->createView(),
             "formMatiere"=>$formMatiere->createView()
         ]);
+    }
+
+    /**
+     * @Route("/vote/{id}", name="vote_suggest")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     */
+    public function VoteSuggest(PropositionRepository $repo, $id)
+    {
+        //récup l'user connecter
+        $connectedUser = $this->getUser();
+
+        $suggest = $repo->find($id);
+        //associe la proposition à l'user co
+        $connectedUser->getIdProposition()->add($suggest);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($suggest);
+        $em->flush();
+        $this->addFlash('success', 'Proposition supprimée avec succès !');
+
+        return $this->redirectToRoute("suggest_courses");
     }
 
     /**

@@ -15,35 +15,18 @@ security:
             entity:
                 class: App\Entity\Personne
                 property : mail
-<<<<<<< HEAD
+
 #        fos_userbundle:
 #            id: fos_user.user_provider.username_email
 
 #        my_ldap:
 #            ldap:
-#                service: ldap #ou Symfony\Component\Ldap\Ldap
+#                service: ldap #ou Symfony\Component\Ldap\Ldap  #Aura également besoin d'etre config dans service.yaml
 #                base_dn: dc=example,dc=com
 #                search_dn: "cn=read-only-admin,dc=example,dc=com"
 #                search_password: password
 #                default_roles: ROLE_USER
 #                uid_key: uid
-=======
-
-        #fos_userbundle:
-            # id: fos_user.user_provider.username_email
-
-        #my_ldap:            #Aura également besoin d'etre config dans service.yaml
-            #ldap:
-                #service: ldap
-                #base_dn: dc=example,dc=com
-                #search_dn: "cn=read-only-admin,dc=example,dc=com"
-                #search_password: password
-                #default_roles: ROLE_USER
-                #uid_key: uid
-
-
-
->>>>>>> 9becaf06a4eb7b3c621961e2de804699276ca5e8
 
     firewalls:
             dev:
