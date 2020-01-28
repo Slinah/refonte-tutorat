@@ -11,10 +11,6 @@ html{
 	scroll-behavior: smooth;
 }
 
-main{
-	min-height: calc(100vh-98px);
-}
-
 body{
 	min-height:100vh;
 }

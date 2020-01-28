@@ -78,13 +78,15 @@
                                 <li>tuteur</li>
                             </ul>
 
-                            {% if app.user %}
-                                {# if rangPersonne is same as(1) #}
-                                <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
-                                <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
-                                <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
-                                {# endif #}
-                            {% endif %}
+                            <div style="text-align: center">
+                                {% if app.user %}
+                                    {# if rangPersonne is same as(1) #}
+                                    <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                                    <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                                    <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                    {# endif #}
+                                {% endif %}
+                            </div>
                         </div>
 
                         <div class="button">

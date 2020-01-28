@@ -4,15 +4,16 @@
     <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
         <h1 class="display-4 pb-5">Tutorat & Entraide</h1>
 
-        <div class="button">
-            <ul>
-                <li>
-                    <a href="{{ path('courses') }}">Les cours</a>
-                    <span></span><span></span><span></span><span></span>
-                </li>
-
-            </ul>
-        </div>
+        <a href="{{ path('courses') }}">
+            <div class="button">
+                <ul>
+                    <li>
+                        Les cours
+                        <span></span><span></span><span></span><span></span>
+                    </li>
+                </ul>
+            </div>
+        </a>
     </div>
 {% endblock %}
 
@@ -44,15 +45,16 @@
                 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
                     Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
                     nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
-                <div class="button">
-                    <ul>
-                        <li>
-                            <a href="{{ path('courses') }}">En savoir plus</a>
-                            <span></span><span></span><span></span><span></span>
-                        </li>
-
-                    </ul>
-                </div>
+                <a href="{{ path('courses') }}" class="button">
+                    <div>
+                        <ul>
+                            <li>
+                                En savoir plus
+                                <span></span><span></span><span></span><span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -62,16 +64,17 @@
                 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
                     Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
                     nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                <div class="button">
-                    <ul>
-                        <li>
-                            <a href="{{ path('give_courses') }}">En savoir plus</a>
-                            <span></span><span></span><span></span><span></span>
-                        </li>
+                <a href="{{ path('give_courses') }}" class="button">
+                    <div>
+                        <ul>
+                            <li>
+                                En savoir plus
+                                <span></span><span></span><span></span><span></span>
+                            </li>
 
-                    </ul>
-                </div>
-
+                        </ul>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -81,15 +84,17 @@
                 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
                     Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
                     nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                <div class="button">
-                    <ul>
-                        <li>
-                            <a href="{{ path('suggest_courses') }}">En savoir plus</a>
-                            <span></span><span></span><span></span><span></span>
-                        </li>
 
-                    </ul>
-                </div>
+                <a href="{{ path('suggest_courses') }}" class="button">
+                    <div>
+                        <ul>
+                            <li>
+                                En savoir plus
+                                <span></span><span></span><span></span><span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -101,18 +106,26 @@
             <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
                 Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
                 nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-            <div class="button">
-                <ul>
-                    <li>
-                        <a href="{{ path('courses') }}">Tutorer</a>
-                        <span></span><span></span><span></span><span></span>
-                    </li>
-                    <li>
-                        <a href="{{ path('rules') }}">Le règlement</a>
-                        <span></span><span></span><span></span><span></span>
-                    </li>
-                </ul>
-            </div>
+            <a href="{{ path('courses') }}" class="button">
+                <div>
+                    <ul>
+                        <li>
+                            Tutorer
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+            <a href="{{ path('rules') }}" class="button">
+                <div>
+                    <ul>
+                        <li>
+                            Le règlement
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+                    </ul>
+                </div>
+            </a>
         </div>
         <img src="image/tutorat3.jpg" class="mr-5" alt="Le tutorat c'est quoi?" width="40%">
     </div>

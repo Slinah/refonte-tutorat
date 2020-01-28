@@ -75,6 +75,14 @@
                                     <li>{{ internship.idPromo.promo }}</li>
                                     <li>{{ internship.intitule }}</li>
                                 </ul>
+
+                                <div style="text-align: center">
+                                    {% if app.user %}
+                                        <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
+                                        <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
+                                        <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                                    {% endif %}
+                                </div>
                             </div>
 
                                 <div class="button">
@@ -87,12 +95,6 @@
                                     </ul>
                                 </div>
                             </div>
-
-                        {% if app.user %}
-                            <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
-                            <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
-                            <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
-                        {% endif %}
                         </div>
                     </div>
                 {% endif %}
