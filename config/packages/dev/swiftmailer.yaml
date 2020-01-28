@@ -1,9 +1,10 @@
-# See https://symfony.com/doc/current/email/dev_environment.html
-swiftmailer:
-  delivery_addresses: ['tutoratHEP@gmail.com']
+  # See https://symfony.com/doc/current/email/dev_environment.html
 
-  delivery_whitelist:
+  #swiftmailer:
+  #delivery_addresses: ['tutoratHEP@gmail.com']
+
+  #delivery_whitelist:
   # all email addresses matching these regexes will be delivered
   # like normal, as well as being sent to dev@example.com
-  - '/@specialdomain\.com$/'
+  #- '/@specialdomain\.com$/'
   #- '/^drapp.etienne@gmail\.com$/
