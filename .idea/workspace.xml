@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6d73cf-a40e-4749-9f84-698c67587136" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuggestCoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuggestCoursesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Proposition.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Proposition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PropositionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PropositionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suggest_courses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suggest_courses/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/courses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/courses/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/internship/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/internship/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,22 +15,58 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SuggestCoursesController.php">
+        <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            <state relative-caret-position="460">
+              <caret line="147" column="22" selection-start-line="147" selection-start-column="22" selection-end-line="147" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1377">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="106" column="49" selection-start-line="106" selection-start-column="49" selection-end-line="106" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/courses/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/suggest_courses/index.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/internship/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+            <state relative-caret-position="678">
+              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,6 +77,10 @@
     <findStrings>
       <find>votes</find>
       <find>getI</find>
+      <find>&lt;img src=</find>
+      <find>ul</find>
+      <find>tutorat</find>
+      <find>Tutorat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -48,8 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/internship/addInternship.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/GiveCoursesController.php" />
         <option value="$PROJECT_DIR$/src/Form/UpdateInternshipType.php" />
         <option value="$PROJECT_DIR$/templates/internship/updateInternship.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/updateMatiere.html.twig" />
@@ -70,16 +109,13 @@
         <option value="$PROJECT_DIR$/templates/admin/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/LogsProposition.php" />
         <option value="$PROJECT_DIR$/public/js/search.js" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/js/jquery-1.12.4.js" />
         <option value="$PROJECT_DIR$/public/js/formVieLycee.js" />
         <option value="$PROJECT_DIR$/public/js/script.js" />
         <option value="$PROJECT_DIR$/src/Controller/InternshipController.php" />
-        <option value="$PROJECT_DIR$/templates/internship/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Cours.php" />
         <option value="$PROJECT_DIR$/src/Entity/Matiere.php" />
         <option value="$PROJECT_DIR$/src/Form/CourseSearchType.php" />
-        <option value="$PROJECT_DIR$/templates/courses/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Search/CourseSearch.php" />
         <option value="$PROJECT_DIR$/src/Controller/CoursesController.php" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
@@ -91,7 +127,6 @@
         <option value="$PROJECT_DIR$/templates/give_courses/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Personne.php" />
         <option value="$PROJECT_DIR$/src/Entity/PersonneCours.php" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/Repository/PersonneRepository.php" />
@@ -99,6 +134,12 @@
         <option value="$PROJECT_DIR$/src/Entity/Proposition.php" />
         <option value="$PROJECT_DIR$/src/Controller/SuggestCoursesController.php" />
         <option value="$PROJECT_DIR$/templates/suggest_courses/index.html.twig" />
+        <option value="$PROJECT_DIR$/public/css/cours.css" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/courses/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/internship/index.html.twig" />
       </list>
     </option>
   </component>
@@ -222,18 +263,17 @@
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
-    <option name="y" value="70" />
-    <option name="width" value="1578" />
-    <option name="height" value="912" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -244,39 +284,54 @@
             <path>
               <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
               <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
               <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
               <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="courses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="internship" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="G:/Users/evagu/Documents/Stage EPSI/Scratchoverfloxcode" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\stage_epsi_tutorat\public\css" />
+      <recent name="C:\laragon\www\stage_epsi_tutorat\public\image" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -318,7 +373,8 @@
       <workItem from="1579681096743" duration="3368000" />
       <workItem from="1579694299730" duration="6673000" />
       <workItem from="1579852619628" duration="6947000" />
-      <workItem from="1580112953850" duration="13141000" />
+      <workItem from="1580112953850" duration="15391000" />
+      <workItem from="1580198555226" duration="3014000" />
     </task>
     <task id="LOCAL-00001" summary="Bug login résolu (plaintext)&#10;Logout fonctionnel&#10;&#10;Probleme chiffrage mot de passe">
       <created>1579695152149</created>
@@ -330,13 +386,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11398000" />
+    <option name="totallyTimeSpent" value="16662000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="84" y="56" width="1262" height="729" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.202995" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.152349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -377,6 +433,9 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
@@ -421,6 +480,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/suggest_courses/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/SuggestCoursesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -428,10 +494,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/suggest_courses/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/public/css/cours.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+        <state relative-caret-position="209">
+          <caret line="49" column="12" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="147" column="22" selection-start-line="147" selection-start-column="22" selection-end-line="147" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="106" column="49" selection-start-line="106" selection-start-column="49" selection-end-line="106" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/courses/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/internship/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="678">
+          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

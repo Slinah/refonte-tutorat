@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- cdn font awesome-->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -8,26 +8,66 @@
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:400,900' rel='stylesheet' type='text/css'>
         {% endblock %}
     </head>
 
     <body>
-        <header>
-            {# NavBar #}
-            <div>
-                <a href="{{ path('home') }}">ScratchOverFlow</a> / Tutorat : <a href="{{ path('courses') }}">Les cours</a>,
-                <a href="{{ path('internship') }}">Les stages</a> / <a href="{{ path('give_courses') }}">Donner un cours</a> /
-                <a href="{{ path('suggest_courses') }}">Suggérer un cours</a> / <a href="{{ path('forum') }}">Forum</a>
-                {% if is_granted('ROLE_ADMIN') %}
-                      / <a href="{{ path('admin') }}">Pannel Admin</a>
-                {% endif %}
-                {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-                      / <a href="{{ path('my_profil') }}">Mon profil</a> /
-                      <a href="{{ path('app_logout') }}">Se déconnecter</a>
-                {% else %}
-                     / <a href="{{ path('app_login') }}">Se connecter</a>
-                {% endif %}
-            </div>
+        <header id="header">
+            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-5">
+                        <li class="nav-item">
+                            <a class="nav-link text-right h5" href="{{ path('my_profil') }}">Mon profil<img src="https://img.icons8.com/nolan/64/edit-user-male.png"></a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+
+            <nav class="navbar navbar-expand navbar-light">
+                <a class="navbar-brand " href="{{ path('home') }}" style="font-size: 35px"><img src="https://img.icons8.com/dotty/80/000000/elephant.png">ScratchOverFlow</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav h3">
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle pr-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                Les cours
+                            </a>
+                            <div class="dropdown-menu pr-5" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item h4 p-4" href="{{ path('courses') }}">Tutorats</a>
+                                <a class="dropdown-item  h4 p-4" href="{{ path('internship') }}">Les Stages</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pr-5 h3" href="{{ path('give_courses') }}">Donner un cours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pr-5 h3" href="{{ path('suggest_courses') }}">Suggérer un cours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pr-4 h3" href="{{ path('forum') }}">Forum</a>
+                        </li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item">
+                                <a class="nav-link pr-4 h3" href="{{ path('forum') }}">Pannel admin</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item">
+                                <a class="nav-link pr-4 h3" href="{{ path('app_logout') }}">Se déconnecter</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link pr-4 h3" href="{{ path('app_login') }}">Se connecter</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
             {# End navBar #}
 
             {# Message de succès #}
@@ -36,23 +76,26 @@
                     {{ message }}
                 </div>
             {% endfor %}
+
+            {% block titre %}{% endblock %}
         </header>
 
         {% block body %}{% endblock %}
 
         {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
             <script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
             <script src="{{ asset('js/script.js') }}"></script>
         {% endblock %}
 
         <footer>
             {# NavBar #}
-            <div>
                 {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('my_profil') }}">Mon profil</a> |
                 {% endif %}
                 <a href="{{ path('rules') }}">Règlement</a> | <a href="{{ path('contact_us') }}">Nous contacter</a>
-            </div>
             {# End navBar #}
         </footer>
     </body>

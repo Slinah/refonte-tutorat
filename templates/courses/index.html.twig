@@ -1,10 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Tutorats</h1>
+
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+            nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        <a href="{{ path('suggest_courses') }}">Suggérer un cours</a>
+    </div>
+{% endblock %}
+
 {% block body %}
-    <h1>Les cours</h1>
 
     {#Barre de recherche#}
-    <div id="divRecherche">
+    <div id="divRecherche" style="text-align: center">
         <ul class="list-inline">
             <li>
                 <form method="post">
@@ -50,61 +60,115 @@
             <br />
         </div>
     </div>
+    {# Fin barre de recherche #}
 
-    <a href="{{ path('suggest_courses') }}">Suggérer un cours</a>
-    <br />
+    <div class="row">
+        <img src="image/cettesemaine.jpg" class="mr-5 ml-5" alt="cette semaine" width="10%" height="20%">
 
-    <div>
-        <h3>Cette semaine</h3>
+        {% if courses is not null %}
+            {% for courses in courses %}
+                <div class="col">
+                    <div class="card">
+                        <div>
+                            <h4>{{ courses.idMatiere }}</h4>
+                            <ul>
+                                <li>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</li>
+                                <li>{{ courses.idPromo }}</li>
+                                <li>{{ courses.intitule }}</li>
+                                <li>tuteur</li>
+                            </ul>
+
+                            {% if app.user %}
+                                {# if rangPersonne is same as(1) #}
+                                <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                                <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                                <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                {# endif #}
+                            {% endif %}
+                        </div>
+
+                        <div class="button">
+                            <ul>
+                                <li>
+                                    S'inscrire
+                                    <span></span><span></span><span></span><span></span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <br />
+        <div>
+            {{ knp_pagination_render(courses) }}
+        </div>
+    </div>c
+
+    <div class="row">
+        <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
+
         {% for courses in courses %}
-            <div>
-                <p><b>{{ courses.idMatiere }}</b></p>
-                <p>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</p>
-                <p>{{ courses.idPromo }}</p>
-                <p>{{ courses.intitule }}</p>
-                {% if app.user %}
-                    {# if rangPersonne is same as(1) #}
-                    <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
-                    <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
-                    <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
-                    {# endif #}
-                {% endif %}
-                <button>S'inscrire</button>
+            <div class="col">
+                <div class="card">
+                    <div>
+                        <h4>{{ courses.idMatiere }}</h4>
+                        <ul>
+                            <li>{{ courses.intitule }}</li>
+                            <li>tuteur</li>
+                        </ul>
+                    </div>
+
+                    <div class="button">
+                        <ul>
+                            <li>
+                                S'inscrire
+                                <span></span><span></span><span></span><span></span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
             </div>
         {% endfor %}
+
         <br />
         <div>
             {{ knp_pagination_render(courses) }}
         </div>
     </div>
 
-    <div>
-        <h3>La semaine prochaine</h3>
+    <div class="row">
+        <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
         {% for courses in courses %}
-            <div>
-                <p><b>{{ courses.idMatiere.intitule }}</b></p>
-                <p>{{ courses.intitule }}</p>
-                <button>S'inscrire</button>
-            </div>
-        {% endfor %}
-        <br />
-        <div>
-            {{ knp_pagination_render(courses) }}
-        </div>
-    </div>
 
-    <div>
-        <h3>Plus tard</h3>
-        {% for courses in courses %}
-            <div>
-                <p><b>{{ courses.idMatiere.intitule }}</b></p>
-                <p>{{ courses.intitule }}</p>
-                <button>S'inscrire</button>
+            <div class="col">
+                <div class="card">
+
+                    <h4>{{ courses.idMatiere }}</h4>
+                    <ul>
+                        <li>{{ courses.intitule }}</li>
+                        <li>tuteur</li>
+                    </ul>
+
+                    <div class="button">
+                        <ul>
+                            <li>
+                                S'inscrire
+                                <span></span><span></span><span></span><span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         {% endfor %}
+
         <br />
         <div>
             {{ knp_pagination_render(courses) }}
         </div>
+
     </div>
 {% endblock %}

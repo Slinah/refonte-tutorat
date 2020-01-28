@@ -1,42 +1,120 @@
 {% extends 'base.html.twig' %}
 
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Tutorat & Entraide</h1>
+
+        <div class="button">
+            <ul>
+                <li>
+                    <a href="{{ path('courses') }}">Les cours</a>
+                    <span></span><span></span><span></span><span></span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+{% endblock %}
 
 {% block body %}
-    <h1>Tutorat & Entraide</h1>
-    <a href="{{ path('courses') }}">Les cours</a>
-    <br />
+    <div class="media">
+        <img src="image/tutorat1.jpg" class="mr-5" alt="Le tutorat c'est quoi?" width="30%">
+        <div class="media-body">
+            <h2 class="mt-4">Media heading</h2>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <div class="button">
+                <ul>
+                    <li>
+                        En savoir plus
+                        <span></span><span></span><span></span><span></span>
+                    </li>
 
-    <div>Le tutorat c'est quoi ?</div>
-    <br />
-
-    <a href="{{ path('explanation') }}">En savoir plus</a>
-    <br />
-
-    <h3>Participer</h3>
-    <div>
-        <a href="{{ path('courses') }}">Les cours</a>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div>
-        {% if app.user %}
-            <a href="{{ path('give_courses') }}">Donner un cours</a>
-        {% else %}
-            <a href="{{ path('app_login') }}">Donner un cours</a>
-        {% endif %}
+    <div class="row">
+        <img src="image/tutorat2.jpg" class="mr-5 ml-5" alt="Participer" width="10%" height="20%">
+        <div class="col">
+            <div class="card">
+                <h4>Les cours</h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                    nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                <div class="button">
+                    <ul>
+                        <li>
+                            <a href="{{ path('courses') }}">En savoir plus</a>
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <h4>Donner un cours</h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                    nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <div class="button">
+                    <ul>
+                        <li>
+                            <a href="{{ path('give_courses') }}">En savoir plus</a>
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <h4>Suggérer un cours</h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                    nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <div class="button">
+                    <ul>
+                        <li>
+                            <a href="{{ path('suggest_courses') }}">En savoir plus</a>
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <div>
-        <a href="{{ path('suggest_courses') }}">Suggérer un cours</a>
+    <div class="media">
+        <div class="media-body">
+            <h2 class="mt-4">Media heading</h2>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <div class="button">
+                <ul>
+                    <li>
+                        <a href="{{ path('courses') }}">Tutorer</a>
+                        <span></span><span></span><span></span><span></span>
+                    </li>
+                    <li>
+                        <a href="{{ path('rules') }}">Le règlement</a>
+                        <span></span><span></span><span></span><span></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <img src="image/tutorat3.jpg" class="mr-5" alt="Le tutorat c'est quoi?" width="40%">
     </div>
-    <br />
-
-    <div>Pourquoi donner un cours ?</div>
-    <br />
-
-    <a href="{{ path('courses') }}">Les cours</a>
-    <br />
-
-    <a href="{{ path('explanation') }}">En savoir plus</a>
-    <br />
 
 {% endblock %}

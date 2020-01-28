@@ -1,12 +1,19 @@
 {% extends 'base.html.twig' %}
 
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Stages</h1>
+
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+            nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        <a href="{{ path('add_internship') }}">Donner un stage</a>
+    </div>
+{% endblock %}
+
 {% block body %}
-    <h3>Les stages</h3>
-
-    <p><a href="{{ path('add_internship') }}">Donner un stage</a></p>
-
-    {#Barre de recherche#}
-    <div id="divRecherche">
+    {# Barre de recherche #}
+    <div id="divRecherche" style="text-align: center">
         <ul class="list-inline">
             <li>
                 <form method="post">
@@ -52,31 +59,51 @@
             <br />
         </div>
     </div>
+    {# Fin barre de recherche #}
 
-    <p>Stages disponible :</p>
-    {% if internship is not null %}
-        {% for internship in internship %}
-            {% if internship.status is same as(0) %}
-                <div>
-                    <p><b>{{ internship.idMatiere.intitule }}</b></p>
-                    <p><i>Date du prochain cours :</i><br />
-                        {{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</p>
-                    <p>{{ internship.idPromo.promo }}</p>
-                    <p>{{ internship.intitule }}</p>
-                    {% if app.user %}
-                        <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
-                        <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
-                        <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
-                    {% endif %}
-                    <button>S'inscrire</button>
-                </div>
-            {% endif %}
-        {% endfor %}
+    <div class="row">
+        {% if internship is not null %}
+            {% for internship in internship %}
+                {% if internship.status is same as(0) %}
+                    <div class="col">
+                        <div class="card">
+                            <div>
+                                <h4>{{ internship.idMatiere }}</h4>
+                                <ul>
+                                    <li>Date du prochain cours : </li>
+                                    <li>{{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</li>
+                                    <li>{{ internship.idPromo.promo }}</li>
+                                    <li>{{ internship.intitule }}</li>
+                                </ul>
+                            </div>
+
+                                <div class="button">
+                                    <ul>
+                                        <li>
+                                            S'inscrire
+                                            <span></span><span></span><span></span><span></span>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        {% if app.user %}
+                            <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
+                            <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
+                            <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>Pas de stages</p>
+        {% endif %}
+
         <br />
-    {% else %}
-        <p>Pas de stages</p>
-    {% endif %}
-    <div>
-        {{ knp_pagination_render(internship) }}
+        <div>
+            {{ knp_pagination_render(internship) }}
+        </div>
     </div>
 {% endblock %}
