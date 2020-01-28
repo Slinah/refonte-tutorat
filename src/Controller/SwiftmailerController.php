@@ -14,7 +14,7 @@ class SwiftmailerController extends AbstractController
     {
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('tutorathep@gmail.com')
-            ->setTo('etiti14@gmail.com')
+            ->setTo('drapp.etienne@gmail.com')
             ->setBody(
                 $this->renderView(
                 // templates/hello/email.txt.twig
