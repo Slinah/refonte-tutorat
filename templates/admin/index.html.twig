@@ -1,164 +1,187 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Pannel Admin</h1>
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Pannel admin</h1>
+    </div>
+{% endblock %}
 
+{% block body %}
     <h3>Inscrit</h3>
-    <table border="1">
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Classe</th>
-            <th>Role</th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for student in students %}
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ student.nom }}</td>
-                <td>{{ student.prenom }}</td>
-                <td>{{ student.idClasse.idPromo.promo }} / {{ student.idClasse.classe }} </td>
-                <td>
-                    {% if student.role is same as(0) %}
-                        User
-                    {% elseif student.role is same as(1) %}
-                        Admin
-                    {% endif %}
-                </td>
-                <td>
-                    {% if student.role is same as(0) %}
-                        <a href="{{ path('promote_student', { 'id':student.idPersonne }) }}">Promote</a>
-                    {% elseif student.role is same as(1) %}
-                        <a href="{{ path('demote_student', { 'id':student.idPersonne }) }}">Demote</a>
-                    {% endif %}
-                </td>
-                <td><a href="{{ path('delete_student', { 'id':student.idPersonne }) }}">Expulser</a></td>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Classe</th>
+                <th scope="col">Role</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.nom }}</td>
+                    <td>{{ student.prenom }}</td>
+                    <td>{{ student.idClasse.idPromo.promo }} / {{ student.idClasse.classe }} </td>
+                    <td>
+                        {% if student.role is same as(0) %}
+                            User
+                        {% elseif student.role is same as(1) %}
+                            Admin
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if student.role is same as(0) %}
+                            <a href="{{ path('promote_student', { 'id':student.idPersonne }) }}">Promote</a>
+                        {% elseif student.role is same as(1) %}
+                            <a href="{{ path('demote_student', { 'id':student.idPersonne }) }}">Demote</a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('delete_student', { 'id':student.idPersonne }) }}">Expulser</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
     <div>
         {{ knp_pagination_render(students) }}
     </div>
-    
-    <h3>Cours</h3>
-    <table border="1">
-        <tr>
-            <th>Matière</th>
-            <th>Tuteur</th>
-            <th>Promo</th>
-            <th>Status</th>
-            <th>Date</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for course in courses %}
-            <tr>
-                <td>{{ course.idMatiere.intitule }}</td>
-                <td>Tuteur</td>
-                <td>{{ course.idPromo.promo }}</td>
 
-                {% if course.status is same as(0) %}
-                    <td>StandBy</td>
-                {% elseif course.status is same as(1) %}
-                    <td>Terminé</td>
-                {% elseif course.status is same as(2) %}
-                    <td>Annulé</td>
-                {% endif %}
-                <td>{{ course.date |format_date(locale='fr') }}</td>
-                <td>
-                    {% if course.status is same as(0) %}
-                        <a href="{{ path('update_courses', { 'id':course.idCours }) }}">Modifier le cours</a>
-                    {% endif %}
-                </td>
-                <td>{% if course.status is same as(0) %}
-                        <a href="{{ path('close_course', { 'id':course.idCours }) }}">Clore le cours</a>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if course.status is same as(0) %}
-                        <a href="{{ path('cancel_course', { 'id':course.idCours }) }}">Annuler le cours</a>
-                    {% endif %}
-                </td>
-                <td><a href="{{ path('delete_course', { 'id':course.idCours }) }}">Supprimer le cours</a></td>
+    <br />
+    <h3>Cours</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Matière</th>
+                <th scope="col">Tuteur</th>
+                <th scope="col">Promo</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.idMatiere.intitule }}</td>
+                    <td>Tuteur</td>
+                    <td>{{ course.idPromo.promo }}</td>
+
+                    {% if course.status is same as(0) %}
+                        <td>StandBy</td>
+                    {% elseif course.status is same as(1) %}
+                        <td>Terminé</td>
+                    {% elseif course.status is same as(2) %}
+                        <td>Annulé</td>
+                    {% endif %}
+                    <td>{{ course.date |format_date(locale='fr') }}</td>
+                    <td>
+                        {% if course.status is same as(0) %}
+                            <a href="{{ path('update_courses', { 'id':course.idCours }) }}">Modifier le cours</a>
+                        {% endif %}
+                    </td>
+                    <td>{% if course.status is same as(0) %}
+                            <a href="{{ path('close_course', { 'id':course.idCours }) }}">Clore le cours</a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if course.status is same as(0) %}
+                            <a href="{{ path('cancel_course', { 'id':course.idCours }) }}">Annuler le cours</a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('delete_course', { 'id':course.idCours }) }}">Supprimer le cours</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
     <div>
         {{ knp_pagination_render(courses) }}
     </div>
 
+    <br />
     <h3>Stages</h3>
-    <table border="1">
-        <tr>
-            <th>Matière</th>
-            <th>Tuteur</th>
-            <th>Promo</th>
-            <th>Status</th>
-            <th>Date du prochain cours</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for internship in internship %}
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ internship.idMatiere.intitule }}</td>
-                <td>Tuteur</td>
-                <td>{{ internship.idPromo.promo }}</td>
-                {% if internship.status is same as(0) %}
-                    <td>StandBy</td>
-                {% elseif internship.status is same as(1) %}
-                    <td>Terminé</td>
-                {% elseif internship.status is same as(2) %}
-                    <td>Annulé</td>
-                {% endif %}
-                <td>{{ internship.date |format_date(locale='fr') }}</td>
-                <td>
-                    {% if internship.status is same as(0) %}
-                        <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier le stage</a>
-                    {% endif %}
-                </td>
-                <td>{% if internship.status is same as(0) %}
-                        <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage</a>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if internship.status is same as(0) %}
-                        <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
-                    {% endif %}
-                </td>
-                <td><a href="{{ path('delete_course', { 'id':internship.idCours }) }}">Supprimer le stage</a></td>
+                <th scope="col">Matière</th>
+                <th scope="col">Tuteur</th>
+                <th scope="col">Promo</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date du prochain cours</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for internship in internship %}
+                <tr>
+                    <td>{{ internship.idMatiere.intitule }}</td>
+                    <td>Tuteur</td>
+                    <td>{{ internship.idPromo.promo }}</td>
+                    {% if internship.status is same as(0) %}
+                        <td>StandBy</td>
+                    {% elseif internship.status is same as(1) %}
+                        <td>Terminé</td>
+                    {% elseif internship.status is same as(2) %}
+                        <td>Annulé</td>
+                    {% endif %}
+                    <td>{{ internship.date |format_date(locale='fr') }}</td>
+                    <td>
+                        {% if internship.status is same as(0) %}
+                            <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier le stage</a>
+                        {% endif %}
+                    </td>
+                    <td>{% if internship.status is same as(0) %}
+                            <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage</a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if internship.status is same as(0) %}
+                            <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('delete_course', { 'id':internship.idCours }) }}">Supprimer le stage</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
     <div>
         {{ knp_pagination_render(internship) }}
     </div>
 
+    <br />
     <h3>Matières</h3>
-    <table border="1">
-        <tr>
-            <th>Matière</th>
-            <th>Status</th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for matiere in matieres %}
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ matiere.intitule }}</td>
-                <td>
-                    {% if matiere.validationadmin is same as(0) %}
-                        Non validé
-                    {% elseif matiere.validationadmin is same as(1) %}
-                        Validé
-                    {% endif %}
-                </td>
-                <td><a href="{{ path('update_matiere', { 'id':matiere.idMatiere }) }}">Modifier la matière</a></td>
-                <td><a href="{{ path('delete_matiere', { 'id':matiere.idMatiere }) }}">Supprimer la matière</a></td>
+                <th scope="col">Matière</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for matiere in matieres %}
+                <tr>
+                    <td>{{ matiere.intitule }}</td>
+                    <td>
+                        {% if matiere.validationadmin is same as(0) %}
+                            Non validé
+                        {% elseif matiere.validationadmin is same as(1) %}
+                            Validé
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('update_matiere', { 'id':matiere.idMatiere }) }}">Modifier la matière</a></td>
+                    <td><a href="{{ path('delete_matiere', { 'id':matiere.idMatiere }) }}">Supprimer la matière</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
     <div>
         {{ knp_pagination_render(matieres) }}

@@ -53,7 +53,7 @@
                         </li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li class="nav-item">
-                                <a class="nav-link pr-4 h3" href="{{ path('forum') }}">Pannel admin</a>
+                                <a class="nav-link pr-4 h3" href="{{ path('admin') }}">Pannel admin</a>
                             </li>
                         {% endif %}
                         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}

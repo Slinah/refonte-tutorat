@@ -1,7 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Donner un cours</h1>
+
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+            nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+    </div>
+{% endblock %}
+
 {% block body %}
-    <h3>Donner un cours</h3>
     <p>Cours suggérés :
         {% for suggest in suggest %}
             {% if suggest is not empty %}

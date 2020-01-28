@@ -1,65 +1,78 @@
 {% extends 'base.html.twig' %}
 
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Suggérer un cours</h1>
+
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+            nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+    </div>
+{% endblock %}
+
 {% block body %}
-    <h1>Suggérer un cours</h1>
 
     <h3>Liste des propositions</h3>
-    <table border="1">
-        <tr>
-            <th>Matière</th>
-            <th>Difficulté</th>
-            <th>Votes</th>
-            <th>Créateur</th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for suggest in suggestList %}
-            {% if suggest is not empty %}
-                <tr>
-                    <td>{{ suggest.idMatiere }}</td>
-                    <td>
-                        {% for promo in suggest.idPromo %}
-                            {{ promo.promo }}
-                        {% endfor %}
-                    </td>
-                    <td>
-                        {# compte toutes les personnes lié à la proposition #}
-                        {% for personne in suggest.idPersonne %}
-                            {{ personne.nom }}
-                        {% endfor %}
-                    </td>
-                    <td>
-                        {{ suggest.idCreateur.nom }}
-                    </td>
-                    <td>
-                        {% if app.user %}
-
-                            {% for personne in suggest.idPersonne %}
-                                {# Si la personne co est le créateur #}
-                                {% if app.user.idPersonne == suggest.idCreateur.idPersonne %}
-                                    Vous avez déjà votez
-                                {# Si la personne co n'est pas le créateur et qu'elle a voté #}
-                                {% elseif app.user.idPersonne == personne.idPersonne %}
-                                    Vous avez déjà votez
-                                {% else %}
-                                    <a href="{{ path('vote_suggest', { 'id':suggest.idProposition }) }}">Voter</a>
-                                {% endif %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Matière</th>
+                <th scope="col">Difficulté</th>
+                <th scope="col">Votes</th>
+                <th scope="col">Créateur</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for suggest in suggestList %}
+                {% if suggest is not empty %}
+                    <tr>
+                        <td>{{ suggest.idMatiere }}</td>
+                        <td>
+                            {% for promo in suggest.idPromo %}
+                                {{ promo.promo }}
                             {% endfor %}
+                        </td>
+                        <td>
+                            {# compte toutes les personnes lié à la proposition #}
+                            {% for personne in suggest.idPersonne %}
+                                {{ personne.nom }}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {{ suggest.idCreateur.nom }}
+                        </td>
+                        <td>
+                            {% if app.user %}
 
-                        {% else %}
-                            <i>Vous devez vous connectez pour voter</i>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if app.user.idPersonne == suggest.idCreateur.idPersonne or is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('delete_suggest', { 'id':suggest.idProposition }) }}">Supprimer</a>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% else %}
-                <tr>Il n'y a pas de cours suggérer</tr>
-            {% endif %}
-        {% endfor %}
+                                {% for personne in suggest.idPersonne %}
+                                    {# Si la personne co est le créateur #}
+                                    {% if app.user.idPersonne == suggest.idCreateur.idPersonne %}
+                                        Vous avez déjà votez
+                                    {# Si la personne co n'est pas le créateur et qu'elle a voté #}
+                                    {% elseif app.user.idPersonne == personne.idPersonne %}
+                                        Vous avez déjà votez
+                                    {% else %}
+                                        <a href="{{ path('vote_suggest', { 'id':suggest.idProposition }) }}">Voter</a>
+                                    {% endif %}
+                                {% endfor %}
+
+                            {% else %}
+                                <i>Vous devez vous connectez pour voter</i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if app.user.idPersonne == suggest.idCreateur.idPersonne or is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('delete_suggest', { 'id':suggest.idProposition }) }}">Supprimer</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>Il n'y a pas de cours suggérer</tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
     </table>
     <br />
 

@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Mon profil</h1>
+        <p>{{ app.user.nom }} {{ app.user.prenom }}</p>
+        <p>{{ app.user.idClasse.idPromo.idEcole.intitule }}</p>
+        <p>{{ app.user.idClasse.idPromo.promo }} - {{ app.user.idClasse.classe }}</p>
+    </div>
+{% endblock %}
+
 {% block body %}
-    <h3>Mon profil</h3>
-
-    <p>{{ app.user.nom }} {{ app.user.prenom }}</p>
-    <p>{{ app.user.idClasse.idPromo.idEcole.intitule }}</p>
-    <p>{{ app.user.idClasse.idPromo.promo }} - {{ app.user.idClasse.classe }}</p>
-
     <h3>Mes Récompenses</h3>
     <div>ProgressBar du niveau</div>
 

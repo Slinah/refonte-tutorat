@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h3>Ajouter un stage</h3>
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Ajouter un stage</h1>
+    </div>
+{% endblock %}
 
+{% block body %}
     {{ form_start(form) }}
     {{ form_label(form.intitule) }}
     <br />
