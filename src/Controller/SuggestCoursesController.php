@@ -63,7 +63,6 @@ class SuggestCoursesController extends AbstractController
 
         return $this->render('suggest_courses/index.html.twig', [
             "suggestList"=>$suggestList,
-            //"votes"=>$votes,
             "formProposition"=>$formProposition->createView(),
             "formMatiere"=>$formMatiere->createView()
         ]);
@@ -73,7 +72,7 @@ class SuggestCoursesController extends AbstractController
      * @Route("/vote/{id}", name="vote_suggest")
      * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
-    public function VoteSuggest(PropositionRepository $repo, $id)
+    public function VoteSuggest(Proposition $proposition, PropositionRepository $repo, $id)
     {
         //récup l'user connecter
         $connectedUser = $this->getUser();
@@ -82,10 +81,20 @@ class SuggestCoursesController extends AbstractController
         //associe la proposition à l'user co
         $connectedUser->getIdProposition()->add($suggest);
 
+        //si une personne à déjà voté
+//        $foundVote= $repo->findOneBy(["idPersonne"=>$connectedUser, "idProposition"=>$proposition]);
+        if (!empty($connectedUser->getIdProposition()->add($suggest))) {
+            $this->addFlash("error", "Déjà voté, bien essayé !");
+            return $this->redirectToRoute("suggest_courses");
+        }
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($suggest);
+        //rajouter 1 au vote
+        $suggest->setNbVote($suggest->getNbVote()+1);
+
         $em->flush();
-        $this->addFlash('success', 'Proposition supprimée avec succès !');
+        $this->addFlash('success', 'Votre vote à bien été pris en compte !');
 
         return $this->redirectToRoute("suggest_courses");
     }

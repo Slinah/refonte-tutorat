@@ -19,15 +19,6 @@ class PropositionRepository extends ServiceEntityRepository
         parent::__construct($registry, Proposition::class);
     }
 
-    public function CountVotes()
-    {
-        return $this->createQueryBuilder('q')
-            ->addSelect('count(q)')
-            ->getQuery()
-            ->getScalarResult()
-            ;
-    }
-
     // /**
     //  * @return Proposition[] Returns an array of Proposition objects
     //  */

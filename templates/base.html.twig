@@ -15,6 +15,20 @@
 
     <body>
         <header id="header">
+            {# Message de succès #}
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            {# Message d'erreur #}
+            {% for message in app.flashes('error') %}
+                <div class="alert alert-success"> {# voir classe pour erreur #}
+                    {{ message }}
+                </div>
+            {% endfor %}
+
             {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-5">
@@ -69,13 +83,6 @@
                 </div>
             </nav>
             {# End navBar #}
-
-            {# Message de succès #}
-            {% for message in app.flashes('success') %}
-                <div class="alert alert-success">
-                    {{ message }}
-                </div>
-            {% endfor %}
 
             {% block titre %}{% endblock %}
         </header>

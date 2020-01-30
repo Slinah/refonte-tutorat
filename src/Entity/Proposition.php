@@ -66,6 +66,11 @@ class Proposition
     private $idPromo;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $nbVote = 1;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -159,6 +164,18 @@ class Proposition
         if ($this->idPromo->contains($idPromo)) {
             $this->idPromo->removeElement($idPromo);
         }
+
+        return $this;
+    }
+
+    public function getNbVote(): ?int
+    {
+        return $this->nbVote;
+    }
+
+    public function setNbVote(int $nbVote): self
+    {
+        $this->nbVote = $nbVote;
 
         return $this;
     }
