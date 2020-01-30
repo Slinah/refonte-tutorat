@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -65,6 +67,10 @@ class Classe
         $this->idPromo = $idPromo;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->classe;
     }
 
 
