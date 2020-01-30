@@ -32,7 +32,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('Password', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
@@ -48,7 +48,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('idClasse', EntityType::class, ["class"=>Classe::class, "label"=>"id_classe :", "multiple"=>true,
+            ->add('idClasse', EntityType::class, ["class"=>Classe::class, "label"=>"Classe :", "multiple"=>true,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('q')
                         ->orderBy("q.classe", "ASC");
