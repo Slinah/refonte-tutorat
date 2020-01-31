@@ -48,7 +48,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('idClasse', EntityType::class, ["class"=>Classe::class, "label"=>"Classe :", "multiple"=>true,
+            ->add('idClasse', EntityType::class, ["class"=>Classe::class, "label"=>"Classe :",
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('q')
                         ->orderBy("q.classe", "ASC");
