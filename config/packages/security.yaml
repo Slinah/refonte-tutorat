@@ -6,11 +6,12 @@ security:
         # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
 
     encoders:
-        App\Entity\Personne: plaintext
-            #algorithm: bcrypt
-            #cost : 12  # plus il est important, mieux ce sera crypté
+        App\Entity\Personne:
+            algorithm: bcrypt
+            cost : 12  # plus il est important, mieux ce sera crypté
 
     providers:
+
         from_database :
             entity:
                 class: App\Entity\Personne
@@ -46,6 +47,9 @@ security:
                 guard:
                     authenticator:
                         - App\Security\LoginFormAuthenticator
+
+
+
 
         # Easy way to control access for large sections of your site
         # Note: Only the *first* access control that matches will be used

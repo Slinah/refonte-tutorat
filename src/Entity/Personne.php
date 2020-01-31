@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
+use App\Entity\Classe;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -213,7 +214,7 @@ class Personne implements UserInterface //extends BaseUser
         return $this;
     }
 
-    public function getIdClasse(): ?Classe
+    public function getIdClasse(): ?string
     {
         return $this->idClasse;
     }
