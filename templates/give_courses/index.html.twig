@@ -7,24 +7,26 @@
         <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
             Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
             nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+
+        <p>Cours suggérés :
+            {% for suggest in suggest %}
+                {% if suggest is not empty %}
+                    | {{ suggest.idMatiere.intitule }} -
+                    {% for promo in suggest.idPromo %}
+                        {{ promo.promo }} |
+                    {% endfor %}
+                {% else %}
+                    <tr>Il n'y a pas de cours suggérer</tr>
+                {% endif %}
+            {% endfor %}
+        </p>
     </div>
 {% endblock %}
 
 {% block body %}
-    <p>Cours suggérés :
-        {% for suggest in suggest %}
-            {% if suggest is not empty %}
-                | {{ suggest.idMatiere.intitule }} -
-                {% for promo in suggest.idPromo %}
-                    {{ promo.promo }} |
-                {% endfor %}
-            {% else %}
-                <tr>Il n'y a pas de cours suggérer</tr>
-            {% endif %}
-        {% endfor %}
-    </p>
 
     {{ form_start(form) }}
+
     {{ form_label(form.intitule) }}
     <br />
     {{ form_widget(form.intitule) }}

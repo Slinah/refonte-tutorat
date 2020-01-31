@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class PersonneCours
 {
     /**
-     * @var \Personne
+     * @var \App\Entity\Personne
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -22,7 +23,7 @@ class PersonneCours
     private $idPersonne;
 
     /**
-     * @var \Cours
+     * @var \App\Entity\Cours
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -34,61 +35,54 @@ class PersonneCours
     private $idCours;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="rang_personne", type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      */
-    private $rangPersonne = '0';
+    private $rangPersonne = 0;
 
     /**
-     * Constructor
+     * @return \App\Entity\Personne
      */
-    public function __construct()
-    {
-        $this->idCours = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idPersonne = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    public function getIdPersonne(): ?Personne
+    public function getIdPersonne(): \App\Entity\Personne
     {
         return $this->idPersonne;
     }
 
-    public function setIdPersonne(?Personne $idPersonne): self
+    /**
+     * @param \App\Entity\Personne $idPersonne
+     */
+    public function setIdPersonne(\App\Entity\Personne $idPersonne): void
     {
         $this->idPersonne = $idPersonne;
-
-        return $this;
     }
 
     /**
-     * @return \Cours
+     * @return \App\Entity\Cours
      */
-    public function getIdCours(): \Cours
+    public function getIdCours(): \App\Entity\Cours
     {
         return $this->idCours;
     }
 
     /**
-     * @param \Cours $idCours
+     * @param \App\Entity\Cours $idCours
      */
-    public function setIdCours(\Cours $idCours): void
+    public function setIdCours(\App\Entity\Cours $idCours): void
     {
         $this->idCours = $idCours;
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getRangPersonne(): int
+    public function getRangPersonne()
     {
         return $this->rangPersonne;
     }
 
     /**
-     * @param int $rangPersonne
+     * @param mixed $rangPersonne
      */
-    public function setRangPersonne(int $rangPersonne): void
+    public function setRangPersonne($rangPersonne): void
     {
         $this->rangPersonne = $rangPersonne;
     }

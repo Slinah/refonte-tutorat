@@ -7,6 +7,7 @@ use App\Form\CourseSearchType;
 use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
+use App\Repository\PersonneCoursRepository;
 use App\Repository\PromoRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,11 +21,13 @@ class CoursesController extends AbstractController
     /**
      * @Route("/courses", name="courses")
      */
-    public function index(CoursRepository $repository, PaginatorInterface $paginator, Request $request)
+    public function index(CoursRepository $repository, PersonneCoursRepository $personneCoursRepo, PaginatorInterface $paginator, Request $request)
     {
         $courseSearch = new CourseSearch();
         $formCourseSearch = $this->createForm(CourseSearchType::class, $courseSearch);
         $formCourseSearch->handleRequest($request);
+
+        $tuteur = $personneCoursRepo->findAll();
 
         //A voir pour faire une requête par semaine
 
@@ -46,6 +49,7 @@ class CoursesController extends AbstractController
         return $this->render('courses/index.html.twig', [
             "formCourseSearch"=> $formCourseSearch->createView(),
             "courses"=>$courses,
+            "tuteur"=>$tuteur,
             "dateNow"=>$dateNow,
             "LundisemaineCourante"=>$LundisemaineCourante,
             "DimanchesemaineCourante"=>$DimanchesemaineCourante,

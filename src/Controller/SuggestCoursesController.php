@@ -72,7 +72,7 @@ class SuggestCoursesController extends AbstractController
      * @Route("/vote/{id}", name="vote_suggest")
      * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
-    public function VoteSuggest(Proposition $proposition, PropositionRepository $repo, $id)
+    public function VoteSuggest(PropositionRepository $repo, $id)
     {
         //récup l'user connecter
         $connectedUser = $this->getUser();
@@ -82,7 +82,6 @@ class SuggestCoursesController extends AbstractController
         $connectedUser->getIdProposition()->add($suggest);
 
         //si une personne à déjà voté
-//        $foundVote= $repo->findOneBy(["idPersonne"=>$connectedUser, "idProposition"=>$proposition]);
         if (!empty($connectedUser->getIdProposition()->add($suggest))) {
             $this->addFlash("error", "Déjà voté, bien essayé !");
             return $this->redirectToRoute("suggest_courses");

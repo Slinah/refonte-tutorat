@@ -123,7 +123,7 @@ class AdminController extends AbstractController
             $em->flush();
             $this->addFlash('success', 'Cours / stage clos avec succès !');
 
-            return $this->redirectToRoute("admin");
+            return $this->redirectToRoute("courses");
         }
 
         return $this->render('admin/closeCourses.html.twig', [
@@ -150,7 +150,7 @@ class AdminController extends AbstractController
             $em->flush();
             $this->addFlash('success', 'Cours / stage annulé avec succès !');
 
-            return $this->redirectToRoute("admin");
+            return $this->redirectToRoute("courses");
         }
 
         return $this->render('admin/cancelCourses.html.twig', [

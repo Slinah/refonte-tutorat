@@ -75,16 +75,22 @@
                                 <li>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</li>
                                 <li>{{ courses.idPromo }}</li>
                                 <li>{{ courses.intitule }}</li>
-                                <li>tuteur</li>
+                                {% for tuteur in tuteur %}
+                                    {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+                                        <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
 
                             <div style="text-align: center">
                                 {% if app.user %}
-                                    {# if rangPersonne is same as(1) #}
-                                    <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
-                                    <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
-                                    <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
-                                    {# endif #}
+                                    {% for tuteur in tuteur %}
+                                        {% if courses.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
+                                            <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                                            <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                                            <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                        {% endif %}
+                                    {% endfor %}
                                 {% endif %}
                             </div>
                         </div>
@@ -107,7 +113,7 @@
         <div>
             {{ knp_pagination_render(courses) }}
         </div>
-    </div>c
+    </div>
 
     <div class="row">
         <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
@@ -119,8 +125,24 @@
                         <h4>{{ courses.idMatiere }}</h4>
                         <ul>
                             <li>{{ courses.intitule }}</li>
-                            <li>tuteur</li>
+                            {% for tuteur in tuteur %}
+                                {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+                                    <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
+
+                        <div style="text-align: center">
+                            {% if app.user %}
+                                {% for tuteur in tuteur %}
+                                    {% if courses.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
+                                        <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                                        <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                                        <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
                     </div>
 
                     <div class="button">
@@ -148,12 +170,29 @@
 
             <div class="col">
                 <div class="card">
+                    <div>
+                        <h4>{{ courses.idMatiere }}</h4>
+                        <ul>
+                            <li>{{ courses.intitule }}</li>
+                            {% for tuteur in tuteur %}
+                                {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+                                    <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
 
-                    <h4>{{ courses.idMatiere }}</h4>
-                    <ul>
-                        <li>{{ courses.intitule }}</li>
-                        <li>tuteur</li>
-                    </ul>
+                        <div style="text-align: center">
+                            {% if app.user %}
+                                {% for tuteur in tuteur %}
+                                    {% if courses.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
+                                        <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                                        <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                                        <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
 
                     <div class="button">
                         <ul>
