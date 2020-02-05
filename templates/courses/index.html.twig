@@ -78,8 +78,13 @@
                                 {% for tuteur in tuteur %}
                                     {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
                                         <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+                                    {% elseif courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (0) %}
+                                        <li>_____</li>
+                                        <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+
                                     {% endif %}
                                 {% endfor %}
+                                <li>_____</li>
                             </ul>
 
                             <div style="text-align: center">
@@ -95,15 +100,20 @@
                             </div>
                         </div>
 
-                        <div class="button">
-                            <ul>
-                                <li>
-                                    S'inscrire
-                                    <span></span><span></span><span></span><span></span>
-                                </li>
-
-                            </ul>
-                        </div>
+                        {% if app.user %}
+                            <a href="{{ path('registration_courses', { 'id':courses.idCours }) }}" class="button">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            S'inscrire
+                                            <span></span><span></span><span></span><span></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        {% else %}
+                            <i>Vous devez vous connectez pour vous inscrire</i>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -145,15 +155,21 @@
                         </div>
                     </div>
 
-                    <div class="button">
-                        <ul>
-                            <li>
-                                S'inscrire
-                                <span></span><span></span><span></span><span></span>
-                            </li>
+                    {% if app.user %}
+                        <a href="{{ path('registration_courses', { 'id':courses.idCours }) }}" class="button">
+                            <div>
+                                <ul>
+                                    <li>
+                                        S'inscrire
+                                        <span></span><span></span><span></span><span></span>
+                                    </li>
 
-                        </ul>
-                    </div>
+                                </ul>
+                            </div>
+                        </a>
+                    {% else %}
+                        <i>Vous devez vous connectez pour vous inscrire</i>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
@@ -167,7 +183,6 @@
     <div class="row">
         <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
         {% for courses in courses %}
-
             <div class="col">
                 <div class="card">
                     <div>
@@ -194,14 +209,20 @@
                         </div>
                     </div>
 
-                    <div class="button">
-                        <ul>
-                            <li>
-                                S'inscrire
-                                <span></span><span></span><span></span><span></span>
-                            </li>
-                        </ul>
-                    </div>
+                    {% if app.user %}
+                        <a href="{{ path('registration_courses', { 'id':courses.idCours }) }}" class="button">
+                            <div>
+                                <ul>
+                                    <li>
+                                        S'inscrire
+                                        <span></span><span></span><span></span><span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    {% else %}
+                        <i>Vous devez vous connectez pour vous inscrire</i>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}

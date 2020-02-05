@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\PersonneCours;
 use App\Entity\Search\CourseSearch;
 use App\Form\CourseSearchType;
 use App\Form\UpdateCoursesType;
@@ -11,6 +12,7 @@ use App\Repository\PersonneCoursRepository;
 use App\Repository\PromoRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\DuplicateKeyException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
@@ -29,8 +31,6 @@ class CoursesController extends AbstractController
 
         $tuteur = $personneCoursRepo->findAll();
 
-        //A voir pour faire une requête par semaine
-
         $courses = $repository->findCoursePagination($courseSearch);
         $courses = $paginator->paginate(
             $courses,
@@ -40,22 +40,47 @@ class CoursesController extends AbstractController
 
         $dateNow = new \DateTime('now');
 
-        $LundisemaineCourante = new \DateTime();
-        $DimanchesemaineCourante = new \DateTime();
-
-        $LundisemaineSuivante = "2020-01-20";
-        $DimanchesemaineSuivante = "2020-01-26";
-
         return $this->render('courses/index.html.twig', [
             "formCourseSearch"=> $formCourseSearch->createView(),
             "courses"=>$courses,
             "tuteur"=>$tuteur,
-            "dateNow"=>$dateNow,
-            "LundisemaineCourante"=>$LundisemaineCourante,
-            "DimanchesemaineCourante"=>$DimanchesemaineCourante,
-            "LundisemaineSuivante"=>$LundisemaineSuivante,
-            "DimanchesemaineSuivante"=>$DimanchesemaineSuivante
+            "dateNow"=>$dateNow
         ]);
+    }
+
+    /**
+     * @Route("/courses/registration-courses/{id}", name="registration_courses")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     */
+    public function RegistrationCourses(CoursRepository $repo, PersonneCoursRepository $personneCoursRepo, $id)
+    {
+        //récup l'user connecter
+        $connectedUser = $this->getUser();
+
+        $course = $repo->find($id);
+        //$comparaison = $personneCoursRepo->find($id);
+
+        try {
+            $association = new PersonneCours();
+            $association->setIdPersonne($connectedUser);
+            $association->setIdCours($course);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($association);
+            $em->flush();
+            $this->addFlash('success', 'Vous venez de vous inscrire à un cours !');
+        } catch (\Exception $e){
+            $this->addFlash("error", "Déjà inscrit, bien essayé !");
+            return $this->redirectToRoute("courses");
+        }
+
+        //si une personne c'est déjà inscrite
+//        if ($association->getIdPersonne() === $connectedUser->getIdPersonne()) {
+//            $this->addFlash("error", "Déjà inscrit, bien essayé !");
+//            return $this->redirectToRoute("courses");
+//        }
+
+        return $this->redirectToRoute("courses");
     }
 
     /**
