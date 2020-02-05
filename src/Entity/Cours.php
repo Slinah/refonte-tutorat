@@ -47,7 +47,7 @@ class Cours
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateCreation", type="date", nullable=true)
+     * @ORM\Column(name="dateCreation", type="datetime", nullable=true)
      */
     private $dateCreation;
 

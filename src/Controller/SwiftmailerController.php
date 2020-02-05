@@ -18,7 +18,7 @@ class SwiftmailerController extends AbstractController
         $query = 'SELECT intitule, date, heure FROM cours c 
                       join personne_cours pc on c.id_cours = pc.id_cours 
                       join personne p on p.id_personne = pc.id_personne 
-                      where p.mail = :mail order by c.dateCreation ASC LIMIT 1;';
+                      where p.mail = :mail order by c.dateCreation DESC LIMIT 1;';
 
 
         $statement = $em->getConnection()->prepare($query);

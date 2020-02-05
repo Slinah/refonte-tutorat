@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0ff0983-74e5-4121-ab3d-825c58f29990" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GiveCoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GiveCoursesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SwiftmailerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SwiftmailerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Cours.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Cours.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/GiveCoursesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/GiveCoursesType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/give_courses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/give_courses/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/swiftmailer/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/swiftmailer/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/swiftmailer/noticeCreationCours.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/swiftmailer/noticeCreationCours.html.twig" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -143,17 +135,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="64" />
-          <entry key="php" value="2000" />
+          <entry key="php" value="2004" />
           <entry key="twig" value="579" />
-          <entry key="txt" value="83" />
+          <entry key="txt" value="138" />
           <entry key="yaml" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="64" />
-          <entry key="PHP" value="1985" />
-          <entry key="PLAIN_TEXT" value="83" />
+          <entry key="PHP" value="1989" />
+          <entry key="PLAIN_TEXT" value="138" />
           <entry key="SQL" value="15" />
           <entry key="Twig" value="579" />
           <entry key="YAML" value="31" />
@@ -164,7 +156,7 @@
           <entry key="env" value="1" />
           <entry key="html" value="1" />
           <entry key="lock" value="1" />
-          <entry key="php" value="46" />
+          <entry key="php" value="47" />
           <entry key="test" value="1" />
           <entry key="twig" value="15" />
           <entry key="yaml" value="10" />
@@ -173,7 +165,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="PHP" value="46" />
+          <entry key="PHP" value="47" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Twig" value="15" />
           <entry key="YAML" value="10" />
@@ -222,15 +214,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/SuggestCoursesController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="661">
@@ -251,8 +234,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/GiveCoursesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
+            <state relative-caret-position="219">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#34#55#0#PHP" expanded="true" />
               </folding>
@@ -261,10 +244,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Cours.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="84" column="24" lean-forward="true" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+              <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -347,7 +339,6 @@
         <option value="$PROJECT_DIR$/src/Form/RegistrationFormType.php" />
         <option value="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" />
         <option value="$PROJECT_DIR$/templates/swiftmailer/noticeCreationCours.html.twig.html" />
-        <option value="$PROJECT_DIR$/src/Entity/Cours.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/GiveCoursesController.php" />
@@ -358,6 +349,7 @@
         <option value="$PROJECT_DIR$/templates/swiftmailer/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/swiftmailer/noticeCreationCours.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Cours.php" />
       </list>
     </option>
   </component>
@@ -680,7 +672,7 @@
       <workItem from="1580741209704" duration="3670000" />
       <workItem from="1580803425740" duration="1936000" />
       <workItem from="1580815750645" duration="3174000" />
-      <workItem from="1580889474872" duration="3199000" />
+      <workItem from="1580889474872" duration="3770000" />
     </task>
     <task id="LOCAL-00001" summary="Register (partiel)">
       <created>1580390036718</created>
@@ -696,17 +688,24 @@
       <option name="project" value="LOCAL" />
       <updated>1580485244880</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Envoie de mail&#10;DateCreation ajouté dans BDD">
+      <created>1580892966054</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580892966054</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87665000" />
+    <option name="totallyTimeSpent" value="88236000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="744" y="0" width="1119" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31539187" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -719,8 +718,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49810368" weight="0.24451755" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49386212" visible="true" weight="0.19605696" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50613785" side_tool="true" visible="true" weight="0.19605696" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49413645" visible="true" weight="0.19414316" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50586355" side_tool="true" visible="true" weight="0.19414316" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -761,7 +760,8 @@
     <MESSAGE value="Mail configuré" />
     <MESSAGE value="Register (partiel)" />
     <MESSAGE value="Envoie de mail&#10;Début configuration du contenu des mails" />
-    <option name="LAST_COMMIT_MESSAGE" value="Envoie de mail&#10;Début configuration du contenu des mails" />
+    <MESSAGE value="Envoie de mail&#10;DateCreation ajouté dans BDD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Envoie de mail&#10;DateCreation ajouté dans BDD" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
@@ -932,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Cours.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/symfony.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8438" />
@@ -1040,20 +1033,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/GiveCoursesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
+        <state relative-caret-position="219">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#34#55#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Cours.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="84" column="24" lean-forward="true" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+        <state relative-caret-position="378">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
