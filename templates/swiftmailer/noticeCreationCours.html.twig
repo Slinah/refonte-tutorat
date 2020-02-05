@@ -1,9 +1,15 @@
-Hey ! Listen !
+<html>
+    <body>
+        <h1>
+            Hey ! Listen !
+        </h1>
 
-Un nouveau cours vient d'être crée par {{ app.user.nom }} {{ app.user.prenom }}
+        Un nouveau cours vient d'être crée par {{ app.user.nom }} {{ app.user.prenom }}<br><br>
 
-{#Nom du cours : {{ test.intitule }}#}
-{#Matiere : {{ test. }}#}
-{#Heure : {{ test.heure }}#}
-{#Date : {{ test.date }}#}
-{#Commentaire : {{ test.commentaires }}#}
+
+        Nom du cours : {{ result[0].intitule }}<br>
+        Date : {{ result[0].date }}<br>
+        Heure : {{ result[0].heure }}<br>
+
+    </body>
+</html>

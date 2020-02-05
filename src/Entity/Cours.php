@@ -45,6 +45,13 @@ class Cours
     private $date;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="date", nullable=true)
+     */
+    private $dateCreation;
+
+    /**
      * @var string|null
      *
      * @ORM\Column(name="commentaires", type="text", length=65535, nullable=true, options={"default"="NULL"})
@@ -157,6 +164,18 @@ class Cours
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->dateCreation;
+    }
+
+    public function setDateCreation(\DateTimeInterface $dateCreation): self
+    {
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }

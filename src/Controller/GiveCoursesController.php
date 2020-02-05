@@ -27,6 +27,7 @@ class GiveCoursesController extends AbstractController
 
         $GiveCourses = new Cours();
         $form=$this->createForm(GiveCoursesType::class, $GiveCourses);
+        $GiveCourses->setDateCreation(new \DateTime("now"));
         $GiveCourses->setSecu("secu");
         $form->handleRequest($request);
 
@@ -43,6 +44,8 @@ class GiveCoursesController extends AbstractController
 
             $em->flush();
             $this->addFlash('success', 'Cours ajouté avec succès !');
+
+
 
 
             #return $this->redirectToRoute("courses");

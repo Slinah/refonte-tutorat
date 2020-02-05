@@ -58,6 +58,7 @@
                 <th scope="col">Promo</th>
                 <th scope="col">Status</th>
                 <th scope="col">Date</th>
+                <th scope="col">Date de Creation</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -79,6 +80,8 @@
                         <td>Annulé</td>
                     {% endif %}
                     <td>{{ course.date |format_date(locale='fr') }}</td>
+
+                    <td>{{ course.dateCreation |format_date(locale='fr') }}</td>
                     <td>
                         {% if course.status is same as(0) %}
                             <a href="{{ path('update_courses', { 'id':course.idCours }) }}">Modifier le cours</a>

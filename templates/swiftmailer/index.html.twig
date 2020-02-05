@@ -1,14 +1,16 @@
+<html>
+    <body>
+        <h1>
+            Hello {{ app.user.nom }} {{ app.user.prenom }} ! ✅
+        </h1>
 
+        Ton cours à bien été enregisté !<br><br>
 
-Hello {{ app.user.nom }} {{ app.user.prenom }} ! ✅
+        Les autres et toi même peuvent le retouver ici :<br>
+        http://localhost:8000/courses<br><br>
 
-Ton cours à bien été enregisté !
-
-Les autres et toi même peuvent le retouver ici :
-http://localhost:8000/courses
-
-{#Nom du cours : {{ test.intitule }}#}
-{#Matiere : {{ test. }}#}
-{#Heure : {{ test.heure }}#}
-{#Date : {{ test.date }}#}
-{#Commentaire : {{ test.commentaires }}#}
+        Nom du cours : {{ result[0].intitule }}<br>
+        Date : {{ result[0].date }}<br>
+        Heure : {{ result[0].heure }}<br>
+    </body>
+</html>

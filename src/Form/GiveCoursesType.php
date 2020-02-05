@@ -21,6 +21,7 @@ class GiveCoursesType extends AbstractType
         $builder
             ->add('intitule', TextType::class, ["label"=>"Intitulé du cours :", "attr"=>["placeholder"=>"Faire des tableaux de chatons"], "required"=>true])
             ->add('date', DateType::class, ["label"=>"Date :", 'widget' => 'single_text', "required"=>true])
+//            ->add('dateCreation', DateType::class, ["label"=>"Date de creation:", 'widget' => 'single_text', "required"=>true])
             ->add('heure', TimeType::class, ["label"=>"Heure :", "required"=>true])
             ->add('idMatiere', EntityType::class, ["class"=>Matiere::class, "label"=>"Matière :",
                 'query_builder' => function (EntityRepository $er) {
