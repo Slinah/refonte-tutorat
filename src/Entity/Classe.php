@@ -40,6 +40,11 @@ class Classe
      */
     private $idPromo;
 
+    public function __toString()
+    {
+        return $this->classe;
+    }
+
     public function getIdClasse(): ?string
     {
         return $this->idClasse;
@@ -57,7 +62,7 @@ class Classe
         return $this;
     }
 
-    public function getIdPromo(): ?Promo
+    public function getIdPromo()
     {
         return $this->idPromo;
     }
@@ -68,10 +73,5 @@ class Classe
 
         return $this;
     }
-    public function __toString()
-    {
-        return $this->classe;
-    }
-
 
 }

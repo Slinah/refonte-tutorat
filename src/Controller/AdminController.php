@@ -9,6 +9,7 @@ use App\Form\UpdateCoursesType;
 use App\Form\UpdateMatiereType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
+use App\Repository\PersonneCoursRepository;
 use App\Repository\PersonneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,7 @@ class AdminController extends AbstractController
      * @Route("/admin", name="admin")
      * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
-    public function index(MatiereRepository $matiereRepo, PersonneRepository $personneRepo, CoursRepository $coursRepo ,Request $request, PaginatorInterface $paginator)
+    public function index(PersonneCoursRepository $personneCoursRepo, MatiereRepository $matiereRepo, PersonneRepository $personneRepo, CoursRepository $coursRepo, Request $request, PaginatorInterface $paginator)
     {
         $students = $personneRepo->findAll();
         $students = $paginator->paginate(
@@ -31,6 +32,8 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+
+        $tuteur = $personneCoursRepo->findAll();
 
         $courses = $coursRepo->findCourseAdmin();
         $courses = $paginator->paginate(
@@ -56,6 +59,7 @@ class AdminController extends AbstractController
         return $this->render('admin/index.html.twig', [
             "students"=>$students,
             "courses"=>$courses,
+            "tuteur"=>$tuteur,
             "internship"=>$internship,
             "matieres"=>$matieres
         ]);
@@ -163,9 +167,10 @@ class AdminController extends AbstractController
      * @Route("/delete_course/{id}", name="delete_course")
      * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
-    public function deleteCourse(CoursRepository $repo, $id)
+    public function deleteCourse(CoursRepository $repo, PersonneCoursRepository $personneCoursRepo, $id)
     {
         $course = $repo->find($id);
+        $personneCoursRepo->DeleteAssociationWithCourses($id);
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($course);

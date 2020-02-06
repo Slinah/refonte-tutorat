@@ -214,7 +214,7 @@ class Personne implements UserInterface //extends BaseUser
         return $this;
     }
 
-    public function getIdClasse(): ?string
+    public function getIdClasse()
     {
         return $this->idClasse;
     }

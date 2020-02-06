@@ -62,46 +62,129 @@
     {# Fin barre de recherche #}
 
     <div class="row">
-        {% if internship is not null %}
-            {% for internship in internship %}
-                {% if internship.status is same as(0) %}
-                    <div class="col">
-                        <div class="card">
-                            <div>
-                                <h4>{{ internship.idMatiere }}</h4>
-                                <ul>
-                                    <li>Date du prochain cours : </li>
-                                    <li>{{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</li>
-                                    <li>{{ internship.idPromo.promo }}</li>
-                                    <li>{{ internship.intitule }}</li>
-                                </ul>
+        <img src="image/cettesemaine.jpg" class="mr-5 ml-5" alt="cette semaine" width="10%" height="20%">
 
-                                <div style="text-align: center">
-                                    {% if app.user %}
-                                        <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
-                                        <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
-                                        <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
-                                    {% endif %}
-                                </div>
-                            </div>
+        {% for internship in internship %}
+            {% if internship.status is same as(0) %}
+                <div class="col">
+                    <div class="card">
+                        <div>
+                            <h4>{{ internship.idMatiere }}</h4>
+                            <ul>
+                                <li>Date du prochain cours : </li>
+                                <li>{{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</li>
+                                <li>{{ internship.idPromo.promo }}</li>
+                                <li>{{ internship.intitule }}</li>
+                            </ul>
 
-                                <div class="button">
-                                    <ul>
-                                        <li>
-                                            S'inscrire
-                                            <span></span><span></span><span></span><span></span>
-                                        </li>
-
-                                    </ul>
-                                </div>
+                            <div style="text-align: center">
+                                {% if app.user %}
+                                    <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
+                                    <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
+                                    <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                                {% endif %}
                             </div>
                         </div>
+
+                        <div class="button">
+                            <ul>
+                                <li>
+                                    S'inscrire
+                                    <span></span><span></span><span></span><span></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            <p>Pas de stages</p>
-        {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <br />
+        <div>
+            {{ knp_pagination_render(internship) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
+
+        {% for internship in internship %}
+            {% if internship.status is same as(0) %}
+                <div class="col">
+                    <div class="card">
+                        <div>
+                            <h4>{{ internship.idMatiere }}</h4>
+                            <ul>
+                                <li>Date du prochain cours : </li>
+                                <li>{{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</li>
+                                <li>{{ internship.idPromo.promo }}</li>
+                                <li>{{ internship.intitule }}</li>
+                            </ul>
+
+                            <div style="text-align: center">
+                                {% if app.user %}
+                                    <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
+                                    <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
+                                    <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <ul>
+                                <li>
+                                    S'inscrire
+                                    <span></span><span></span><span></span><span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <br />
+        <div>
+            {{ knp_pagination_render(internship) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
+
+        {% for internship in internship %}
+            {% if internship.status is same as(0) %}
+                <div class="col">
+                    <div class="card">
+                        <div>
+                            <h4>{{ internship.idMatiere }}</h4>
+                            <ul>
+                                <li>Date du prochain cours : </li>
+                                <li>{{ internship.date |format_datetime('full', 'none', locale='fr') }} à {{ internship.heure |format_time('short', locale='fr') }}</li>
+                                <li>{{ internship.idPromo.promo }}</li>
+                                <li>{{ internship.intitule }}</li>
+                            </ul>
+
+                            <div style="text-align: center">
+                                {% if app.user %}
+                                    <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
+                                    <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
+                                    <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <ul>
+                                <li>
+                                    S'inscrire
+                                    <span></span><span></span><span></span><span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
 
         <br />
         <div>
