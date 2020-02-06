@@ -52,13 +52,12 @@ class CoursesController extends AbstractController
      * @Route("/courses/registration-courses/{id}", name="registration_courses")
      * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
-    public function RegistrationCourses(CoursRepository $repo, PersonneCoursRepository $personneCoursRepo, $id)
+    public function RegistrationCourses(CoursRepository $repo, $id)
     {
         //récup l'user connecter
         $connectedUser = $this->getUser();
 
         $course = $repo->find($id);
-        //$comparaison = $personneCoursRepo->find($id);
 
         try {
             $association = new PersonneCours();
@@ -73,12 +72,6 @@ class CoursesController extends AbstractController
             $this->addFlash("error", "Déjà inscrit, bien essayé !");
             return $this->redirectToRoute("courses");
         }
-
-        //si une personne c'est déjà inscrite
-//        if ($association->getIdPersonne() === $connectedUser->getIdPersonne()) {
-//            $this->addFlash("error", "Déjà inscrit, bien essayé !");
-//            return $this->redirectToRoute("courses");
-//        }
 
         return $this->redirectToRoute("courses");
     }

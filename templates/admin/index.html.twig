@@ -81,7 +81,7 @@
                     <td>
                         {% for tuteur in tuteur %}
                             {% if course.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
-                                <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+                                {{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}
                             {% endif %}
                         {% endfor %}
                     </td>
@@ -147,8 +147,17 @@
                 {% for internship in internship %}
                     <tr>
                         <td>{{ internship.idMatiere.intitule }}</td>
-                        <td>Tuteur</td>
+
+                        <td>
+                            {% for tuteur in tuteur %}
+                                {% if internship.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+                                    {{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+
                         <td>{{ internship.idPromo.promo }}</td>
+
                         {% if internship.status is same as(0) %}
                             <td>StandBy</td>
                         {% elseif internship.status is same as(1) %}
@@ -156,7 +165,9 @@
                         {% elseif internship.status is same as(2) %}
                             <td>Annulé</td>
                         {% endif %}
+
                         <td>{{ internship.date |format_date(locale='fr') }}</td>
+
                         <td>
                             {% if internship.status is same as(0) %}
                                 <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier le stage</a>
