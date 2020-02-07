@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PersonneCours;
 use App\Entity\Search\CourseSearch;
-use App\Form\CourseSearchType;
+use App\Form\Search\CourseSearchType;
 use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
@@ -72,6 +72,24 @@ class CoursesController extends AbstractController
             $this->addFlash("error", "Déjà inscrit, bien essayé !");
             return $this->redirectToRoute("courses");
         }
+
+        return $this->redirectToRoute("courses");
+    }
+
+    /**
+     * @Route("/courses/unsubscribe-courses/{id}", name="unsubscribe_courses")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     */
+    public function UnsubscribeCourses(PersonneCoursRepository $personneCoursRepo, $id)
+    {
+        //récup l'user connecter
+        $connectedUser = $this->getUser();
+
+        $personneCoursRepo->unsubscribeAssociation($id, $connectedUser);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $this->addFlash('success', 'Vous venez de vous désinscrire d\'un cours !');
 
         return $this->redirectToRoute("courses");
     }

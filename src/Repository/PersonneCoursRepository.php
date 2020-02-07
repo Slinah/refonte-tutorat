@@ -32,6 +32,21 @@ class PersonneCoursRepository extends ServiceEntityRepository
         return $result;
     }
 
+    public function unsubscribeAssociation($id, $connectedUser)
+    {
+        return $this->createQueryBuilder('q')
+            ->delete()
+            ->Where('q.idCours = :idCours')
+            ->setParameter('idCours', $id)
+
+            ->andWhere('q.idPersonne = :connectedUser')
+            ->setParameter('connectedUser', $connectedUser)
+
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function findAllTuteur()
     {
         return $this->createQueryBuilder('q')

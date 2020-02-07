@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Cours;
 use App\Entity\Search\CourseSearch;
+use App\Entity\Search\InternshipSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
@@ -89,19 +90,45 @@ class CoursRepository extends ServiceEntityRepository
         return $query->getQuery();
     }
 
-    public function findCourseAdmin()
+    public function findCourseAdmin(CourseSearch $courseSearch)
     {
-        return $this->createQueryBuilder('q')
+        $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 0')
-            ->OrderBy("q.date", "DESC")
-        ;
+            ->OrderBy("q.date", "DESC");
+
+        if ($courseSearch->getStatus()) {
+            $query = $query
+                ->andWhere('q.status = :status')
+                ->setParameter('status', $courseSearch->getStatus());
+        }
+
+        if ($courseSearch->getIdMatiere()) {
+            $query = $query
+                ->andWhere('q.idMatiere = :matiere')
+                ->setParameter('matiere', $courseSearch->getIdMatiere());
+        }
+
+        return $query->getQuery()->getResult();
     }
 
-    public function findInternshipAdmin()
+    public function findInternshipAdmin(InternshipSearch $internshipSearch)
     {
-        return $this->createQueryBuilder('q')
+         $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 1')
-            ->OrderBy("q.date", "DESC")
-            ;
+            ->OrderBy("q.date", "DESC");
+
+        if ($internshipSearch->getIdMatiere()) {
+            $query = $query
+                ->andWhere('q.idMatiere = :matiere')
+                ->setParameter('matiere', $internshipSearch->getIdMatiere());
+        }
+
+        if ($internshipSearch->getStatus()) {
+            $query = $query
+                ->andWhere('q.status = :status')
+                ->setParameter('status', $internshipSearch->getStatus());
+        }
+
+        return $query->getQuery()->getResult();
     }
 }

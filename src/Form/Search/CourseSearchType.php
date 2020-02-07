@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\Search;
 
 use App\Entity\Search\CourseSearch;
 use App\Entity\Matiere;

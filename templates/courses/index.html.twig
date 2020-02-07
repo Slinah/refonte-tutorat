@@ -12,7 +12,6 @@
 {% endblock %}
 
 {% block body %}
-
     {#Barre de recherche#}
     <div id="divRecherche" style="text-align: center">
         <ul class="list-inline">
@@ -81,6 +80,10 @@
                                     {% elseif courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (0) %}
                                         <li>_____</li>
                                         <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+                                        {% if tuteur.idPersonne.idPersonne is same as(app.user.idPersonne) %}
+                                             / <a href="{{ path('unsubscribe_courses', { 'id':courses.idCours }) }}">Se désinscrire</a>
+                                        {% endif %}
+
                                     {% endif %}
                                 {% endfor %}
                                 <li>_____</li>

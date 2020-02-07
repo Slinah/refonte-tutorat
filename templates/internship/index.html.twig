@@ -82,6 +82,10 @@
                                     {% elseif internship.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (0) %}
                                         <li>_____</li>
                                         <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
+                                        {% if tuteur.idPersonne.idPersonne is same as(app.user.idPersonne) %}
+                                            / <a href="{{ path('unsubscribe_internship', { 'id':internship.idCours }) }}">Se désinscrire</a>
+                                        {% endif %}
+
                                     {% endif %}
                                 {% endfor %}
                                 <li>_____</li>

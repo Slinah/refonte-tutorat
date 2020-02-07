@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Matiere;
+use App\Entity\Search\MatiereSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -19,32 +20,17 @@ class MatiereRepository extends ServiceEntityRepository
         parent::__construct($registry, Matiere::class);
     }
 
-    // /**
-    //  * @return Matiere[] Returns an array of Matiere objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findMatiereAdmin(MatiereSearch $matiereAdminSearch)
     {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = $this->createQueryBuilder('q')
+            ->OrderBy("q.intitule", "ASC");
 
-    /*
-    public function findOneBySomeField($value): ?Matiere
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        if ($matiereAdminSearch->getValidationAdmin()) {
+            $query = $query
+                ->Where('q.validationAdmin = :validation')
+                ->setParameter('validation', $matiereAdminSearch->getValidationAdmin());
+        }
+
+        return $query->getQuery()->getResult();
     }
-    */
 }

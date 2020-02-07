@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Cours;
 use App\Entity\PersonneCours;
 use App\Entity\Search\CourseSearch;
-use App\Form\CourseSearchType;
+use App\Form\Search\CourseSearchType;
 use App\Form\GiveCoursesType;
 use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
@@ -44,7 +44,7 @@ class InternshipController extends AbstractController
     }
 
     /**
-     * @Route("/courses/registration-courses/{id}", name="registration_internship")
+     * @Route("/internship/registration-internship/{id}", name="registration_internship")
      * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
     public function RegistrationInternship(CoursRepository $repo, $id)
@@ -67,6 +67,24 @@ class InternshipController extends AbstractController
             $this->addFlash("error", "Déjà inscrit, bien essayé !");
             return $this->redirectToRoute("internship");
         }
+
+        return $this->redirectToRoute("internship");
+    }
+
+    /**
+     * @Route("/internship/unsubscribe-internship/{id}", name="unsubscribe_internship")
+     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     */
+    public function UnsubscribeInternship(PersonneCoursRepository $personneCoursRepo, $id)
+    {
+        //récup l'user connecter
+        $connectedUser = $this->getUser();
+
+        $personneCoursRepo->unsubscribeAssociation($id, $connectedUser);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $this->addFlash('success', 'Vous venez de vous désinscrire d\'un stage !');
 
         return $this->redirectToRoute("internship");
     }

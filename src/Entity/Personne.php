@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="personne", indexes={@ORM\Index(name="Fk_Classe", columns={"id_classe"})})
  * @ORM\Entity
  */
-class Personne implements UserInterface //extends BaseUser
+class Personne implements UserInterface
 {
     /**
      * @var string

@@ -2,9 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Cours;
+use App\Entity\Search\PersonneSearch;
+use App\Entity\Search\CourseSearch;
+use App\Entity\Search\InternshipSearch;
+use App\Entity\Search\MatiereSearch;
 use App\Form\CancelCoursesType;
 use App\Form\CloseCoursesType;
-use App\Form\MatiereType;
+use App\Form\PersonneSearchType;
+use App\Form\Search\CourseAdminSearchType;
+use App\Form\Search\InternshipAdminSearchType;
+use App\Form\Search\MatiereAdminSearchType;
 use App\Form\UpdateCoursesType;
 use App\Form\UpdateMatiereType;
 use App\Repository\CoursRepository;
@@ -26,7 +34,11 @@ class AdminController extends AbstractController
      */
     public function index(PersonneCoursRepository $personneCoursRepo, MatiereRepository $matiereRepo, PersonneRepository $personneRepo, CoursRepository $coursRepo, Request $request, PaginatorInterface $paginator)
     {
-        $students = $personneRepo->findAll();
+        $studentAdminSearch = new PersonneSearch();
+        $formStudentAdminSearch = $this->createForm(PersonneSearchType::class, $studentAdminSearch);
+        $formStudentAdminSearch->handleRequest($request);
+
+        $students = $personneRepo->findStudentAdmin($studentAdminSearch);
         $students = $paginator->paginate(
             $students,
             $request->query->getInt('page', 1),
@@ -35,21 +47,33 @@ class AdminController extends AbstractController
 
         $tuteur = $personneCoursRepo->findAll();
 
-        $courses = $coursRepo->findCourseAdmin();
+        $courseAdminSearch = new CourseSearch();
+        $formCourseAdminSearch = $this->createForm(CourseAdminSearchType::class, $courseAdminSearch);
+        $formCourseAdminSearch->handleRequest($request);
+
+        $courses = $coursRepo->findCourseAdmin($courseAdminSearch);
         $courses = $paginator->paginate(
             $courses,
             $request->query->getInt('page', 1),
-            15
+            10
         );
 
-        $internship = $coursRepo->findInternshipAdmin();
+        $internshipAdminSearch = new InternshipSearch();
+        $formInternshipAdminSearch = $this->createForm(InternshipAdminSearchType::class, $internshipAdminSearch);
+        $formInternshipAdminSearch->handleRequest($request);
+
+        $internship = $coursRepo->findInternshipAdmin($internshipAdminSearch);
         $internship = $paginator->paginate(
             $internship,
             $request->query->getInt('page', 1),
             10
         );
 
-        $matieres = $matiereRepo->findAll();
+        $matiereAdminSearch = new MatiereSearch();
+        $formMatiereAdminSearch = $this->createForm(MatiereAdminSearchType::class, $matiereAdminSearch);
+        $formMatiereAdminSearch->handleRequest($request);
+
+        $matieres = $matiereRepo->findMatiereAdmin($matiereAdminSearch);
         $matieres = $paginator->paginate(
             $matieres,
             $request->query->getInt('page', 1),
@@ -58,6 +82,10 @@ class AdminController extends AbstractController
 
         return $this->render('admin/index.html.twig', [
             "students"=>$students,
+            "formStudentAdminSearch"=> $formStudentAdminSearch->createView(),
+            "formCourseAdminSearch"=> $formCourseAdminSearch->createView(),
+            "formInternshipAdminSearch"=> $formInternshipAdminSearch->createView(),
+            "formMatiereAdminSearch"=> $formMatiereAdminSearch->createView(),
             "courses"=>$courses,
             "tuteur"=>$tuteur,
             "internship"=>$internship,

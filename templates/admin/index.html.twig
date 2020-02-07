@@ -8,6 +8,43 @@
 
 {% block body %}
     <h3>Inscrit</h3>
+    {#Barre de recherche inscrit#}
+    <div id="divRecherche" style="text-align: center">
+        <ul class="list-inline">
+            <li>
+                <form method="post">
+                    <input type="submit" value="Tous"/>
+                </form>
+            </li>
+            <li><button class="search-button">Plus de critères</button></li>
+        </ul>
+        <div class="form-div">
+            {{ form_start(formStudentAdminSearch) }}
+            <label>Rechercher par : </label>
+            <select class="type-search">
+                <option value="">Choisissez une option</option>
+                <option value="role"> Rôle </option>
+                <option value="classe"> Classe </option>
+            </select>
+            <br /><br />
+
+            <div class="role-search">
+                {{ form_row(formStudentAdminSearch.role) }}
+                <br />
+            </div>
+
+            <div class="classe-search">
+                {{ form_row(formStudentAdminSearch.idClasse) }}
+                <br />
+            </div>
+
+            <button>Rechercher</button>
+            {{ form_end(formStudentAdminSearch) }}
+            <br />
+        </div>
+    </div>
+    {# Fin barre de recherche #}
+
     {% if students is not empty %}
         <table class="table">
             <thead>
@@ -56,6 +93,43 @@
     {% endif %}
 
     <br />
+    {#Barre de recherche cours#}
+    <div id="divRecherche" style="text-align: center">
+        <ul class="list-inline">
+            <li>
+                <form method="post">
+                    <input type="submit" value="Tous"/>
+                </form>
+            </li>
+            <li><button class="search-button">Plus de critères</button></li>
+        </ul>
+        <div class="form-div">
+            {{ form_start(formCourseAdminSearch) }}
+            <label>Rechercher par : </label>
+            <select class="type-search">
+                <option value="">Choisissez une option</option>
+                <option value="matiere"> Matière </option>
+                <option value="status"> Status </option>
+            </select>
+            <br /><br />
+
+            <div class="matiere-search">
+                {{ form_row(formCourseAdminSearch.idMatiere) }}
+                <br />
+            </div>
+
+            <div class="status-search">
+                {{ form_row(formCourseAdminSearch.status) }}
+                <br />
+            </div>
+
+            <button>Rechercher</button>
+            {{ form_end(formCourseAdminSearch) }}
+            <br />
+        </div>
+    </div>
+    {# Fin barre de recherche #}
+
     <h3>Cours</h3>
     {% if courses is not empty %}
         <table class="table">
@@ -127,6 +201,43 @@
     {% endif %}
 
     <br />
+    {#Barre de recherche stage#}
+    <div id="divRecherche" style="text-align: center">
+        <ul class="list-inline">
+            <li>
+                <form method="post">
+                    <input type="submit" value="Tous"/>
+                </form>
+            </li>
+            <li><button class="internship-search-button">Plus de critères</button></li>
+        </ul>
+        <div class="internship-form-div">
+            {{ form_start(formInternshipAdminSearch) }}
+            <label>Rechercher par : </label>
+            <select class="type-search-admin">
+                <option value="">Choisissez une option</option>
+                <option value="matiereInternship"> Matière </option>
+                <option value="statusInternship"> Status </option>
+            </select>
+            <br /><br />
+
+            <div class="internship-matiere-search">
+                {{ form_row(formInternshipAdminSearch.idMatiere) }}
+                <br />
+            </div>
+
+            <div class="internship-status-search">
+                {{ form_row(formInternshipAdminSearch.status) }}
+                <br />
+            </div>
+
+            <button>Rechercher</button>
+            {{ form_end(formInternshipAdminSearch) }}
+            <br />
+        </div>
+    </div>
+    {# Fin barre de recherche #}
+
     <h3>Stages</h3>
     {% if internship is not empty %}
         <table class="table">
@@ -196,6 +307,37 @@
     {% endif %}
 
     <br />
+    {#Barre de recherche matière#}
+    <div id="divRecherche" style="text-align: center">
+        <ul class="list-inline">
+            <li>
+                <form method="post">
+                    <input type="submit" value="Tous"/>
+                </form>
+            </li>
+            <li><button class="matiere-search-button">Plus de critères</button></li>
+        </ul>
+        <div class="matiere-form-div">
+            {{ form_start(formMatiereAdminSearch) }}
+            <label>Rechercher par : </label>
+            <select class="type-search-matiere">
+                <option value="">Choisissez une option</option>
+                <option value="validation"> Validation </option>
+            </select>
+            <br /><br />
+
+            <div class="validation-search">
+                {{ form_row(formMatiereAdminSearch.validationAdmin) }}
+                <br />
+            </div>
+
+            <button>Rechercher</button>
+            {{ form_end(formMatiereAdminSearch) }}
+            <br />
+        </div>
+    </div>
+    {# Fin barre de recherche #}
+
     <h3>Matières</h3>
     {% if matieres is not empty %}
         <table class="table">
@@ -228,7 +370,7 @@
             {{ knp_pagination_render(matieres) }}
         </div>
     {% else %}
-        <tr>Il n'y a pas de matière</tr>
+        Il n'y a pas de matière
         <br />
     {% endif %}
 {% endblock %}

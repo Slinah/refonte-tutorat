@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Personne;
+use App\Entity\Search\PersonneSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -17,6 +18,28 @@ class PersonneRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Personne::class);
+    }
+
+    public function findStudentAdmin(PersonneSearch $studentAdminSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+//            ->InnerJoin("Promo", "p")
+            ->OrderBy("q.idClasse", "ASC")
+        ;
+
+        if ($studentAdminSearch->getRole()) {
+            $query = $query
+                ->andWhere('q.role = :role')
+                ->setParameter('role', $studentAdminSearch->getRole());
+        }
+
+        if ($studentAdminSearch->getIdClasse()) {
+            $query = $query
+                ->andWhere('q.idClasse = :classe')
+                ->setParameter('classe', $studentAdminSearch->getIdClasse());
+        }
+
+        return $query->getQuery()->getResult();
     }
 
     // /**
