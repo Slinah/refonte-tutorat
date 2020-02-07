@@ -83,7 +83,6 @@
                                         {% if tuteur.idPersonne.idPersonne is same as(app.user.idPersonne) %}
                                              / <a href="{{ path('unsubscribe_courses', { 'id':courses.idCours }) }}">Se désinscrire</a>
                                         {% endif %}
-
                                     {% endif %}
                                 {% endfor %}
                                 <li>_____</li>

@@ -19,6 +19,7 @@ use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
 use App\Repository\PersonneCoursRepository;
 use App\Repository\PersonneRepository;
+use App\Repository\PropositionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -115,6 +116,7 @@ class AdminController extends AbstractController
     public function DemoteStudent(PersonneRepository $repo, $id)
     {
         $student = $repo->find($id);
+        $student->setRole(0);
         $em = $this->getDoctrine()->getManager();
         $em->flush();
         $this->addFlash('success', 'Elève retrogradé avec succès !');
@@ -126,9 +128,13 @@ class AdminController extends AbstractController
      * @Route("/delete-student/{id}", name="delete_student")
      * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
-    public function deleteStudent(PersonneRepository $repo, $id)
+    public function deleteStudent(CoursRepository $coursRepo, PersonneRepository $repo, PersonneCoursRepository $personneCoursRepo, PropositionRepository $personneSuggestRepo, $id)
     {
         $student = $repo->find($id);
+        $personneSuggestRepo->DeleteSuggestLinkToUser($id);
+        $personneCoursRepo->DeleteAssociationLinkToUser($id);
+//        $coursRepo->DeleteCoursesLinkToUser($id);
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($student);
         $em->flush();

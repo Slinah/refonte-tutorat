@@ -23,6 +23,17 @@ class CoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Cours::class);
     }
 
+    public function DeleteCoursesLinkToUser($id) {
+        return $this->createQueryBuilder('q')
+            ->delete()
+            ->where("q.idPersonne = :idPersonne")
+            ->setParameter("idPersonne", $id)
+
+            ->join("PersonneCours", "pc")
+            ->andWhere("pc.idCours = q.idCours")
+        ;
+    }
+
     public function findCoursePagination(CourseSearch $courseSearch) {
         $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 0')

@@ -19,6 +19,18 @@ class PropositionRepository extends ServiceEntityRepository
         parent::__construct($registry, Proposition::class);
     }
 
+    public function DeleteSuggestLinkToUser($id)
+    {
+        return $this->createQueryBuilder('q')
+            ->delete()
+            ->Where('q.idCreateur = :idPersonne')
+            ->setParameter('idPersonne', $id)
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Proposition[] Returns an array of Proposition objects
     //  */

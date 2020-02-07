@@ -19,17 +19,28 @@ class PersonneCoursRepository extends ServiceEntityRepository
         parent::__construct($registry, PersonneCours::class);
     }
 
+    public function DeleteAssociationLinkToUser($id)
+    {
+        return $this->createQueryBuilder('q')
+            ->delete()
+            ->Where('q.idPersonne = :idPersonne')
+            ->setParameter('idPersonne', $id)
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     public function DeleteAssociationWithCourses($id)
     {
-        $query =
-        $this->createQueryBuilder('q')
+        return $this->createQueryBuilder('q')
             ->delete()
             ->Where('q.idCours = :idCours')
             ->setParameter('idCours', $id)
-            ;
-        $result= $query->getQuery()->getResult();
 
-        return $result;
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
     public function unsubscribeAssociation($id, $connectedUser)
