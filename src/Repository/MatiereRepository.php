@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Matiere;
-use App\Entity\Search\MatiereSearch;
+use App\Entity\MatiereSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 

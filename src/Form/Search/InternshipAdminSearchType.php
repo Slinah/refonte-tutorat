@@ -4,7 +4,7 @@ namespace App\Form\Search;
 
 use App\Entity\Cours;
 use App\Entity\Matiere;
-use App\Entity\Search\InternshipSearch;
+use App\Entity\InternshipSearch;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

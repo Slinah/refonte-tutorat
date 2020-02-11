@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Search;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -44,9 +44,9 @@ class PersonneSearch implements UserInterface
     private $role;
 
     /**
-     * @var \App\Entity\Search\ClasseSearch
+     * @var Classe
      *
-     * @ORM\ManyToOne(targetEntity="ClasseSearch")
+     * @ORM\ManyToOne(targetEntity="Classe")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_classe", referencedColumnName="id_classe")
      * })

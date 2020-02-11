@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Cours;
-use App\Entity\Search\PersonneSearch;
-use App\Entity\Search\CourseSearch;
-use App\Entity\Search\InternshipSearch;
-use App\Entity\Search\MatiereSearch;
+use App\Entity\PersonneSearch;
+use App\Entity\CourseSearch;
+use App\Entity\InternshipSearch;
+use App\Entity\MatiereSearch;
 use App\Form\CancelCoursesType;
 use App\Form\CloseCoursesType;
 use App\Form\PersonneSearchType;

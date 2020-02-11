@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Entity\Search;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-Class CourseSearch {
+Class InternshipSearch {
 
     /**
      * @var String|null
@@ -118,8 +118,9 @@ Class CourseSearch {
     /**
      * @param int|null $status
      */
-    public function setStatus(?int $status): void
+    public function setStatus(?int $status)
     {
         $this->status = $status;
     }
+
 }

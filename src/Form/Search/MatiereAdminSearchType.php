@@ -3,7 +3,7 @@
 namespace App\Form\Search;
 
 use App\Entity\Matiere;
-use App\Entity\Search\MatiereSearch;
+use App\Entity\MatiereSearch;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;

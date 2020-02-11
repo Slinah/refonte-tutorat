@@ -2,7 +2,7 @@
 
 namespace App\Form\Search;
 
-use App\Entity\Search\CourseSearch;
+use App\Entity\CourseSearch;
 use App\Entity\Matiere;
 use App\Entity\Promo;
 use Doctrine\ORM\EntityRepository;

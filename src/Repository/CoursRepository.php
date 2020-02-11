@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Cours;
-use App\Entity\Search\CourseSearch;
-use App\Entity\Search\InternshipSearch;
+use App\Entity\CourseSearch;
+use App\Entity\InternshipSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
