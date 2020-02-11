@@ -8,7 +8,7 @@
 
 
         Nom du cours : {{ result[0].intitule }}<br>
-        Date : {{ result[0].date }}<br>
+        Date : {{ result[0].date|format_datetime('full', 'none', locale='fr') }}<br>
         Heure : {{ result[0].heure }}<br>
 
     </body>

@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ question.title }} {% endblock %}
+
+{% block body %}
+    <h1 class="center">{{ question.title }}</h1>
+    <div class="center">
+        <p>Créée par {{ question.author.nom }} {{ question.author.prenom }}</p>
+        <p style="text-decoration: underline">Date de création :</p>
+        {{  question.dateCreated|format_datetime('full', 'short', locale='fr') }}
+    </div> <br />
+
+    <div class="center">
+        <p style="text-decoration: underline">Description : </p>
+        {{ question.description }}
+    </div>
+
+    <br />
+    <div class="center">
+        Nombre de vote{{ question.nbVote > 1 ? 's' : '' }}&nbsp;: {{ question.nbVote }}
+    </div>
+
+    <br />
+    <div class="center">
+        <a href="{{ path('add_vote', {"id": question.idQuestion}) }}">Voter pour cette question&nbsp;!</a>
+    </div>
+
+    <br /> <br />
+
+    {# on passe l'id de la question dans l'URL pour savoir à quelle question relier le commentaire qui sera créé #}
+    <a href="{{ path("comment", {'id': question.idQuestion}) }}" style="text-decoration: underline" class="center">Ajouter un commentaire</a>
+    <br />
+    <h2 class="center">Derniers commentaires</h2>
+    {% for comment in comments %}
+        <article class="center">
+            <br />
+            <h5>{{ comment.commentAuthor.nom }} {{ comment.commentAuthor.prenom }} à posté :</h5>
+            <div>{{ comment.content }}</div>
+            <br />
+            <div>Le {{ comment.dateCreated|format_datetime('full', 'short', locale='fr') }}</div>
+        </article>
+    {% else %}
+        <p class="center">Il n'y as pas encore de commentaire</p>
+    {% endfor %}
+
+{% endblock %}

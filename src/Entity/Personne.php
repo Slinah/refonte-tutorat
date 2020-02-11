@@ -41,6 +41,8 @@ class Personne implements UserInterface
      */
     private $prenom;
 
+
+
     /**
      * @var int
      *
@@ -117,6 +119,21 @@ class Personne implements UserInterface
     private $idProposition;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\QuestionForum", mappedBy="author")
+     */
+    private $questionsCreated;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="commentAuthor")
+     */
+    private $commentCreated;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Vote", mappedBy="user")
+     */
+    private $votes;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -153,6 +170,33 @@ class Personne implements UserInterface
 
         return $this;
     }
+
+    /**
+     *
+     *
+     * @see UserInterface
+     */
+    public function getUsername()
+    {
+        //return (string) $this->username;
+        // TODO: Implement getSalt() method.
+    }
+
+    public function setUsername(string $username): self
+    {
+//        $this->username = $username;
+//
+//        return $this;
+        // TODO: Implement getSalt() method.
+    }
+
+//    public function setUser(string $user): self
+//    {
+//        $this->prenom = $user;
+//
+//        return $this;
+
+//    }
 
     public function getRole(): ?int
     {
@@ -252,6 +296,72 @@ class Personne implements UserInterface
         return $this;
     }
 
+
+    /**
+     * @return Collection|QuestionForum[]
+     */
+    public function getQuestionsCreated(): Collection
+    {
+        return $this->questionsCreated;
+    }
+
+    public function addQuestionsCreated(QuestionForum $questionsCreated): self
+    {
+        if (!$this->questionsCreated->contains($questionsCreated)) {
+            $this->questionsCreated[] = $questionsCreated;
+            $questionsCreated->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestionsCreated(QuestionForum $questionsCreated): self
+    {
+        if ($this->questionsCreated->contains($questionsCreated)) {
+            $this->questionsCreated->removeElement($questionsCreated);
+            // set the owning side to null (unless already changed)
+            if ($questionsCreated->getAuthor() === $this) {
+                $questionsCreated->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+
+    public function getCommentCreated(): Collection
+    {
+        return $this->commentCreated;
+    }
+
+    public function addCommentCreated(Comment $commentCreated): self
+    {
+        if (!$this->commentCreated->contains($commentCreated)) {
+            $this->commentCreated[] = $commentCreated;
+            $commentCreated->setCommentAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentCreated(Comment $commentCreated): self
+    {
+        if ($this->commentCreated->contains($commentCreated)) {
+            $this->commentCreated->removeElement($commentCreated);
+            // set the owning side to null (unless already changed)
+            if ($commentCreated->getCommentAuthor() === $this) {
+                $commentCreated->setCommentAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
     /**
      * @return Collection|Proposition[]
      */
@@ -298,15 +408,43 @@ class Personne implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|Vote[]
+     */
+    public function getVotes(): Collection
+    {
+        return $this->votes;
+    }
+
+    public function addVote(Vote $vote): self
+    {
+        if (!$this->votes->contains($vote)) {
+            $this->votes[] = $vote;
+            $vote->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVote(Vote $vote): self
+    {
+        if ($this->votes->contains($vote)) {
+            $this->votes->removeElement($vote);
+            // set the owning side to null (unless already changed)
+            if ($vote->getUser() === $this) {
+                $vote->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
     }
 
-    public function getUsername()
-    {
-        // TODO: Implement getUsername() method.
-    }
 
     public function eraseCredentials()
     {

@@ -64,8 +64,9 @@
     <div class="row">
         <img src="image/cettesemaine.jpg" class="mr-5 ml-5" alt="cette semaine" width="10%" height="20%">
 
-        {% if courses is not null %}
-            {% for courses in courses %}
+
+        {% for courses in courses %}
+            {% if courses.date<dateFinSemaine and courses.date>dateDebutSemaine %}
                 <div class="col">
                     <div class="card">
                         <div>
@@ -117,8 +118,9 @@
                         {% endif %}
                     </div>
                 </div>
-            {% endfor %}
-        {% endif %}
+
+            {% endif %}
+        {% endfor %}
 
         <br />
         <div>
@@ -130,49 +132,52 @@
         <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
 
         {% for courses in courses %}
-            <div class="col">
-                <div class="card">
-                    <div>
-                        <h4>{{ courses.idMatiere }}</h4>
-                        <ul>
-                            <li>{{ courses.intitule }}</li>
-                            {% for tuteur in tuteur %}
-                                {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
-                                    <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
+            {%  if courses.date > dateFinSemaine and courses.date < dateFinSemaineProchaine %}
 
-                        <div style="text-align: center">
-                            {% if app.user %}
+                <div class="col">
+                    <div class="card">
+                        <div>
+                            <h4>{{ courses.idMatiere }}</h4>
+                            <ul>
+                                <li>{{ courses.intitule }}</li>
                                 {% for tuteur in tuteur %}
-                                    {% if courses.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
-                                        <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
-                                        <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
-                                        <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                    {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+                                        <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
                                     {% endif %}
                                 {% endfor %}
-                            {% endif %}
-                        </div>
-                    </div>
+                            </ul>
 
-                    {% if app.user %}
-                        <a href="{{ path('registration_courses', { 'id':courses.idCours }) }}" class="button">
-                            <div>
-                                <ul>
-                                    <li>
-                                        S'inscrire
-                                        <span></span><span></span><span></span><span></span>
-                                    </li>
-
-                                </ul>
+                            <div style="text-align: center">
+                                {% if app.user %}
+                                    {% for tuteur in tuteur %}
+                                        {% if courses.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
+                                            <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                                            <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                                            <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
                             </div>
-                        </a>
-                    {% else %}
-                        <i>Vous devez vous connectez pour vous inscrire</i>
-                    {% endif %}
+                        </div>
+
+                        {% if app.user %}
+                            <a href="{{ path('registration_courses', { 'id':courses.idCours }) }}" class="button">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            S'inscrire
+                                            <span></span><span></span><span></span><span></span>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </a>
+                        {% else %}
+                            <i>Vous devez vous connectez pour vous inscrire</i>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
 
         <br />
@@ -184,48 +189,53 @@
     <div class="row">
         <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
         {% for courses in courses %}
-            <div class="col">
-                <div class="card">
-                    <div>
-                        <h4>{{ courses.idMatiere }}</h4>
-                        <ul>
-                            <li>{{ courses.intitule }}</li>
-                            {% for tuteur in tuteur %}
-                                {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
-                                    <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-
-                        <div style="text-align: center">
-                            {% if app.user %}
+            {% if courses.date > dateFinSemaine and courses.date > dateFinSemaineProchaine %}
+                <div class="col">
+                    <div class="card">
+                        <div>
+                            <h4>{{ courses.idMatiere }}</h4>
+                            <ul>
+                                <li>{{ courses.intitule }}</li>
                                 {% for tuteur in tuteur %}
-                                    {% if courses.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
-                                        <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
-                                        <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
-                                        <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                    {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+                                        <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
                                     {% endif %}
                                 {% endfor %}
-                            {% endif %}
-                        </div>
-                    </div>
+                            </ul>
 
-                    {% if app.user %}
-                        <a href="{{ path('registration_courses', { 'id':courses.idCours }) }}" class="button">
-                            <div>
-                                <ul>
-                                    <li>
-                                        S'inscrire
-                                        <span></span><span></span><span></span><span></span>
-                                    </li>
-                                </ul>
+                            <div style="text-align: center">
+                                {% if app.user %}
+                                    {% for tuteur in tuteur %}
+                                        {% if courses.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
+                                            <a href="{{ path('update_courses', { 'id':courses.idCours }) }}">Modifier / </a>
+                                            <a href="{{ path('close_course', { 'id':courses.idCours }) }}">Clore le cours / </a>
+                                            <a href="{{ path('cancel_course', { 'id':courses.idCours }) }}">Annuler le cours</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
                             </div>
-                        </a>
-                    {% else %}
-                        <i>Vous devez vous connectez pour vous inscrire</i>
-                    {% endif %}
+                        </div>
+
+                        {% if app.user %}
+                            <a href="{{ path('registration_courses', { 'id':courses.idCours }) }}" class="button">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            S'inscrire
+                                            <span></span><span></span><span></span><span></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        {% else %}
+                            <i>Vous devez vous connecter pour vous inscrire</i>
+                        {% endif %}
+                        {#{% if courses.date < dateDebutSemaine  %}#}
+
+                        {#{% endif %}#}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
 
         <br />

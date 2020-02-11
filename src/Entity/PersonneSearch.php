@@ -3,15 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use \App\Entity\Classe;
 
-/**
- * PersonneSearch
- *
- * @ORM\Entity
- */
-class PersonneSearch implements UserInterface
+class PersonneSearch
 {
     /**
      * @var string
@@ -98,32 +91,8 @@ class PersonneSearch implements UserInterface
         $this->role = $role;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getMail(): ?string
-    {
-        return $this->mail;
-    }
-
-    public function setMail(string $mail): self
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
     /**
-     * @return \App\Entity\Search\ClasseSearch|null
+     * @return \App\Entity\Classe|null
      */
     public function getIdClasse()
     {
@@ -131,7 +100,7 @@ class PersonneSearch implements UserInterface
     }
 
     /**
-     * @param \App\Entity\Search\ClasseSearch|null $idClasse
+     * @param \App\Entity\Classe|null $idClasse
      */
     public function setIdClasse($idClasse)
     {

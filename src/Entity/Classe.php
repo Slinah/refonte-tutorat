@@ -33,12 +33,11 @@ class Classe
     /**
      * @var \Promo
      *
-     * @ORM\ManyToOne(targetEntity="Promo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_promo", referencedColumnName="id_promo")
-     * })
+     * @ORM\ManyToOne(targetEntity="App\Entity\Promo")
+     * @ORM\JoinColumn(name="id_promo", referencedColumnName="id_promo")
+     *
      */
-    private $idPromo;
+    private $id_promo;
 
     public function __toString()
     {

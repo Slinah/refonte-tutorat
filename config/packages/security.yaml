@@ -6,9 +6,9 @@ security:
         # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
 
     encoders:
-        App\Entity\Personne: plaintext
-    #            algorithm: bcrypt
-    #            cost : 12  # plus il est important, mieux ce sera crypté
+        App\Entity\Personne:
+                algorithm: bcrypt
+                cost : 12  # plus il est important, mieux ce sera crypté
 
     providers:
 
@@ -47,6 +47,8 @@ security:
         # Note: Only the *first* access control that matches will be used
     access_control:
             - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/questions, role: IS_AUTHENTICATED_FULLY }
+
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin/, role: ROLE_ADMIN }

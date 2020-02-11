@@ -37,6 +37,15 @@ class CoursesController extends AbstractController
             $request->query->getInt('page', 1),
             3
         );
+        date_default_timezone_set('Europe/Amsterdam');
+        $dateDebutSemaine = new \DateTime();
+        $dateFinSemaine = new \DateTime();
+        $dateDebutSemaineProchaine = new \DateTime();
+        $dateFinSemaineProchaine = new \DateTime();
+        $dateDebutSemaine->modify('this week');
+        $dateFinSemaine->modify('this week +6 days');
+        $dateDebutSemaineProchaine->modify('this week +7 days');
+        $dateFinSemaineProchaine->modify('this week +13 days');
 
         $dateNow = new \DateTime('now');
 
@@ -44,7 +53,11 @@ class CoursesController extends AbstractController
             "formCourseSearch"=> $formCourseSearch->createView(),
             "courses"=>$courses,
             "tuteur"=>$tuteur,
-            "dateNow"=>$dateNow
+            "dateNow"=>$dateNow,
+            "dateDebutSemaine" => $dateDebutSemaine,
+            "dateFinSemaine" => $dateFinSemaine,
+            "dateDebutSemaineProchaine" => $dateDebutSemaineProchaine,
+            "dateFinSemaineProchaine" => $dateFinSemaineProchaine
         ]);
     }
 
