@@ -17,7 +17,7 @@ class Ecole
      *
      * @ORM\Column(name="id_ecole", type="string", length=40, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idEcole;
 

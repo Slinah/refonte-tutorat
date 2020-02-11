@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Ajouter un tag</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    {{ form_start(formAjoutTag) }}
+
+    {{ form_row(formAjoutTag.idTag) }}
+    {{ form_row(formAjoutTag.idMatiere) }}
+
+    {{ form_end(formAjoutTag) }}
+{% endblock %}

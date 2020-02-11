@@ -38,7 +38,7 @@ class CoursRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 0')
             ->andWhere('q.status = 0')
-            ->OrderBy("q.date", "DESC");
+            ->OrderBy("q.date", "ASC");
 
         if ($courseSearch->getDate()) {
             $query = $query
@@ -71,7 +71,7 @@ class CoursRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 1')
             ->andWhere('q.status = 0')
-            ->OrderBy("q.date", "DESC")
+            ->OrderBy("q.date", "ASC")
         ;
 
         if ($internshipSearch->getDate()) {
@@ -105,7 +105,7 @@ class CoursRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 0')
-            ->OrderBy("q.date", "DESC");
+            ->OrderBy("q.date", "ASC");
 
         if ($courseSearch->getStatus()) {
             $query = $query
@@ -126,7 +126,7 @@ class CoursRepository extends ServiceEntityRepository
     {
          $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 1')
-            ->OrderBy("q.date", "DESC");
+            ->OrderBy("q.date", "ASC");
 
         if ($internshipSearch->getIdMatiere()) {
             $query = $query
@@ -141,5 +141,37 @@ class CoursRepository extends ServiceEntityRepository
         }
 
         return $query->getQuery()->getResult();
+    }
+
+    public function findCoursesFolow($connectedUser)
+    {
+        return $this->createQueryBuilder('q')
+            ->Where('q.stage = 0')
+            ->andWhere('q.status = 0')
+
+            ->join('App\Entity\PersonneCours', 'pc')
+            ->andWhere('q.idCours = pc.idCours')
+            ->andWhere('pc.idPersonne = :idConnectedUser')
+            ->setParameter('idConnectedUser', $connectedUser)
+
+            ->OrderBy("q.date", "ASC")
+            ->getQuery()
+            ->getResult()
+        ;
+
+//        Autre façon possible
+//        $entityManager = $this->getEntityManager();
+//
+//        $query = $entityManager->createQuery(
+//            'SELECT c, pc
+//            FROM App\Entity\Cours c
+//            JOIN App\Entity\PersonneCours pc
+//            WHERE c.stage = 0,
+//            AND WHERE c.status = 0
+//            AND WHERE pc.idPersonne = :idConnectedUser
+//            ORDER BY c.dates DESC'
+//        )->setParameter('idConnectedUser', $connectedUser);
+
+        return $query->getResult();
     }
 }

@@ -5,32 +5,25 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Niveau
- *
- * @ORM\Table(name="niveau")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TagsRepository")
  */
-class Niveau
+class Tags
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id_niveau", type="string", length=40, nullable=false)
+     * @ORM\Column(type="string", length=40)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */
-    private $idNiveau;
+    private $idTag;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="intitule", type="text", length=65535, nullable=false)
+     * @ORM\Column(type="string", length=40)
      */
     private $intitule;
 
-    public function getIdNiveau(): ?string
+    public function getIdTag(): ?string
     {
-        return $this->idNiveau;
+        return $this->idTag;
     }
 
     public function getIntitule(): ?string
@@ -44,6 +37,4 @@ class Niveau
 
         return $this;
     }
-
-
 }

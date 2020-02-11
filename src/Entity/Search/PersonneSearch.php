@@ -4,11 +4,11 @@ namespace App\Entity\Search;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use \App\Entity\Classe;
 
 /**
  * PersonneSearch
  *
- * @ORM\Table(name="personne", indexes={@ORM\Index(name="Fk_Classe", columns={"id_classe"})})
  * @ORM\Entity
  */
 class PersonneSearch implements UserInterface
@@ -44,9 +44,9 @@ class PersonneSearch implements UserInterface
     private $role;
 
     /**
-     * @var \Classe|null
+     * @var \App\Entity\Search\ClasseSearch
      *
-     * @ORM\ManyToOne(targetEntity="Classe")
+     * @ORM\ManyToOne(targetEntity="ClasseSearch")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_classe", referencedColumnName="id_classe")
      * })
@@ -123,17 +123,17 @@ class PersonneSearch implements UserInterface
     }
 
     /**
-     * @return \Classe|null
+     * @return \App\Entity\Search\ClasseSearch|null
      */
-    public function getIdClasse(): ?\Classe
+    public function getIdClasse()
     {
         return $this->idClasse;
     }
 
     /**
-     * @param \Classe|null $idClasse
+     * @param \App\Entity\Search\ClasseSearch|null $idClasse
      */
-    public function setIdClasse(?\Classe $idClasse)
+    public function setIdClasse($idClasse)
     {
         $this->idClasse = $idClasse;
     }

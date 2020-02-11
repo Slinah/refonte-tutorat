@@ -17,7 +17,7 @@ class LogsProposition
      *
      * @ORM\Column(name="id_log", type="string", length=40, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idLog;
 

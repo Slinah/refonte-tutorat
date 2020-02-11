@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Search;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Niveau
+ * Ecole
  *
- * @ORM\Table(name="niveau")
+ * @ORM\Table(name="ecole")
  * @ORM\Entity
  */
-class Niveau
+class Ecole
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="id_niveau", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_ecole", type="string", length=40, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idNiveau;
+    private $idEcole;
 
     /**
      * @var string
@@ -28,9 +28,9 @@ class Niveau
      */
     private $intitule;
 
-    public function getIdNiveau(): ?string
+    public function getIdEcole(): ?string
     {
-        return $this->idNiveau;
+        return $this->idEcole;
     }
 
     public function getIntitule(): ?string
