@@ -63,6 +63,12 @@ class QuestionForum
     private $votes;
 
     /**
+     * @ORM\Column(type="string")
+     *
+     */
+    private $matiere;
+
+    /**
      * @ORM\Column(type="integer", options={"default":0})
      */
     private $nbVote = 0;
@@ -153,6 +159,18 @@ class QuestionForum
     public function setAuthor(?Personne $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getMatiere()
+    {
+        return $this->matiere;
+    }
+
+    public function setMatiere($matiere): self
+    {
+        $this->matiere = $matiere;
 
         return $this;
     }

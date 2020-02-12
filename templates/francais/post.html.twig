@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Créer une nouvelle question{% endblock %}
+{% block body %}
+    {# affiche le formulaire #}
+    {{ form_start(questionForm, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_label(questionForm.title) }}
+    {{ form_widget(questionForm.title, {"attr": {"class":"yoyoyo"}}) }}
+    {{ form_errors(questionForm.title) }}
+    <br />
+    {{ form_row(questionForm.description) }}
+
+    <br />
+
+
+    {{ form_end(questionForm) }}
+{% endblock %}
+

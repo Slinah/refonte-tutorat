@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\forum;
 
 use App\Entity\Comment;
 use App\Entity\QuestionForum;
@@ -64,19 +64,17 @@ class QuestionController extends AbstractController {
 
         $question = new QuestionForum();
         $question->setAuthor($this->getUser());
-        //récup l'user co
-        //$connectedUser = $this->getUser();
-        //associe la question à cet user
-        //$question->setAuthor($connectedUser);
         $questionForm = $this -> createForm(QuestionType::class, $question);
 
         //cette fonction prend les données du formulaire soumis et les injecte dans notre entité $question
         $questionForm->handleRequest($request);
 
         if ($questionForm->isSubmitted() && $questionForm->isValid()) {
+            date_default_timezone_set('Europe/Amsterdam');
             $question-> setDateCreated(new \DateTime());
 
             $em = $this->getDoctrine()->getManager();
+
             $em-> persist($question);
             $em->flush();
 
