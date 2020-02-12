@@ -6,11 +6,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PersonneTagsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PersonneTagRepository")
  */
-class PersonneTags
+class PersonneTag
 {
     /**
+     * @var \App\Entity\Personne
+     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Personne")
@@ -21,19 +23,21 @@ class PersonneTags
     private $idPersonne;
 
     /**
+     * @var \App\Entity\Niveau
+     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Tags")
+     * @ORM\OneToOne(targetEntity="Niveau")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_tag", referencedColumnName="id_tag")
+     *   @ORM\JoinColumn(name="id_niveau", referencedColumnName="id_niveau")
      * })
      */
-    private $idTag;
+    private $idNiveau;
 
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Matiere")
+     * @var \App\Entity\Matiere
+     *
+     * @ORM\ManyToOne(targetEntity="Matiere")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_matiere", referencedColumnName="id_matiere")
      * })
@@ -56,34 +60,28 @@ class PersonneTags
         $this->idPersonne = $idPersonne;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIdTag()
+    public function getIdNiveau()
     {
-        return $this->idTag;
+        return $this->idNiveau;
     }
 
     /**
-     * @param mixed $idTag
+     * @param Niveau $idNiveau
      */
-    public function setIdTag($idTag): void
+    public function setIdNiveau(Niveau $idNiveau): void
     {
-        $this->idTag = $idTag;
+        $this->idNiveau = $idNiveau;
     }
 
-    /**
-     * @return mixed
-     */
     public function getIdMatiere()
     {
         return $this->idMatiere;
     }
 
     /**
-     * @param mixed $idMatiere
+     * @param Matiere $idMatiere
      */
-    public function setIdMatiere($idMatiere): void
+    public function setIdMatiere(Matiere $idMatiere): void
     {
         $this->idMatiere = $idMatiere;
     }

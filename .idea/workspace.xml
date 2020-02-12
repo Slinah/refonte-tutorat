@@ -1,32 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0ff0983-74e5-4121-ab3d-825c58f29990" name="Default Changelist" comment="Creation forum fini">
-      <change afterPath="$PROJECT_DIR$/templates/commentaire_forum/comment.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_forum/create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_forum/detail_question.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_forum/last_questions.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/stage_epsi_tutorat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stage_epsi_tutorat.iml" afterDir="false" />
+    <list default="true" id="b0ff0983-74e5-4121-ab3d-825c58f29990" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CoursesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Classe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/PersonneSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PersonneSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/PersonneTags.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Tags.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/courses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/courses/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/my_profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/my_profil/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/swiftmailer/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/swiftmailer/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/swiftmailer/noticeCreationCours.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/swiftmailer/noticeCreationCours.html.twig" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -153,108 +135,44 @@
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1606294084">
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="php" value="235" />
-          <entry key="twig" value="696" />
-          <entry key="txt" value="19" />
-          <entry key="yaml" value="16" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PHP" value="235" />
-          <entry key="PLAIN_TEXT" value="19" />
-          <entry key="Twig" value="696" />
-          <entry key="YAML" value="16" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="css" value="1" />
-          <entry key="env" value="1" />
-          <entry key="htaccess" value="2" />
-          <entry key="lock" value="1" />
-          <entry key="php" value="11" />
-          <entry key="twig" value="27" />
-          <entry key="yaml" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CSS" value="1" />
-          <entry key="PHP" value="11" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Twig" value="27" />
-          <entry key="YAML" value="5" />
-          <entry key="htaccess" value="2" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/question_forum/last_questions.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/question_forum/detail_question.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/QuestionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="101" selection-start-line="101" selection-end-line="101" />
-              <folding>
-                <element signature="e#34#57#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/CoursesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="59" column="65" selection-start-line="56" selection-start-column="12" selection-end-line="59" selection-end-column="65" />
-              <folding>
-                <element signature="e#34#63#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/courses/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="134" column="91" selection-start-line="134" selection-start-column="68" selection-end-line="134" selection-end-column="91" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="65" column="83" selection-start-line="65" selection-start-column="83" selection-end-line="65" selection-end-column="83" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/my_profil/index.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Classe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-789" />
+            <state relative-caret-position="440">
+              <caret line="74" column="7" lean-forward="true" selection-start-line="68" selection-start-column="6" selection-end-line="74" selection-end-column="7" />
+              <folding>
+                <element signature="e#30#78#0#PHP" expanded="true" />
+              </folding>
+            </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="35" column="120" selection-start-line="35" selection-start-column="102" selection-end-line="35" selection-end-column="120" />
+              <folding>
+                <element signature="e#34#55#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/PersonneRepository.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -326,7 +244,6 @@
         <option value="$PROJECT_DIR$/src/Entity/LogsProposition.php" />
         <option value="$PROJECT_DIR$/src/Entity/Niveau.php" />
         <option value="$PROJECT_DIR$/src/Controller/MyProfilController.php" />
-        <option value="$PROJECT_DIR$/templates/my_profil/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/TagsController.php" />
         <option value="$PROJECT_DIR$/src/Form/TagsType.php" />
         <option value="$PROJECT_DIR$/templates/tags/createTag.html.twig" />
@@ -345,23 +262,18 @@
         <option value="$PROJECT_DIR$/src/Form/Search/MatiereAdminSearchType.php" />
         <option value="$PROJECT_DIR$/src/Form/Search/PersonneSearchType.php" />
         <option value="$PROJECT_DIR$/src/Entity/Promo.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Classe.php" />
-        <option value="$PROJECT_DIR$/src/Entity/PersonneSearch.php" />
-        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/templates/question_forum/detail_question.html.twig" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/question_forum/last_questions.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/QuestionController.php" />
         <option value="$PROJECT_DIR$/src/Controller/CoursesController.php" />
         <option value="$PROJECT_DIR$/templates/courses/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/PersonneSearch.php" />
+        <option value="$PROJECT_DIR$/templates/my_profil/index.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Classe.php" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -506,9 +418,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="115" />
-    <option name="width" value="1291" />
-    <option name="height" value="1031" />
+    <option name="x" value="120" />
+    <option name="y" value="125" />
+    <option name="width" value="1700" />
+    <option name="height" value="945" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -519,166 +432,48 @@
         <subPane>
           <expand>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="commentaire_forum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="contact_us" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="courses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="forum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="give_courses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="internship" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="my_profil" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="question_forum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="registration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="rules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="suggest_courses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="swiftmailer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="tags" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -786,13 +581,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150547000" />
+    <option name="totallyTimeSpent" value="152007000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="115" y="0" width="1291" height="1031" extended-state="0" />
+    <frame x="96" y="100" width="1360" height="756" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18846466" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15769231" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -848,27 +643,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Envoie de mail&#10;DateCreation ajouté dans BDD" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Entity/MatiereSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/InternshipSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Niveau.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/SuggestCoursesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -887,13 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
           <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -939,23 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Classe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/PersonneSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Vote.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -987,13 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="30" selection-start-column="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
@@ -1057,9 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/rules/index.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1071,13 +811,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/question_forum/detail_question.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -1136,9 +869,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/PersonneSearch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="144" selection-start-line="144" selection-end-line="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/my_profil/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-789" />
+        <state relative-caret-position="391">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/PersonneTag.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/CoursRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#3;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="120" selection-start-line="35" selection-start-column="102" selection-end-line="35" selection-end-column="120" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/PersonneRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="65" column="83" selection-start-line="65" selection-start-column="83" selection-end-line="65" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Classe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="74" column="7" lean-forward="true" selection-start-line="68" selection-start-column="6" selection-end-line="74" selection-end-column="7" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

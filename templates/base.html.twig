@@ -29,11 +29,24 @@
                 </div>
             {% endfor %}
 
-            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_USER') %}
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-5">
                         <li class="nav-item">
                             <a class="nav-link text-right h5" href="{{ path('my_profil') }}">{{ app.user.nom }} {{ app.user.prenom }} : Mon profil<img src="https://img.icons8.com/nolan/64/edit-user-male.png"></a>
+                        </li>
+                    </ul>
+                </div>
+            {% elseif is_granted('ROLE_ADMIN') %}
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-5">
+                        <li class="nav-item">
+                            <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  href="#" style="float: right">{{ app.user.nom }} {{ app.user.prenom }}<img src="https://img.icons8.com/nolan/64/edit-user-male.png"></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ path('my_profil') }}">Mon profil</a>
+                                <a class="dropdown-item" href="{{ path('admin') }}">Pannel admin</a>
+                                <a class="dropdown-item" href="#">Stats</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -65,11 +78,6 @@
                         <li class="nav-item">
                             <a class="nav-link pr-4 h3" href="{{ path('last_questions') }}">Forum</a>
                         </li>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <li class="nav-item">
-                                <a class="nav-link pr-4 h3" href="{{ path('admin') }}">Pannel admin</a>
-                            </li>
-                        {% endif %}
                         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                             <li class="nav-item">
                                 <a class="nav-link pr-4 h3" href="{{ path('app_logout') }}">Se déconnecter</a>

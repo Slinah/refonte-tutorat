@@ -63,14 +63,14 @@ class Classe
 
     public function getIdPromo()
     {
-        return $this->idPromo;
+        return $this->id_promo;
     }
 
-    public function setIdPromo(?Promo $idPromo): self
-    {
-        $this->idPromo = $idPromo;
-
-        return $this;
-    }
-
+//    /**
+//     * @param \Promo $id_promo
+//     */
+//    public function setIdPromo(\Promo $id_promo): void
+//    {
+//        $this->id_promo = $id_promo;
+//    }
 }
