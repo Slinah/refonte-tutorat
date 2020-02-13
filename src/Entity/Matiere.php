@@ -29,6 +29,14 @@ class Matiere
     private $intitule;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="datetime", nullable=true)
+     */
+    private $dateCreation;
+
+
+    /**
      * @var int
      *
      * @ORM\Column(name="validationAdmin", type="integer", nullable=false)
@@ -38,6 +46,18 @@ class Matiere
     public function __toString()
     {
         return $this->intitule;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->dateCreation;
+    }
+
+    public function setDateCreation(\DateTimeInterface $dateCreation): self
+    {
+        $this->dateCreation = $dateCreation;
+
+        return $this;
     }
 
     public function getIdMatiere(): ?string

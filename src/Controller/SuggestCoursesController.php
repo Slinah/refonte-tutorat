@@ -49,15 +49,17 @@ class SuggestCoursesController extends AbstractController
         // Formulaire ajout de matière
         $matiere = new Matiere();
         $formMatiere=$this->createForm(MatiereType::class, $matiere);
+        $matiere->setDateCreation(new \DateTime("now"));
         $formMatiere->handleRequest($request);
 
         if ($formMatiere->isSubmitted() && $formMatiere->isValid()){
             $em = $this->getDoctrine()->getManager();
+
             $em-> persist($matiere);
             $em->flush();
             $this->addFlash('success', 'Matière ajoutée avec succès ! Attente de la validation par un Admin');
 
-            return $this->redirectToRoute("suggest_courses");
+            return $this->redirectToRoute("mailmatiere");
         }
         // Fin formulaire ajout de matière
 
