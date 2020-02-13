@@ -29,6 +29,11 @@ Class MatiereSearch {
      */
     private $validationAdmin;
 
+    public function __toString()
+    {
+        return $this->intitule;
+    }
+
     /**
      * @return string
      */

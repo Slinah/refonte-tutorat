@@ -7,6 +7,7 @@ use App\Entity\PersonneSearch;
 use App\Entity\CourseSearch;
 use App\Entity\InternshipSearch;
 use App\Entity\MatiereSearch;
+use App\Entity\PromoSearch;
 use App\Form\CancelCoursesType;
 use App\Form\CloseCoursesType;
 use App\Form\PersonneSearchType;
@@ -36,10 +37,12 @@ class AdminController extends AbstractController
     public function index(PersonneCoursRepository $personneCoursRepo, MatiereRepository $matiereRepo, PersonneRepository $personneRepo, CoursRepository $coursRepo, Request $request, PaginatorInterface $paginator)
     {
         $studentAdminSearch = new PersonneSearch();
+        $promoAdminSearch = new PromoSearch();
+
         $formStudentAdminSearch = $this->createForm(PersonneSearchType::class, $studentAdminSearch);
         $formStudentAdminSearch->handleRequest($request);
 
-        $students = $personneRepo->findStudentAdmin($studentAdminSearch);
+        $students = $personneRepo->findStudentAdmin($studentAdminSearch, $promoAdminSearch);
         $students = $paginator->paginate(
             $students,
             $request->query->getInt('page', 1),
@@ -101,7 +104,7 @@ class AdminController extends AbstractController
     public function PromoteStudent(PersonneRepository $repo, $id)
     {
         $student = $repo->find($id);
-        $student->setRole(1);
+        $student->setRole(2);
         $em = $this->getDoctrine()->getManager();
         $em->flush();
         $this->addFlash('success', 'Elève promu avec succès !');
@@ -116,7 +119,7 @@ class AdminController extends AbstractController
     public function DemoteStudent(PersonneRepository $repo, $id)
     {
         $student = $repo->find($id);
-        $student->setRole(0);
+        $student->setRole(1);
         $em = $this->getDoctrine()->getManager();
         $em->flush();
         $this->addFlash('success', 'Elève retrogradé avec succès !');

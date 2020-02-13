@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
     //// Affichage du formulaire "plus de critères"
-
-    // pour toute les barres de recherche normal
+    //normal
     var searchButton = $('.search-button');
     var divForm = $('.form-div');
 
@@ -11,23 +10,33 @@ $(document).ready(function() {
         divForm.toggle();
     });
 
-    // pour les stages page admin
-    var internshipSearchButton = $('.internship-search-button');
-    var internshipDivForm = $('.internship-form-div');
+    //page admin - Cours
+    var searchButtonCourses = $('.search-button-courses');
+    var divFormCourses = $('.form-div-courses');
 
-    internshipDivForm.hide();
-    internshipSearchButton.click(function(){
-        internshipDivForm.toggle();
+    divFormCourses.hide();
+    searchButtonCourses.click(function(){
+        divFormCourses.toggle();
     });
 
-    // pour les matières page admin
-    var matiereSearchButton = $('.matiere-search-button');
-    var matiereDivForm = $('.matiere-form-div');
+    //page admin - Stage
+    var searchButtonInternship = $('.search-button-internship');
+    var divInternship = $('.form-div-internship');
 
-    matiereDivForm.hide();
-    matiereSearchButton.click(function(){
-        matiereDivForm.toggle();
+    divInternship.hide();
+    searchButtonInternship.click(function(){
+        divInternship.toggle();
     });
+
+    //page admin - Matière
+    var searchButtonMatiere = $('.search-button-matiere');
+    var divFormMatiere = $('.form-div-matiere');
+
+    divFormMatiere.hide();
+    searchButtonMatiere.click(function(){
+        divFormMatiere.toggle();
+    });
+
 
 //// Affichage des options déroulante
 
@@ -36,16 +45,10 @@ $(document).ready(function() {
     var divTitre = $('.titre-search');
     var divMatiere = $('.matiere-search');
     var divPromo = $('.promo-search');
-    var divStatus = $('.status-search');
+
+    //Inscrit page Admin
     var divRole = $('.role-search');
     var divClasse = $('.classe-search');
-    // pour les autres barre de recherche
-    var selectTypeAdmin = $('.type-search-admin');
-    var divMatiereInternship = $('.internship-matiere-search');
-    var divStatusInternship = $('.internship-status-search');
-
-    var selectTypeMatiere = $('.type-search-matiere');
-    var divValidation = $('.validation-search');
 
     selectType.change(function(){
         console.log(selectType.val());
@@ -56,7 +59,6 @@ $(document).ready(function() {
                 divTitre.hide();
                 divMatiere.hide();
                 divPromo.hide();
-                divStatus.hide();
                 divRole.hide();
                 divClasse.hide();
                 break;
@@ -66,7 +68,6 @@ $(document).ready(function() {
                 divTitre.show();
                 divMatiere.hide();
                 divPromo.hide();
-                divStatus.hide();
                 divRole.hide();
                 divClasse.hide();
                 break;
@@ -76,7 +77,6 @@ $(document).ready(function() {
                 divTitre.hide();
                 divMatiere.show();
                 divPromo.hide();
-                divStatus.hide();
                 divRole.hide();
                 divClasse.hide();
                 break;
@@ -86,17 +86,6 @@ $(document).ready(function() {
                 divTitre.hide();
                 divMatiere.hide();
                 divPromo.show();
-                divStatus.hide();
-                divRole.hide();
-                divClasse.hide();
-                break;
-
-            case 'status':
-                divDate.hide();
-                divTitre.hide();
-                divMatiere.hide();
-                divPromo.hide();
-                divStatus.show();
                 divRole.hide();
                 divClasse.hide();
                 break;
@@ -106,7 +95,6 @@ $(document).ready(function() {
                 divTitre.hide();
                 divMatiere.hide();
                 divPromo.hide();
-                divStatus.hide();
                 divRole.show();
                 divClasse.hide();
                 break;
@@ -116,7 +104,6 @@ $(document).ready(function() {
                 divTitre.hide();
                 divMatiere.hide();
                 divPromo.hide();
-                divStatus.hide();
                 divRole.hide();
                 divClasse.show();
                 break;
@@ -126,15 +113,46 @@ $(document).ready(function() {
                 divTitre.hide();
                 divMatiere.hide();
                 divPromo.hide();
-                divStatus.hide();
                 divRole.hide();
                 divClasse.hide();
         }
     }).trigger('change');
 
-    selectTypeAdmin.change(function(){
-        console.log(selectTypeAdmin.val());
-        switch(selectTypeAdmin.val()){
+
+    //Cours
+    var selectTypeCourses = $('.type-search-courses');
+    var divMatiereCourses = $('.matiere-search-courses');
+    var divStatusCourses = $('.status-search-courses');
+
+    selectTypeCourses.change(function(){
+        console.log(selectTypeCourses.val());
+        switch(selectTypeCourses.val()){
+
+            case 'matiereCourses':
+                divMatiereCourses.show();
+                divStatusCourses.hide();
+                break;
+
+            case 'statusCourses':
+                divMatiereCourses.hide();
+                divStatusCourses.show();
+                break;
+
+            default:
+                divMatiereCourses.hide();
+                divStatusCourses.hide();
+        }
+    }).trigger('change');
+
+
+    //Stage
+    var selectTypeInternship = $('.type-search-internship');
+    var divMatiereInternship = $('.internship-matiere-search');
+    var divStatusInternship = $('.internship-status-search');
+
+    selectTypeInternship.change(function(){
+        console.log(selectTypeInternship.val());
+        switch(selectTypeInternship.val()){
 
             case 'matiereInternship':
                 divMatiereInternship.show();
@@ -146,16 +164,16 @@ $(document).ready(function() {
                 divStatusInternship.show();
                 break;
 
-            case 'validation':
-                divMatiereInternship.hide();
-                divStatusInternship.hide();
-                break;
-
             default:
                 divMatiereInternship.hide();
                 divStatusInternship.hide();
         }
     }).trigger('change');
+
+
+    //Matière
+    var selectTypeMatiere = $('.type-search-matiere');
+    var divValidation = $('.validation-search');
 
     selectTypeMatiere.change(function(){
         console.log(selectTypeMatiere.val());

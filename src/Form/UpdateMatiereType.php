@@ -15,7 +15,7 @@ class UpdateMatiereType extends AbstractType
     {
         $builder
             ->add('intitule', TextType::class, ['label'=>'Intitulé de la matière :' ])
-            ->add('validationAdmin', ChoiceType::class, ['label'=>'Validation :', 'choices'=>['Non validé'=>'0', 'Validé'=>'1']])
+            ->add('validationAdmin', ChoiceType::class, ['label'=>'Validation :', 'choices'=>['Non validé'=>1, 'Validé'=>2]])
         ;
     }
 

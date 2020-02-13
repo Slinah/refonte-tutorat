@@ -48,7 +48,7 @@ class Personne implements UserInterface
      *
      * @ORM\Column(name="role", type="integer", nullable=false)
      */
-    private $role = '0';
+    private $role = 1;
 
     /**
      * @var string
@@ -392,10 +392,10 @@ class Personne implements UserInterface
 
     public function getRoles(): array{
         $roles = $this->roles;
-        if($this->getRole() === 0){
+        if($this->getRole() === 1){
             $roles[] = 'ROLE_USER';
         }
-        elseif($this->getRole()===1){
+        elseif($this->getRole()===2){
             $roles[] = 'ROLE_ADMIN';
         }
 

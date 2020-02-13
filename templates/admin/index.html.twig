@@ -24,7 +24,7 @@
             <select class="type-search">
                 <option value="">Choisissez une option</option>
                 <option value="role"> Rôle </option>
-                <option value="classe"> Classe </option>
+                <option value="classe"> Promo </option>
             </select>
             <br /><br />
 
@@ -66,16 +66,16 @@
                             {{ student.idClasse.idPromo }} / {{ student.idClasse }}
                         </td>
                         <td>
-                            {% if student.role is same as(0) %}
+                            {% if student.role is same as(1) %}
                                 User
-                            {% elseif student.role is same as(1) %}
+                            {% elseif student.role is same as(2) %}
                                 Admin
                             {% endif %}
                         </td>
                         <td>
-                            {% if student.role is same as(0) %}
+                            {% if student.role is same as(1) %}
                                 <a href="{{ path('promote_student', { 'id':student.idPersonne }) }}">Promote</a>
-                            {% elseif student.role is same as(1) %}
+                            {% elseif student.role is same as(2) %}
                                 <a href="{{ path('demote_student', { 'id':student.idPersonne }) }}">Demote</a>
                             {% endif %}
                         </td>
@@ -101,24 +101,24 @@
                     <input type="submit" value="Tous"/>
                 </form>
             </li>
-            <li><button class="search-button">Plus de critères</button></li>
+            <li><button class="search-button-courses">Plus de critères</button></li>
         </ul>
-        <div class="form-div">
+        <div class="form-div-courses">
             {{ form_start(formCourseAdminSearch) }}
             <label>Rechercher par : </label>
-            <select class="type-search">
+            <select class="type-search-courses">
                 <option value="">Choisissez une option</option>
-                <option value="matiere"> Matière </option>
-                <option value="status"> Status </option>
+                <option value="matiereCourses"> Matière </option>
+                <option value="statusCourses"> Status </option>
             </select>
             <br /><br />
 
-            <div class="matiere-search">
+            <div class="matiere-search-courses">
                 {{ form_row(formCourseAdminSearch.idMatiere) }}
                 <br />
             </div>
 
-            <div class="status-search">
+            <div class="status-search-courses">
                 {{ form_row(formCourseAdminSearch.status) }}
                 <br />
             </div>
@@ -209,12 +209,12 @@
                     <input type="submit" value="Tous"/>
                 </form>
             </li>
-            <li><button class="internship-search-button">Plus de critères</button></li>
+            <li><button class="search-button-internship">Plus de critères</button></li>
         </ul>
-        <div class="internship-form-div">
+        <div class="form-div-internship">
             {{ form_start(formInternshipAdminSearch) }}
             <label>Rechercher par : </label>
-            <select class="type-search-admin">
+            <select class="type-search-internship">
                 <option value="">Choisissez une option</option>
                 <option value="matiereInternship"> Matière </option>
                 <option value="statusInternship"> Status </option>
@@ -315,9 +315,9 @@
                     <input type="submit" value="Tous"/>
                 </form>
             </li>
-            <li><button class="matiere-search-button">Plus de critères</button></li>
+            <li><button class="search-button-matiere">Plus de critères</button></li>
         </ul>
-        <div class="matiere-form-div">
+        <div class="form-div-matiere">
             {{ form_start(formMatiereAdminSearch) }}
             <label>Rechercher par : </label>
             <select class="type-search-matiere">
@@ -339,6 +339,7 @@
     {# Fin barre de recherche #}
 
     <h3>Matières</h3>
+
     {% if matieres is not empty %}
         <table class="table">
             <thead>
@@ -354,9 +355,9 @@
                     <tr>
                         <td>{{ matiere.intitule }}</td>
                         <td>
-                            {% if matiere.validationadmin is same as(0) %}
+                            {% if matiere.validationAdmin is same as(1) %}
                                 Non validé
-                            {% elseif matiere.validationadmin is same as(1) %}
+                            {% elseif matiere.validationAdmin is same as(2) %}
                                 Validé
                             {% endif %}
                         </td>

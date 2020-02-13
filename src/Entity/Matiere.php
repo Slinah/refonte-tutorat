@@ -33,7 +33,7 @@ class Matiere
      *
      * @ORM\Column(name="validationAdmin", type="integer", nullable=false)
      */
-    private $validationadmin = '0';
+    private $validationAdmin = '1';
 
     public function __toString()
     {
@@ -57,14 +57,14 @@ class Matiere
         return $this;
     }
 
-    public function getValidationadmin(): ?int
+    public function getValidationAdmin(): ?int
     {
-        return $this->validationadmin;
+        return $this->validationAdmin;
     }
 
-    public function setValidationadmin(int $validationadmin): self
+    public function setValidationAdmin(int $validationAdmin): self
     {
-        $this->validationadmin = $validationadmin;
+        $this->validationAdmin = $validationAdmin;
 
         return $this;
     }

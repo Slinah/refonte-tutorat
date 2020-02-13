@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Classe;
 use App\Entity\PersonneSearch;
+use App\Entity\Promo;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -15,8 +17,12 @@ class PersonneSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('role', ChoiceType::class, ["label"=>"Rôle :", "choices"=>["User"=>0, "Admin"=>1], "required"=>false])
-            ->add('idClasse', EntityType::class, ["class"=>Classe::class, "label"=>"Classe", "required"=>false])
+            ->add('role', ChoiceType::class, ["label"=>"Rôle :", "choices"=>["User"=>1, "Admin"=>2], "required"=>false])
+            ->add('idClasse', EntityType::class, ["class"=>Promo::class, "label"=>"Promo", "required"=>false,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('q')
+                        ->orderBy("q.promo", "ASC");
+                }])
         ;
     }
 

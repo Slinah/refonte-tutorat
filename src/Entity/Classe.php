@@ -66,8 +66,7 @@ class Classe
         return $this->id_promo;
     }
 
-
-    public function setIdPromo($id_promo)
+    public function setIdPromo( $id_promo)
     {
         $this->id_promo = $id_promo;
     }
