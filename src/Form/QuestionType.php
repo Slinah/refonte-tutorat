@@ -19,6 +19,9 @@ class QuestionType extends AbstractType
             ->add('description', null, [
                 'label' => 'Détaillez votre idée'
             ])
+//            ->add('matiere', null, [
+//                'label' => 'Selectionnez la matiere'
+//            ])
             ->add('submit', SubmitType::class, [
                 "label" => "Envoyer !"
             ])

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="center">Les dernières questions</h1>
+
+    <a href="{{ path("post_design") }}" class="center"> Ajouter une question </a>
+
+    {# afficher en boucle les questions #}
+    {{ question_forum.matiere }}
+    {% for question_forum in questions_forums %}
+        {% if question_forum.matiere == 'Design' %}
+            <article class="center">
+                {#{{ dump(question_forum) }}#}
+                {{ dump(dateDebutSemaine) }}
+                {{ dump(dateFinSemaine) }}
+                <h3>{{ question_forum.title }}</h3>
+                <div>Créer par {{ question_forum.author.nom }} {{ question_forum.author.prenom }} | Le {{ question_forum.dateCreated|date("d-m-y H:i") }}</div>
+                <br />
+                <a href="{{ path("detail_question", {"id": question_forum.idQuestion}) }}">+ de détails</a>
+            </article>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

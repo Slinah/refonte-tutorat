@@ -16,7 +16,7 @@ class SwiftmailerController extends AbstractController
         $receiver=$this->getUser()->getMail();
         $em = $this->getDoctrine()->getManager();
         $query = 'SELECT intitule, date, heure FROM cours c 
-                      join personne_cours pc on c.id_cours = pc.id_cours 
+                       join personne_cours pc on c.id_cours = pc.id_cours 
                       join personne p on p.id_personne = pc.id_personne 
                       where p.mail = :mail order by c.dateCreation DESC LIMIT 1;';
 

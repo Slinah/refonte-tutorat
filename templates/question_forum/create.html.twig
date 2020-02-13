@@ -23,6 +23,10 @@
         {{ form_row(questionForm.description) }}
 
         <br />
+        {{ form_label(questionForm.matiere) }}
+        <br />
+        {{ form_widget(questionForm.matiere) }}
+        <br />
 
     {{ form_end(questionForm) }}
 {% endblock %}
