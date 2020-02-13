@@ -19,6 +19,32 @@ class PersonneTagRepository extends ServiceEntityRepository
         parent::__construct($registry, PersonneTag::class);
     }
 
+    public function findTag($connectedUser)
+    {
+        return $this->createQueryBuilder("q")
+            ->where("q.idPersonne = :connectedUser")
+            ->setParameter("connectedUser", $connectedUser)
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findOneTag($id, $connectedUser)
+    {
+        return $this->createQueryBuilder("q")
+            ->delete()
+            ->where("q.idPersonne = :connectedUser")
+            ->setParameter("connectedUser", $connectedUser)
+
+            ->andWhere("q.idMatiere = :idMatiere")
+            ->setParameter("idMatiere", $id)
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return PersonneTag[] Returns an array of PersonneTag objects
     //  */

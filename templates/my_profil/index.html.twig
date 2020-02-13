@@ -69,11 +69,12 @@
     <h3>Mes spécialités</h3>
     {% if tags is not null %}
         {% for tag in tags %}
-            | {{ tag.idNiveau }} en {{ tag.idMatiere }} |<br />
-            | <a href="{{ path('update_tag', { 'id':tag.idMatiere }) }}">Modifier</a> |
+            | {{ tag.idNiveau.intitule }} en {{ tag.idMatiere }}
+            (<a href="{{ path('delete_tag', { 'id':tag.idMatiere.idMatiere }) }}">supprimer</a>) |
+        {% else %}
+            Pas de tags
+            <br />
         {% endfor %}
-    {% else %}
-        <p>Pas de tags</p>
     {% endif %}
     <br />
     <a href="{{ path('create_tag') }}">Ajouter un tag</a>

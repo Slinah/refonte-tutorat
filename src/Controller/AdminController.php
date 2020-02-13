@@ -128,12 +128,11 @@ class AdminController extends AbstractController
      * @Route("/delete-student/{id}", name="delete_student")
      * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
-    public function deleteStudent(CoursRepository $coursRepo, PersonneRepository $repo, PersonneCoursRepository $personneCoursRepo, PropositionRepository $personneSuggestRepo, $id)
+    public function deleteStudent(PersonneRepository $repo, PersonneCoursRepository $personneCoursRepo, PropositionRepository $personneSuggestRepo, $id)
     {
         $student = $repo->find($id);
         $personneSuggestRepo->DeleteSuggestLinkToUser($id);
         $personneCoursRepo->DeleteAssociationLinkToUser($id);
-//        $coursRepo->DeleteCoursesLinkToUser($id);
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($student);

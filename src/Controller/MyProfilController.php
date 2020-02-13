@@ -2,11 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Tags;
 use App\Repository\CoursRepository;
 use App\Repository\PersonneCoursRepository;
-use App\Repository\PersonneRepository;
-use App\Repository\TagsRepository;
+use App\Repository\PersonneTagRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +18,7 @@ class MyProfilController extends AbstractController
      * @Route("/myProfil", name="my_profil")
      * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
-    public function index(PersonneCoursRepository $personneCoursRepo, CoursRepository $repository, PaginatorInterface $paginator, TagsRepository $tagsRepos, Request $request)
+    public function index(PersonneCoursRepository $personneCoursRepo, CoursRepository $repository, PaginatorInterface $paginator, PersonneTagRepository $tagsRepos, Request $request)
     {
         //récup l'user connecter
         $connectedUser = $this->getUser();
@@ -36,11 +34,7 @@ class MyProfilController extends AbstractController
         );
 
         //Rubrique mes tags
-        $tags = $tagsRepos->findAll();
-//        $entity = new Tags();
-//        $entity->setIntitule('Expert');
-//        $entity->setIntitule("A l'aise");
-//        $entity->setIntitule("A besoin d'aide");
+        $tags = $tagsRepos->findTag($connectedUser);
 
         return $this->render('my_profil/index.html.twig', [
             "coursesFollow"=> $coursesFollow,

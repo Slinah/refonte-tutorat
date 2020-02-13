@@ -25,9 +25,8 @@ class PersonneTag
     /**
      * @var \App\Entity\Niveau
      *
-     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Niveau")
+     * @ORM\ManyToOne(targetEntity="Niveau")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_niveau", referencedColumnName="id_niveau")
      * })
@@ -37,6 +36,7 @@ class PersonneTag
     /**
      * @var \App\Entity\Matiere
      *
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Matiere")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_matiere", referencedColumnName="id_matiere")

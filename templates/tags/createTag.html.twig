@@ -7,10 +7,18 @@
 {% endblock %}
 
 {% block body %}
-    {{ form_start(formAjoutTag) }}
+    {{ form_start(formAjout) }}
 
-    {{ form_row(formAjoutTag.idTag) }}
-    {{ form_row(formAjoutTag.idMatiere) }}
+    {{ form_label(formAjout.idNiveau) }}
+    <br />
+    {{ form_widget(formAjout.idNiveau) }}
+    <br />
 
-    {{ form_end(formAjoutTag) }}
+    {{ form_label(formAjout.idMatiere) }}
+    <br />
+    {{ form_widget(formAjout.idMatiere) }}
+    <br />
+
+    <button>Ajouter le tag</button>
+    {{ form_end(formAjout) }}
 {% endblock %}

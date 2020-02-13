@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\PersonneTags;
-use App\Form\TagsType;
+use App\Entity\PersonneTag;
+use App\Form\TagType;
+use App\Repository\PersonneTagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,12 +19,11 @@ class TagsController extends AbstractController
      */
     public function createTag(Request $request)
     {
-        $tag = new PersonneTags();
-        $formAjoutTag=$this->createForm(TagsType::class, $tag);
-        $formAjoutTag->handleRequest($request);
+        $tag = new PersonneTag();
+        $form=$this->createForm(TagType::class, $tag);
+        $form->handleRequest($request);
 
-        if ($formAjoutTag->isSubmitted() && $formAjoutTag->isValid()){
-            //associe le tag à l'user co
+        if ($form->isSubmitted() && $form->isValid()){
             $connectedUser = $this->getUser();
             $tag->setIdPersonne($connectedUser);
 
@@ -36,16 +36,23 @@ class TagsController extends AbstractController
         }
 
         return $this->render('tags/createTag.html.twig', [
-            "formAjoutTag"=>$formAjoutTag->createView()
+            "formAjout"=>$form->createView()
         ]);
     }
 
     /**
-     * @Route("/update-tag", name="update_tag")
+     * @Route("/delete-tag/{id}", name="delete_tag")
      * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
      */
-    public function updateTag()
+    public function deleteTag(PersonneTagRepository $repo, $id)
     {
-        return $this->render('tags/updateTag.html.twig');
+        $connectedUser = $this->getUser();
+        $tag = $repo->findOneTag($id, $connectedUser);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $this->addFlash('success', 'Tag supprimé avec succès !');
+
+        return $this->redirectToRoute("my_profil");
     }
 }

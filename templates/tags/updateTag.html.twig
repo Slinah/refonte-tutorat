@@ -3,9 +3,21 @@
 {% block titre %}
     <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
         <h1 class="display-4 pb-5">Modifier un tag</h1>
+        {% for tag in tag %}
+            {{ tag.idNiveau.intitule }} en {{ tag.idMatiere }}
+        {% endfor %}
     </div>
 {% endblock %}
 
 {% block body %}
+    {% for tag in tag %}
 
+    {{ form_start(form) }}
+
+    {{ form_row(form.idTag) }}
+    {{ form_row(form.idMatiere) }}
+
+    {{ form_end(form) }}
+
+    {% endfor %}
 {% endblock %}

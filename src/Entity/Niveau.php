@@ -28,6 +28,11 @@ class Niveau
      */
     private $intitule;
 
+    public function __toString()
+    {
+        return $this->intitule;
+    }
+
     public function getIdNiveau(): ?string
     {
         return $this->idNiveau;

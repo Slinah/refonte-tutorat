@@ -29,11 +29,26 @@
                 </div>
             {% endfor %}
 
+            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+            {% else %}
+                <div class="navbar-collapse navbar-light">
+                    <ul class="navbar-nav h3">
+                        <li class="nav-item">
+                            <a class="nav-link pr-5 h3"  href="{{ path('app_login') }}" style="float: right">Se connecter</a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+
             {% if is_granted('ROLE_USER') %}
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-5">
                         <li class="nav-item">
-                            <a class="nav-link text-right h5" href="{{ path('my_profil') }}">{{ app.user.nom }} {{ app.user.prenom }} : Mon profil<img src="https://img.icons8.com/nolan/64/edit-user-male.png"></a>
+                            <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  href="#" style="float: right">{{ app.user.nom }} {{ app.user.prenom }}<img src="https://img.icons8.com/nolan/64/edit-user-male.png"></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ path('my_profil') }}">Mon profil</a>
+                                <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -46,6 +61,8 @@
                                 <a class="dropdown-item" href="{{ path('my_profil') }}">Mon profil</a>
                                 <a class="dropdown-item" href="{{ path('admin') }}">Pannel admin</a>
                                 <a class="dropdown-item" href="#">Stats</a>
+                                <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+
                             </div>
                         </li>
                     </ul>
@@ -54,9 +71,6 @@
 
             <nav class="navbar navbar-expand navbar-light">
                 <a class="navbar-brand " href="{{ path('home') }}" style="font-size: 35px"><img src="https://img.icons8.com/dotty/80/000000/elephant.png">ScratchOverFlow</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav h3">
@@ -78,15 +92,6 @@
                         <li class="nav-item">
                             <a class="nav-link pr-4 h3" href="{{ path('last_questions') }}">Forum</a>
                         </li>
-                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-                            <li class="nav-item">
-                                <a class="nav-link pr-4 h3" href="{{ path('app_logout') }}">Se déconnecter</a>
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link pr-4 h3" href="{{ path('app_login') }}">Se connecter</a>
-                            </li>
-                        {% endif %}
                     </ul>
                 </div>
             </nav>
