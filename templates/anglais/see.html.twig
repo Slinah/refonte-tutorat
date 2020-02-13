@@ -1,25 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MathController!{% endblock %}
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Anglais</h1>
+
+    </div>
+{% endblock %}
 
 {% block body %}
-    <h1 class="center">Les dernières questions</h1>
 
-    <a href="{{ path("post_anglais") }}" class="center"> Ajouter une question </a>
+    <div class="list-group mt-5">
+        <h2 id="design">Anglais</h2>
 
-    {# afficher en boucle les questions #}
-    {{ question_forum.matiere }}
-    {% for question_forum in questions_forums %}
-        {% if question_forum.matiere == 'Anglais' %}
-            <article class="center">
-                {#{{ dump(question_forum) }}#}
-                {{ dump(dateDebutSemaine) }}
-                {{ dump(dateFinSemaine) }}
-                <h3>{{ question_forum.title }}</h3>
-                <div>Créer par {{ question_forum.author.nom }} {{ question_forum.author.prenom }} | Le {{ question_forum.dateCreated|date("d-m-y H:i") }}</div>
-                <br />
-                <a href="{{ path("detail_question", {"id": question_forum.idQuestion}) }}">+ de détails</a>
-            </article>
-        {% endif %}
-    {% endfor %}
+        {% for question_forum in questions_forums %}
+            {% if question_forum.matiere == 'Anglais' %}
+                <a href="{{ path("detail_question", {"id": question_forum.idQuestion}) }}" class="list-group-item list-group-item-action ">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ question_forum.title }}</h5>
+                        <small>Date de création : {{  question_forum.dateCreated|format_datetime('full', 'short', locale='fr') }}</small>
+                    </div>
+                    <p class="mb-1"> {{ question_forum.description }}</p>
+                    <small>Créé par {{ question_forum.author.nom }} {{ question_forum.author.prenom }}</small>
+
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}

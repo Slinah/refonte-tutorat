@@ -69,17 +69,6 @@ class Matiere
         return $this;
     }
 
-    public function getQuestion(): ?QuestionForum
-    {
-        return $this->question;
-    }
-
-    public function setQuestion(?QuestionForum $question): self
-    {
-        $this->question = $question;
-
-        return $this;
-    }
 
 
 }

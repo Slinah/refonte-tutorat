@@ -8,6 +8,7 @@
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/forum.css') }}" />
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:400,900' rel='stylesheet' type='text/css'>
         {% endblock %}
@@ -90,7 +91,7 @@
                             <a class="nav-link pr-5 h3" href="{{ path('suggest_courses') }}">Suggérer un cours</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pr-4 h3" href="{{ path('last_questions') }}">Forum</a>
+                            <a class="nav-link pr-4 h3" href="{{ path('forum') }}">Forum</a>
                         </li>
                     </ul>
                 </div>

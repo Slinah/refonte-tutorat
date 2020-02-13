@@ -37,7 +37,7 @@ class Classe
      * @ORM\JoinColumn(name="id_promo", referencedColumnName="id_promo")
      *
      */
-    private $idPromo;
+    private $id_promo;
 
     public function __toString()
     {
@@ -63,14 +63,12 @@ class Classe
 
     public function getIdPromo()
     {
-        return $this->idPromo;
+        return $this->id_promo;
     }
 
-    /**
-     * @param \Promo $idPromo
-     */
-    public function setIdPromo($idPromo)
+
+    public function setIdPromo($id_promo)
     {
-        $this->idPromo = $idPromo;
+        $this->id_promo = $id_promo;
     }
 }

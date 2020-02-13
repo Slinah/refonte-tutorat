@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GeneralController extends AbstractController
 {
     /**
-     * @Route("/forum/general/see", name="voir_general")
+     * @Route("/forum/general/see", name="see_general")
      */
     public function seeQuestion()
     {

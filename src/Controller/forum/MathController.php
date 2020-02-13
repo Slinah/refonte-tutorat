@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MathController extends AbstractController
 {
     /**
-     * @Route("/forum/math/see", name="voir_math")
+     * @Route("/forum/math/see", name="see_math")
      */
     public function seeQuestion()
     {

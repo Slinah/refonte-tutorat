@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+
+
+}
+
+html{ min-height: 100vh;
+    scroll-behavior: smooth;
+
+}
+
+main{min-height: calc(100vh);}
+body{
+    min-height:100vh;
+
+
+}
+
+#header{
+    background-image: url(../image/backgroundtop.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height:100vh;
+    margin-bottom: 10vh;
+
+}
+
+.button {
+
+
+    border-radius: 9px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;}
+
+.button:hover {
+    text-decoration: none;
+    border-radius: 50px;
+
+}
+
+
+
+.button ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.button ul li {
+    --c: goldenrod;
+    color: var(--c);
+    font-size: 16px;
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+
+}
+
+.button ul li span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+.button ul li:hover {
+    color: black;
+}
+
+.button ul li:hover span {
+    transform: translateY(0) scale(2);
+}
+
+.button ul li span:nth-child(1) {
+    --n: 1;
+}
+
+.button ul li span:nth-child(2) {
+    --n: 2;
+}
+
+.button ul li span:nth-child(3) {
+    --n: 3;
+}
+
+.button ul li span:nth-child(4) {
+    --n: 4;
+}
+
+
+
+.card{
+
+    margin: 0 30px;
+    border-radius: 5px;
+    box-shadow: 0 -1px 5px 0 rgba(0,0,0,.5);
+    text-align: center;
+
+}
+
+.card a{
+    font-size: 20px;
+    color: rebeccapurple;
+
+}
+
+.card img{
+    width: 30%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.list-group{
+    margin: 30Px;
+
+}
+
+
+.list-group h2{
+    margin-bottom: 20Px;
+    margin-top: 70px;
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.list-group h5{
+
+}
+
+footer{
+    margin-top: 10%;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background-color: black;
+
+}
+
+footer a
+{color: white;}

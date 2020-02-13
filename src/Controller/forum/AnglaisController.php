@@ -32,15 +32,6 @@ class AnglaisController extends AbstractController
      */
     public function addQuestion(Request $request)
     {
-
-//        $em = $this->getDoctrine()->getManager();
-//        $query = 'SELECT * FROM matiere where intitule = "Math";';
-//
-//
-//        $statement = $em->getConnection()->prepare($query);
-//        $statement->execute();
-//
-//        $result = $statement->fetchAll();
         $question = new QuestionForum();
         $question->setAuthor($this->getUser());
         $questionForm = $this -> createForm(QuestionType::class, $question);
