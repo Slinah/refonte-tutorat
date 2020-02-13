@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0ff0983-74e5-4121-ab3d-825c58f29990" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/mail_matiere/noticeCreationMatiere.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MyProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MyProfilController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TagsController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Classe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Matiere.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Matiere.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/MatiereSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/MatiereSearch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/GiveCoursesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/GiveCoursesType.php" afterDir="false" />
@@ -21,6 +21,11 @@
       <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tags/createTag.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/my_profil/createTag.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tags/updateTag.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MyProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MyProfilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SuggestCoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuggestCoursesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Matiere.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Matiere.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/my_profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/my_profil/index.html.twig" afterDir="false" />
+
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -147,6 +152,36 @@
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1606294084">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="php" value="349" />
+          <entry key="twig" value="365" />
+          <entry key="txt" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PHP" value="349" />
+          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="Twig" value="365" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="php" value="12" />
+          <entry key="twig" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PHP" value="12" />
+          <entry key="Twig" value="6" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
@@ -159,28 +194,101 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/Entity/PromoSearch.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="457">
               <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/Controller/SwiftmailerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+              <folding>
+                <element signature="e#34#69#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MailMatiereController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="57" column="60" selection-start-line="57" selection-start-column="60" selection-end-line="57" selection-end-column="60" />
+              <folding>
+                <element signature="e#34#69#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SuggestCoursesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="54" column="58" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/mail_matiere/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/mail_matiere/noticeCreationMatiere.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
               <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+=======
+        <entry file="file://$PROJECT_DIR$/templates/swiftmailer/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="7" selection-end-line="15" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Matiere.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Cours.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="52" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
             </state>
           </provider>
         </entry>
@@ -234,6 +342,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/Entity/Tags.php" />
+        <option value="$PROJECT_DIR$/templates/tags/AddTag.html.twig" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
         <option value="$PROJECT_DIR$/templates/tags/UpdateTag.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Archive.php" />
         <option value="$PROJECT_DIR$/src/Entity/Ecole.php" />
@@ -253,9 +366,17 @@
         <option value="$PROJECT_DIR$/templates/question_forum/last_questions.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/QuestionController.php" />
         <option value="$PROJECT_DIR$/src/Controller/CoursesController.php" />
-        <option value="$PROJECT_DIR$/templates/courses/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/PersonneSearch.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/Entity/Classe.php" />
+        <option value="$PROJECT_DIR$/src/Repository/CoursRepository.php" />
+        <option value="$PROJECT_DIR$/templates/admin/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/src/Repository/PersonneCoursRepository.php" />
+        <option value="$PROJECT_DIR$/src/Form/GiveCoursesType.php" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
         <option value="$PROJECT_DIR$/templates/tags/updateTag.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/PersonneCours.php" />
         <option value="$PROJECT_DIR$/src/Entity/PersonneTag.php" />
@@ -263,6 +384,7 @@
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/tags/createTag.html.twig" />
         <option value="$PROJECT_DIR$/src/Repository/PersonneTagRepository.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/templates/my_profil/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Classe.php" />
         <option value="$PROJECT_DIR$/src/Controller/TagsController.php" />
@@ -285,8 +407,26 @@
         <option value="$PROJECT_DIR$/src/Repository/PersonneRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/Entity/PromoSearch.php" />
+=======
+        <option value="$PROJECT_DIR$/src/Entity/Personne.php" />
+        <option value="$PROJECT_DIR$/src/Controller/TagsController.php" />
+        <option value="$PROJECT_DIR$/templates/courses/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/MyProfilController.php" />
+        <option value="$PROJECT_DIR$/templates/my_profil/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Matiere.php" />
+        <option value="$PROJECT_DIR$/src/Controller/SuggestCoursesController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/MailMatiereController.php" />
+        <option value="$PROJECT_DIR$/templates/mail_matiere/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/mail_matiere/noticeCreationMatiere.html.twig" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -431,10 +571,16 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="103" />
     <option name="y" value="20" />
     <option name="width" value="1700" />
     <option name="height" value="945" />
+=======
+    <option name="x" value="-11" />
+    <option name="width" value="1316" />
+    <option name="height" value="1047" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -446,48 +592,156 @@
         <subPane>
           <expand>
             <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="forum" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
               <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="altstage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="anglais" type="462c0819:PsiDirectoryNode" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="boite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="choix_matiere" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="courses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="design" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="forum" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="francais" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="general" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="linux" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="mail_matiere" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="marketing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="math" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stage_epsi_tutorat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_epsi_tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="suggest_courses" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="programmation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="question_forum" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="reseaux" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="refonte-tutorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="refonte-tutorat" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="swiftmailer" type="462c0819:PsiDirectoryNode" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
             </path>
           </expand>
           <select />
@@ -501,6 +755,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebProduction git lab" />
   </component>
   <component name="RecentsManager">
+<<<<<<< HEAD
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\stage_epsi_tutorat\templates\my_profil" />
       <recent name="C:\laragon\www\stage_epsi_tutorat\src\Entity" />
@@ -508,12 +763,145 @@
       <recent name="C:\laragon\www\stage_epsi_tutorat\src\Form\Search" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+=======
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\refonte-tutorat\templates\mail_matiere" />
+      <recent name="C:\laragon\www\stage_epsi_tutorat\templates\tags" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <recent name="C:\laragon\www\stage_epsi_tutorat\src\Entity" />
       <recent name="C:\laragon\www\stage_epsi_tutorat\templates\tags" />
       <recent name="C:\laragon\www\stage_epsi_tutorat\src\Entity\Search" />
       <recent name="C:\laragon\www\stage_epsi_tutorat\src\Form" />
-      <recent name="C:\laragon\www\stage_epsi_tutorat\public\css" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\stage_epsi_tutorat\src\Entity" />
+      <recent name="C:\laragon\www\stage_epsi_tutorat\src\Entity\Search" />
+      <recent name="C:\laragon\www\stage_epsi_tutorat\src\Form\Search" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/AdminController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/MyProfilController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/TagsController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Entity/Niveau.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Entity/PersonneTag.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Form/GiveCoursesType.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Repository/CoursRepository.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Repository/PersonneTagRepository.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/base.html.twig</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/my_profil/index.html.twig</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/tags/createTag.html.twig</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/tags/updateTag.html.twig</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Form/TagsType.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Repository/TagsRepository.php</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -599,17 +987,31 @@
       <option name="project" value="LOCAL" />
       <updated>1581496729232</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Mise en page du forum">
+      <created>1581583901941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581583901941</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="177697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="83" y="16" width="1360" height="756" extended-state="0" />
     <editor active="true" />
+=======
+    <option name="totallyTimeSpent" value="177554000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-11" y="0" width="1316" height="1047" extended-state="0" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20700637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -679,20 +1081,6 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Bug login résolu (plaintext)&#10;Logout fonctionnel&#10;&#10;Probleme chiffrage mot de passe" />
@@ -703,9 +1091,11 @@
     <MESSAGE value="Envoie de mail&#10;Début configuration du contenu des mails" />
     <MESSAGE value="Envoie de mail&#10;DateCreation ajouté dans BDD" />
     <MESSAGE value="correction pb idPromo" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction pb idPromo" />
+    <MESSAGE value="Mise en page du forum" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mise en page du forum" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/tags/updateTag.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -728,6 +1118,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
+=======
+    <entry file="file://$PROJECT_DIR$/.env">
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/CoursesController.php">
@@ -757,6 +1150,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/my_profil/createTag.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -772,6 +1166,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/PersonneTag.php">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Controller/QuestionController.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/PersonneSearch.php">
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
@@ -785,6 +1183,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Entity/Classe.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -803,6 +1202,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MyProfilController.php">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Repository/PersonneRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://G:/Users/evagu/Documents/Stage EPSI/forum/forum.php" />
+    <entry file="file://$PROJECT_DIR$/src/Repository/CoursRepository.php">
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="69" column="39" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
@@ -826,6 +1232,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Entity/CourseSearch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -834,6 +1241,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/altstage/post.html.twig">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Repository/TagsRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/Form/GiveCoursesType.php">
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-441" />
       </provider>
@@ -889,6 +1300,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Repository/PromoRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-31" />
@@ -902,6 +1314,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/MatiereRepository.php">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Entity/PersonneCours.php">
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
@@ -911,6 +1326,7 @@
     <entry file="file://$PROJECT_DIR$/src/Form/CancelCoursesType.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Form/CloseCoursesType.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -942,6 +1358,10 @@
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/templates/admin/updateMatiere.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/RegistrationFormType.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -967,6 +1387,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Form/MatiereType.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -978,6 +1399,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/Search/PersonneSearchType.php">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Controller/InternshipController.php">
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
@@ -1012,6 +1436,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1020,6 +1445,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/PromoSearch.php">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Repository/PersonneTagRepository.php">
+>>>>>>> a4c7bb70d01d2d6663a6ae55b99dc7604c877fb8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
@@ -1030,6 +1458,119 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Classe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CoursesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+          <folding>
+            <element signature="e#34#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/my_profil/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="131" column="92" selection-start-line="131" selection-start-column="92" selection-end-line="131" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MyProfilController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/courses/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="191" column="93" selection-start-line="191" selection-start-column="12" selection-end-line="191" selection-end-column="93" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/swiftmailer/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Cours.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Matiere.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GiveCoursesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SwiftmailerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+          <folding>
+            <element signature="e#34#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MailMatiereController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="57" column="60" selection-start-line="57" selection-start-column="60" selection-end-line="57" selection-end-column="60" />
+          <folding>
+            <element signature="e#34#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail_matiere/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SuggestCoursesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="54" column="58" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail_matiere/noticeCreationMatiere.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>

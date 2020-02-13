@@ -34,6 +34,16 @@ class MyProfilController extends AbstractController
             $request->query->getInt('page', 1),
             3
         );
+        date_default_timezone_set('Europe/Amsterdam');
+        $dateDebutSemaine = new \DateTime();
+        $dateFinSemaine = new \DateTime();
+        $dateDebutSemaineProchaine = new \DateTime();
+        $dateFinSemaineProchaine = new \DateTime();
+        $dateDebutSemaine->modify('this week');
+        $dateFinSemaine->modify('this week +6 days');
+        $dateDebutSemaineProchaine->modify('this week +7 days');
+        $dateFinSemaineProchaine->modify('this week +13 days');
+
 
         //Rubrique mes tags
         $tags = $tagsRepos->findTag($connectedUser);
@@ -41,7 +51,12 @@ class MyProfilController extends AbstractController
         return $this->render('my_profil/index.html.twig', [
             "coursesFollow"=> $coursesFollow,
             "tuteur"=>$tuteur,
-            "tags"=>$tags
+            "tags"=>$tags,
+            "dateDebutSemaine" => $dateDebutSemaine,
+            "dateFinSemaine" => $dateFinSemaine,
+            "dateDebutSemaineProchaine" => $dateDebutSemaineProchaine,
+            "dateFinSemaineProchaine" => $dateFinSemaineProchaine
+
         ]);
     }
 
