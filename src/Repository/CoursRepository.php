@@ -51,7 +51,7 @@ class CoursRepository extends ServiceEntityRepository
                 ->setParameter('promo', $courseSearch->getIdPromo());
         }
 
-        return $query->getQuery();
+        return $query->getQuery()->getResult();
     }
 
     public function findCoursePagination2(CourseSearch $courseSearch) {

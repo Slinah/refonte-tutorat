@@ -65,7 +65,7 @@
         <img src="image/cettesemaine.jpg" class="mr-5 ml-5" alt="cette semaine" width="10%" height="20%">
 
 
-        {% for courses in courses1 %}
+        {% for courses in courses %}
             {% if courses.date<dateFinSemaine and courses.date>dateDebutSemaine and courses.date>dateNow and courses.stage is same as(0) and courses.status is same as(0)%}
                 <div class="col">
                     <div class="card">
@@ -78,15 +78,17 @@
                                 {% for tuteur in tuteur %}
                                     {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
                                         <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
-                                    {% elseif courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (0) %}
-                                        <li>_____</li>
-                                        <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
-                                        {% if tuteur.idPersonne.idPersonne is same as(app.user.idPersonne) %}
-                                             / <a href="{{ path('unsubscribe_courses', { 'id':courses.idCours }) }}">Se désinscrire</a>
-                                        {% endif %}
+                                    {#{% elseif courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (0) %}#}
+                                        {#<li>_____</li>#}
+                                        {#<li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>#}
+                                        {#{% if tuteur.idPersonne.idPersonne is same as(app.user.idPersonne) %}#}
+                                             {#/ <a href="{{ path('unsubscribe_courses', { 'id':courses.idCours }) }}">Se désinscrire</a>#}
+                                        {#{% endif %}#}
                                     {% endif %}
                                 {% endfor %}
-                                <li>_____</li>
+                                <li>
+                                    <a href="{{ path('details_courses', {'id':courses.idCours}) }}">+ de détails</a>
+                                </li>
                             </ul>
 
                             <div style="text-align: center">
@@ -123,15 +125,15 @@
         {% endfor %}
 
         <br />
-        <div>
-            {{ knp_pagination_render(courses1) }}
-        </div>
+        {#<div>#}
+            {#{{ knp_pagination_render(courses1) }}#}
+        {#</div>#}
     </div>
 
     <div class="row">
         <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
 
-        {% for courses in courses2 %}
+        {% for courses in courses %}
             {%  if courses.date > dateFinSemaine and courses.date < dateFinSemaineProchaine and courses.stage is same as(0) and courses.status is same as(0)%}
 
                 <div class="col">
@@ -181,14 +183,15 @@
         {% endfor %}
 
         <br />
-        <div>
-            {{ knp_pagination_render(courses2) }}
-        </div>
+        {#<div>#}
+            {#{{ knp_pagination_render(courses2) }}#}
+        {#</div>#}
     </div>
 
     <div class="row">
         <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
-        {% for courses in courses3 %}
+
+        {% for courses in courses %}
             {% if courses.date > dateFinSemaine and courses.date > dateFinSemaineProchaine and courses.stage is same as(0) and courses.status is same as(0) %}
                 <div class="col">
                     <div class="card">
@@ -236,9 +239,9 @@
         {% endfor %}
 
         <br />
-        <div>
-            {{ knp_pagination_render(courses3) }}
-        </div>
+        {#<div>#}
+            {#{{ knp_pagination_render(courses3) }}#}
+        {#</div>#}
 
     </div>
 {% endblock %}

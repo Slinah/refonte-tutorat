@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Plus de détails sur le cours : <br />
+            {{ course.intitule }}</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <p><b>Matière : </b>{{ course.idMatiere }}</p>
+    <p><b>Date : </b>{{ course.date |format_datetime('full', 'none', locale='fr') }}</p>
+    <p><b>Heure : </b>{{ course.heure |format_time('short', locale='fr') }}</p>
+    <p><b>Promo concerné : </b>{{ course.idPromo }}</p>
+
+
+    {% for tuteur in tuteur %}
+        {% if course.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+            <p><b>Tuteur : </b>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</p>
+        {% endif %}
+    {% endfor %}
+    <br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td scope="col">Nom</td>
+                <td scope="col">Prénom</td>
+                <td scope="col">Classe</td>
+                <td scope="col">Promo</td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tuteur in tuteur %}
+                {% if course.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
+
+                {% elseif course.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (0) %}
+                    <tr>
+                        <td>{{ tuteur.idPersonne.nom }}</td>
+                        <td>{{ tuteur.idPersonne.prenom }}</td>
+                        <td>{{ tuteur.idPersonne.idClasse }}</td>
+                        <td>{{ tuteur.idPersonne.idClasse.idPromo }}</td>
+                        <td>
+                            {% if tuteur.idPersonne.idPersonne is same as(app.user.idPersonne) %}
+                                <a href="{{ path('unsubscribe_courses', { 'id':course.idCours }) }}">Se désinscrire</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if app.user %}
+        <a href="{{ path('registration_courses', { 'id':course.idCours }) }}" class="button">
+            <div>
+                <ul>
+                    <li>
+                        S'inscrire
+                        <span></span><span></span><span></span><span></span>
+                    </li>
+                </ul>
+            </div>
+        </a>
+    {% else %}
+        <i>Vous devez vous connectez pour vous inscrire</i>
+    {% endif %}
+{% endblock %}

@@ -29,26 +29,12 @@ class CoursesController extends AbstractController
 
         $tuteur = $personneCoursRepo->findAll();
 
-        $courses1 = $repository->findCoursePagination1($courseSearch);
-        $courses1 = $paginator->paginate(
-            $courses1,
-            $request->query->getInt('page', 1),
-            2
-        );
-
-        $courses2 = $repository->findCoursePagination2($courseSearch);
-        $courses2 = $paginator->paginate(
-            $courses2,
-            $request->query->getInt('page', 1),
-            2
-        );
-
-        $courses3 = $repository->findCoursePagination3($courseSearch);
-        $courses3 = $paginator->paginate(
-            $courses3,
-            $request->query->getInt('page', 1),
-            2
-        );
+        $courses = $repository->findCoursePagination1($courseSearch);
+//        $courses = $paginator->paginate(
+//            $courses,
+//            $request->query->getInt('page', 1),
+//            2
+//        );
 
         date_default_timezone_set('Europe/Amsterdam');
         $dateDebutSemaine = new \DateTime();
@@ -62,14 +48,27 @@ class CoursesController extends AbstractController
 
         return $this->render('courses/index.html.twig', [
             "formCourseSearch"=> $formCourseSearch->createView(),
-            "courses1"=>$courses1,
-            "courses2"=>$courses2,
-            "courses3"=>$courses3,
+            "courses"=>$courses,
             "tuteur"=>$tuteur,
             "dateDebutSemaine" => $dateDebutSemaine,
             "dateFinSemaine" => $dateFinSemaine,
             "dateDebutSemaineProchaine" => $dateDebutSemaineProchaine,
             "dateFinSemaineProchaine" => $dateFinSemaineProchaine
+        ]);
+    }
+
+    /**
+     * @Route("/courses/details/{id}", name="details_courses")
+     */
+    public function detailsCourses(CoursRepository $repo, PersonneCoursRepository $personneCoursRepo, $id)
+    {
+        $course = $repo->find($id);
+
+        $tuteur = $personneCoursRepo->findAll();
+
+        return $this->render('courses/detailsCourses.html.twig', [
+            "course"=>$course,
+            "tuteur"=>$tuteur,
         ]);
     }
 
