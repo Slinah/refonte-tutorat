@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Créer un commentaire</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="div_center">
+        {{ form_start(commentForm) }}
+        {{ form_row(commentForm.content) }}
+    </div>
+    <br />
+    <div style="margin-left: 730px">{{ form_end(commentForm) }}</div>
+
+{% endblock %}
+

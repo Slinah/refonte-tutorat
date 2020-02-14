@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Design</h1>
+        <h5><a href="{{ path('forum') }}">Retour à la page principale du forum</a></h5>
+        <br />
+
+        <h5>Aucune question ne répond à vos attente ? <a href="{{ path('post_design') }}">Postez-en une !</a></h5>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="list-group mt-5">
+
+        {% for question_forum in questions_forums %}
+            {% if question_forum.matiere == 'Design' %}
+                <a href="{{ path("detail_question", {"id": question_forum.idQuestion}) }}" class="list-group-item list-group-item-action ">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ question_forum.title }}</h5>
+                        <small>Date de création : {{  question_forum.dateCreated|format_datetime('full', 'short', locale='fr') }}</small>
+                    </div>
+                    <p class="mb-1"> {{ question_forum.description }}</p>
+                    <small>Créé par {{ question_forum.author.nom }} {{ question_forum.author.prenom }}</small>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

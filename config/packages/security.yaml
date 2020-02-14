@@ -46,7 +46,7 @@ security:
         # Note: Only the *first* access control that matches will be used
     access_control:
             - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/questions, role: IS_AUTHENTICATED_FULLY }
+#            - { path: ^/questions, role: IS_AUTHENTICATED_FULLY }
 
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }

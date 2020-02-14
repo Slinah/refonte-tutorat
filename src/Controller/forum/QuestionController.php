@@ -13,12 +13,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-
 class QuestionController extends AbstractController {
 
     /**
      * @Route("/questions/votes/{id}", name="add_vote")
-     *
      * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
 
@@ -48,20 +46,10 @@ class QuestionController extends AbstractController {
     }
 
     /**
-     *
      * @Route("/questions/create", name="create")
      * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
-     *
      */
-
     public function createQuestion(Request $request) {
-
-        //$this->denyAccessUnlessGranted("ROLE_USER");
-
-        //if (!$this->isGranted("ROLE_USER")){
-        //    throw $this->createAccesDeniedException("Raté");
-        //}
-
         $question = new QuestionForum();
         $question->setAuthor($this->getUser());
         $questionForm = $this -> createForm(QuestionType::class, $question);
@@ -74,16 +62,14 @@ class QuestionController extends AbstractController {
             $question-> setDateCreated(new \DateTime());
 
             $em = $this->getDoctrine()->getManager();
-
             $em-> persist($question);
             $em->flush();
-
             $this->addFlash('success', 'Merci pour votre contribution !');
 
             return $this-> redirectToRoute("last_questions");
         }
 
-        return $this-> render("question_forum/create.html.twig", ["questionForm"=> $questionForm->createView()]);
+        return $this-> render("forum/question_forum/create.html.twig", ["questionForm"=> $questionForm->createView()]);
     }
 
     /**
@@ -93,12 +79,7 @@ class QuestionController extends AbstractController {
         $questionRepository = $this->getDoctrine()
             ->getRepository(QuestionForum::class);
 
-        //$questions = $questionRepository->findAll();
-
         $questions_forums = $questionRepository->findBy([], ["dateCreated"=> "DESC"], 30);
-        //$questions = $questionRepository->findQuestionsWithAuthor();
-
-
 
         return $this->render('question_forum/last_questions.html.twig', ["questions_forums" => $questions_forums]);
     }
@@ -109,7 +90,6 @@ class QuestionController extends AbstractController {
     public function detailQuestion($id) {
         $questionRepository = $this -> getDoctrine()->getRepository(QuestionForum::class);
         $question = $questionRepository->find($id);
-        //dd($question);
 
         //si la question n'existe pas, on casse une erreur 404
         if (empty($question)) {
@@ -119,6 +99,6 @@ class QuestionController extends AbstractController {
         $commentRepo = $this->getDoctrine()->getRepository(Comment::class);
         $comments = $commentRepo->findBy(["question"=> $question], ["dateCreated"=> "ASC"], 100);
 
-        return $this-> render("question_forum/detail_question.html.twig", ["question"=> $question, "comments" => $comments]);
+        return $this-> render("forum/question_forum/detail_question.html.twig", ["question"=> $question, "comments" => $comments]);
     }
 }

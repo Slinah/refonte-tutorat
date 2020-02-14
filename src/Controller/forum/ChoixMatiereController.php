@@ -12,8 +12,6 @@ class ChoixMatiereController extends AbstractController
      */
     public function index()
     {
-        return $this->render('choix_matiere/index.html.twig', [
-            'controller_name' => 'ChoixMatiereController',
-        ]);
+        return $this->render('forum/choix_matiere/index.html.twig');
     }
 }

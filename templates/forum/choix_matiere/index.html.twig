@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Forum</h1>
+
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/comment.svg') }}"  alt="dicussion générale">
+                <div class="card-body">
+                    <h5 class="card-title">Général</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="{{ path("see_general") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_general") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/code.svg') }}"  alt="..."/>
+                <div class="card-body">
+                    <h5 class="card-title">Math</h5>
+                    <p class="card-text">This is a short card.</p>
+                    <a href="{{ path("see_math") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_math") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/student.svg') }}"  alt="..."/>
+                <div class="card-body">
+                    <h5 class="card-title">Linux</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_linux") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_linux") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/code.svg') }}"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Programmation</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="{{ path("see_programmation") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_programmation") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/design.svg') }}"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Design</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_design") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_design") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/report.svg') }}"  alt="..." >
+                <div class="card-body">
+                    <h5 class="card-title">Marketing</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_marketing") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_marketing") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/database.svg') }}" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Réseaux</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_reseaux") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_reseaux") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/test.svg') }}"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Alternance / Stage</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_altstage") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_altstage") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/idea.svg') }}"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Boîte à idées</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_boite") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_boite") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/idea.svg') }}"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Anglais</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_anglais") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_anglais") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="{{ asset('image/idea.svg') }}"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Français</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="{{ path("see_francais") }}" class="card-link">Voir</a>
+                    <a href="{{ path("post_francais") }}" class="card-link">Poster</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
