@@ -23,7 +23,7 @@ class CourseSearchType extends AbstractType
             ->add('idMatiere', EntityType::class, ["class"=>Matiere::class, "label"=>"Matière :", "required"=>false,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('q')
-                        ->where("q.validationadmin=1");
+                        ->where("q.validationAdmin=2");
                 }])
             ->add('idPromo', EntityType::class, ["class"=>Promo::class, "label"=>"Difficulté :", "required"=>false])
         ;

@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <h1>
+            Cours à supprimer !
+        </h1>
+
+            Des cours ont dépassé leurs dates, il faudra penser a les supprimer. <br>
+
+            Cours à fermer :<br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for results in result %}
+                <tr>
+                    <td>{{ results.intitule }}</td>
+                    <td>| {{ results.date }} |</td>
+                    <td>{{ results.heure }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Cours;
 use App\Entity\PersonneCours;
-use App\Entity\Search\CourseSearch;
+use App\Entity\CourseSearch;
 use App\Form\Search\CourseSearchType;
 use App\Form\GiveCoursesType;
 use App\Form\UpdateCoursesType;

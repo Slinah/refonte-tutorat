@@ -41,7 +41,7 @@ class MailMatiereController extends AbstractController
         ;
 
         $mailer->send($message);
-        $this->addFlash('succes','Email envoyé avec succes 1');
+//        $this->addFlash('succes','Email envoyé avec succes 1');
 
 
         $message = (new \Swift_Message('Une matiere vient d etre suggéré'))
@@ -55,7 +55,7 @@ class MailMatiereController extends AbstractController
             )
         ;
         $mailer->send($message);
-        $this->addFlash('succes','Email envoyé avec succes 2');
+
 
 
         return  $this->redirectToRoute("suggest_courses");
