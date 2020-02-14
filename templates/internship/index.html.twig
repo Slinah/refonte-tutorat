@@ -65,7 +65,7 @@
         <img src="image/cettesemaine.jpg" class="mr-5 ml-5" alt="cette semaine" width="10%" height="20%">
 
         {% for internship in internship %}
-            {% if internship.status is same as(0) %}
+            {% if internship.status is same as(0) and internship.date<dateFinSemaine and internship.date>dateNow and internship.date>dateDebutSemaine and internship.stage is same as(1) %}
                 <div class="col">
                     <div class="card">
                         <div>
@@ -132,7 +132,7 @@
         <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
 
         {% for internship in internship %}
-            {% if internship.status is same as(0) %}
+            {% if internship.status is same as(0) and internship.date > dateFinSemaine and internship.date < dateFinSemaineProchaine and internship.stage is same as(1) %}
                 <div class="col">
                     <div class="card">
                         <div>
@@ -196,7 +196,7 @@
         <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
 
         {% for internship in internship %}
-            {% if internship.status is same as(0) %}
+            {% if internship.status is same as(0) and internship.date > dateFinSemaine and internship.date > dateFinSemaineProchaine and internship.stage is same as(1) %}
                 <div class="col">
                     <div class="card">
                         <div>

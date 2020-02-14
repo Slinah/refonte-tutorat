@@ -66,7 +66,7 @@
 
 
         {% for courses in courses %}
-            {% if courses.date<dateFinSemaine and courses.date>dateDebutSemaine %}
+            {% if courses.date<dateFinSemaine and courses.date>dateDebutSemaine and courses.date>dateNow and courses.stage is same as(0) and courses.status is same as(0)%}
                 <div class="col">
                     <div class="card">
                         <div>
@@ -132,7 +132,7 @@
         <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
 
         {% for courses in courses %}
-            {%  if courses.date > dateFinSemaine and courses.date < dateFinSemaineProchaine %}
+            {%  if courses.date > dateFinSemaine and courses.date < dateFinSemaineProchaine and courses.stage is same as(0) and courses.status is same as(0)%}
 
                 <div class="col">
                     <div class="card">
@@ -189,7 +189,7 @@
     <div class="row">
         <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
         {% for courses in courses %}
-            {% if courses.date > dateFinSemaine and courses.date > dateFinSemaineProchaine %}
+            {% if courses.date > dateFinSemaine and courses.date > dateFinSemaineProchaine and courses.stage is same as(0) and courses.status is same as(0) %}
                 <div class="col">
                     <div class="card">
                         <div>

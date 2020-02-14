@@ -35,11 +35,26 @@ class InternshipController extends AbstractController
             $request->query->getInt('page', 1),
             3
         );
+        date_default_timezone_set('Europe/Amsterdam');
+        $dateDebutSemaine = new \DateTime();
+        $dateFinSemaine = new \DateTime();
+        $dateDebutSemaineProchaine = new \DateTime();
+        $dateFinSemaineProchaine = new \DateTime();
+        $dateDebutSemaine->modify('this week');
+        $dateFinSemaine->modify('this week +6 days');
+        $dateDebutSemaineProchaine->modify('this week +7 days');
+        $dateFinSemaineProchaine->modify('this week +13 days');
+        $dateNow = new \DateTime('now');
 
         return $this->render('internship/index.html.twig', [
             "formInternshipSearch"=> $formInternshipSearch->createView(),
             "internship"=>$internship,
-            "tuteur"=>$tuteur
+            "tuteur"=>$tuteur,
+            "dateNow"=>$dateNow,
+            "dateDebutSemaine" => $dateDebutSemaine,
+            "dateFinSemaine" => $dateFinSemaine,
+            "dateDebutSemaineProchaine" => $dateDebutSemaineProchaine,
+            "dateFinSemaineProchaine" => $dateFinSemaineProchaine
         ]);
     }
 
