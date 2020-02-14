@@ -15,9 +15,9 @@
                     {% for promo in suggest.idPromo %}
                         {{ promo.promo }} |
                     {% endfor %}
-                {% else %}
-                    <tr>Il n'y a pas de cours suggérer</tr>
                 {% endif %}
+            {% else %}
+                <tr>Il n'y a pas de suggestion</tr>
             {% endfor %}
         </p>
     </div>
@@ -37,11 +37,6 @@
     {{ form_widget(form.date) }}
     <br /><br />
 
-    {#{{ form_label(form.dateCreation) }}#}
-    {#<br />#}
-    {#{{ form_widget(form.dateCreation) }}#}
-    {#<br /><br />#}
-
     {{ form_row(form.heure) }}
     <br />
 
@@ -60,6 +55,7 @@
     {% else %}
         <i>Il faut être connecter pour ajouter un cours</i>
     {% endif %}
+
     {{ form_end(form) }}
 
 {% endblock %}

@@ -5,32 +5,24 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * LogsProposition
- *
  * @ORM\Table(name="logs_proposition")
  * @ORM\Entity
  */
 class LogsProposition
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id_log", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_log", type="string", length=40)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idLog;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="id_proposition", type="string", length=40, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="id_proposition", type="string", length=40, nullable=true)
      */
-    private $idProposition = 'NULL';
+    private $idProposition;
 
     /**
-     * @var \DateTime|null
-     *
      * @ORM\Column(name="heure", type="datetime", nullable=true)
      */
     private $heure;

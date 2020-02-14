@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Classe;
 use App\Entity\PersonneSearch;
 use App\Entity\Promo;
 use Doctrine\ORM\EntityRepository;

@@ -11,76 +11,54 @@ use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Personne
- *
  * @ORM\Table(name="personne", indexes={@ORM\Index(name="Fk_Classe", columns={"id_classe"})})
  * @ORM\Entity
  */
 class Personne implements UserInterface
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id_personne", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_personne", type="string", length=40)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idPersonne;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="nom", type="text", length=65535)
      */
     private $nom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="prenom", type="text", length=65535)
      */
     private $prenom;
 
-
-
     /**
-     * @var int
-     *
-     * @ORM\Column(name="role", type="integer", nullable=false)
+     * @ORM\Column(name="role", type="integer")
      */
     private $role = 1;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="password", type="text", length=65535)
      */
     private $password;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="mail", type="text", length=65535)
      */
     private $mail;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="token", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="token", type="text", length=65535, nullable=true)
      */
-    private $token = 'NULL';
+    private $token;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="image", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="image", type="text", length=65535, nullable=true)
      */
-    private $image = 'NULL';
+    private $image;
 
     /**
-     * @var \Classe
-     *
      * @ORM\ManyToOne(targetEntity="Classe")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_classe", referencedColumnName="id_classe")

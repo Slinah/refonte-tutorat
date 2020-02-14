@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Cours;
 use App\Entity\PersonneCours;
 use App\Form\GiveCoursesType;
-use App\Repository\CoursRepository;
 use App\Repository\PropositionRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +27,6 @@ class GiveCoursesController extends AbstractController
         $GiveCourses = new Cours();
         $form=$this->createForm(GiveCoursesType::class, $GiveCourses);
         $GiveCourses->setDateCreation(new \DateTime("now"));
-        $GiveCourses->setSecu("secu");
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){

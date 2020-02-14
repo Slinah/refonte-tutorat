@@ -11,8 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class PersonneTag
 {
     /**
-     * @var \App\Entity\Personne
-     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Personne")
@@ -23,8 +21,6 @@ class PersonneTag
     private $idPersonne;
 
     /**
-     * @var \App\Entity\Niveau
-     *
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="Niveau")
      * @ORM\JoinColumns({
@@ -34,8 +30,6 @@ class PersonneTag
     private $idNiveau;
 
     /**
-     * @var \App\Entity\Matiere
-     *
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Matiere")
      * @ORM\JoinColumns({

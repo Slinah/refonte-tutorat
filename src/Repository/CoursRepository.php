@@ -7,8 +7,6 @@ use App\Entity\CourseSearch;
 use App\Entity\InternshipSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\ORM\Query;
-use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Cours|null find($id, $lockMode = null, $lockVersion = null)
@@ -23,7 +21,73 @@ class CoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Cours::class);
     }
 
-    public function findCoursePagination(CourseSearch $courseSearch) {
+    public function findCoursePagination1(CourseSearch $courseSearch) {
+        $query = $this->createQueryBuilder('q')
+            ->Where('q.stage = 0')
+            ->andWhere('q.status = 0')
+            ->OrderBy("q.date", "ASC");
+
+        if ($courseSearch->getDate()) {
+            $query = $query
+                ->andWhere('q.date = :date')
+                ->setParameter('date', $courseSearch->getDate());
+        }
+
+        if ($courseSearch->getIntitule()) {
+            $query = $query
+                ->andWhere('q.intitule Like :intitule')
+                ->setParameter('intitule', '%'.$courseSearch->getIntitule().'%');
+        }
+
+        if ($courseSearch->getIdMatiere()) {
+            $query = $query
+                ->andWhere('q.idMatiere = :matiere')
+                ->setParameter('matiere', $courseSearch->getIdMatiere());
+        }
+
+        if ($courseSearch->getIdPromo()) {
+            $query = $query
+                ->andWhere('q.idPromo = :promo')
+                ->setParameter('promo', $courseSearch->getIdPromo());
+        }
+
+        return $query->getQuery();
+    }
+
+    public function findCoursePagination2(CourseSearch $courseSearch) {
+        $query = $this->createQueryBuilder('q')
+            ->Where('q.stage = 0')
+            ->andWhere('q.status = 0')
+            ->OrderBy("q.date", "ASC");
+
+        if ($courseSearch->getDate()) {
+            $query = $query
+                ->andWhere('q.date = :date')
+                ->setParameter('date', $courseSearch->getDate());
+        }
+
+        if ($courseSearch->getIntitule()) {
+            $query = $query
+                ->andWhere('q.intitule Like :intitule')
+                ->setParameter('intitule', '%'.$courseSearch->getIntitule().'%');
+        }
+
+        if ($courseSearch->getIdMatiere()) {
+            $query = $query
+                ->andWhere('q.idMatiere = :matiere')
+                ->setParameter('matiere', $courseSearch->getIdMatiere());
+        }
+
+        if ($courseSearch->getIdPromo()) {
+            $query = $query
+                ->andWhere('q.idPromo = :promo')
+                ->setParameter('promo', $courseSearch->getIdPromo());
+        }
+
+        return $query->getQuery();
+    }
+
+    public function findCoursePagination3(CourseSearch $courseSearch) {
         $query = $this->createQueryBuilder('q')
             ->Where('q.stage = 0')
             ->andWhere('q.status = 0')

@@ -5,33 +5,25 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Logs
- *
  * @ORM\Table(name="logs")
  * @ORM\Entity
  */
 class Logs
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id_log", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_log", type="string", length=40)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idLog;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id_cours", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_cours", type="string", length=40)
      */
     private $idCours;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="heure", type="datetime", nullable=false)
+     * @ORM\Column(name="heure", type="datetime")
      */
     private $heure;
 

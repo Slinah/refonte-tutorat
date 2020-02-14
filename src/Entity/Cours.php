@@ -7,16 +7,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Cours
- *
  * @ORM\Table(name="cours", indexes={@ORM\Index(name="Fk_Matiere", columns={"id_matiere"}), @ORM\Index(name="fk_cours_promo1_idx", columns={"id_promo"})})
  * @ORM\Entity
  */
 class Cours
 {
     /**
-     * @var string
-     *
      * @ORM\Column(name="id_cours", type="string", length=40, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
@@ -24,88 +20,59 @@ class Cours
     private $idCours;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="intitule", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="intitule", type="text", length=65535)
      */
     private $intitule;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="heure", type="time", nullable=false)
+     * @ORM\Column(name="heure", type="time")
      */
     private $heure;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date", nullable=false)
+     * @ORM\Column(name="date", type="date")
      */
     private $date;
 
     /**
-     * @var \DateTime
-     *
      * @ORM\Column(name="dateCreation", type="datetime", nullable=true)
      */
     private $dateCreation;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="commentaires", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="commentaires", type="text", length=65535, nullable=true)
      */
     private $commentaires;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="nbInscrits", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="nbInscrits", type="integer", nullable=true)
      */
-    private $nbinscrits = 'NULL';
+    private $nbinscrits;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="nbParticipants", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="nbParticipants", type="integer", nullable=true)
      */
-    private $nbparticipants = 'NULL';
+    private $nbparticipants;
 
     /**
-     * @var float|null
-     *
      * @ORM\Column(name="duree", type="float", precision=10, scale=0, nullable=true)
      */
     private $duree;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="status", type="integer", nullable=false)
+     * @ORM\Column(name="status", type="integer")
      */
     private $status = '0';
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="secu", type="text", length=65535, nullable=false)
-     */
-    private $secu;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="stage", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="stage", type="integer")
      */
     private $stage = '0';
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="salle", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="salle", type="text", length=65535, nullable=true)
      */
-    private $salle = 'NULL';
+    private $salle;
 
     /**
      * @var \Matiere
@@ -236,18 +203,6 @@ class Cours
     public function setStatus(int $status): self
     {
         $this->status = $status;
-
-        return $this;
-    }
-
-    public function getSecu(): ?string
-    {
-        return $this->secu;
-    }
-
-    public function setSecu(string $secu): self
-    {
-        $this->secu = $secu;
 
         return $this;
     }

@@ -2,7 +2,6 @@
 
 namespace App\Form\Search;
 
-use App\Entity\Cours;
 use App\Entity\Matiere;
 use App\Entity\InternshipSearch;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;

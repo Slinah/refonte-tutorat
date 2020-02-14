@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Cours;
 use App\Entity\PersonneSearch;
 use App\Entity\CourseSearch;
 use App\Entity\InternshipSearch;
@@ -14,7 +13,6 @@ use App\Form\PersonneSearchType;
 use App\Form\Search\CourseAdminSearchType;
 use App\Form\Search\InternshipAdminSearchType;
 use App\Form\Search\MatiereAdminSearchType;
-use App\Form\UpdateCoursesType;
 use App\Form\UpdateMatiereType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;

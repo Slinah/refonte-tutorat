@@ -3,14 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Matiere;
-use App\Entity\Personne;
 use App\Entity\Promo;
 use App\Entity\Proposition;
-use App\Repository\MatiereRepository;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

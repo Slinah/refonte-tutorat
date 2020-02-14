@@ -14,8 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class QuestionForum
 {
     /**
-     * @var string
-     *
      * @ORM\Column(name="id_question", type="string", length=40, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")

@@ -12,7 +12,7 @@ class Comment {
     /**
      * @var string
      *
-     * @ORM\Column(name="id_comment", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_comment", type="string", length=40)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */

@@ -11,8 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class PersonneCours
 {
     /**
-     * @var \App\Entity\Personne
-     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Personne")
@@ -23,8 +21,6 @@ class PersonneCours
     private $idPersonne;
 
     /**
-     * @var \App\Entity\Cours
-     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Cours")

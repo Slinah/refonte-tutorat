@@ -5,41 +5,30 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Matiere
- *
  * @ORM\Table(name="matiere")
  * @ORM\Entity
  */
 class Matiere
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id_matiere", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_matiere", type="string", length=40)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idMatiere;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="intitule", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="intitule", type="text", length=65535)
      */
     private $intitule;
 
     /**
-     * @var \DateTime
-     *
      * @ORM\Column(name="dateCreation", type="datetime", nullable=true)
      */
     private $dateCreation;
 
-
     /**
-     * @var int
-     *
-     * @ORM\Column(name="validationAdmin", type="integer", nullable=false)
+     * @ORM\Column(name="validationAdmin", type="integer")
      */
     private $validationAdmin = '1';
 

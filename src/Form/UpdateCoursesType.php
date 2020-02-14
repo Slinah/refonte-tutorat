@@ -3,10 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Cours;
-use App\Entity\Matiere;
-use App\Entity\Promo;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

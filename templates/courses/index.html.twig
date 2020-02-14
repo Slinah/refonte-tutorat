@@ -65,7 +65,7 @@
         <img src="image/cettesemaine.jpg" class="mr-5 ml-5" alt="cette semaine" width="10%" height="20%">
 
 
-        {% for courses in courses %}
+        {% for courses in courses1 %}
             {% if courses.date<dateFinSemaine and courses.date>dateDebutSemaine and courses.date>dateNow and courses.stage is same as(0) and courses.status is same as(0)%}
                 <div class="col">
                     <div class="card">
@@ -124,14 +124,14 @@
 
         <br />
         <div>
-            {{ knp_pagination_render(courses) }}
+            {{ knp_pagination_render(courses1) }}
         </div>
     </div>
 
     <div class="row">
         <img src="image/semaineprochaine.jpg" class="mr-5 ml-5" alt="semaine prochaine" width="10%" height="20%">
 
-        {% for courses in courses %}
+        {% for courses in courses2 %}
             {%  if courses.date > dateFinSemaine and courses.date < dateFinSemaineProchaine and courses.stage is same as(0) and courses.status is same as(0)%}
 
                 <div class="col">
@@ -182,13 +182,13 @@
 
         <br />
         <div>
-            {{ knp_pagination_render(courses) }}
+            {{ knp_pagination_render(courses2) }}
         </div>
     </div>
 
     <div class="row">
         <img src="image/Plustard.jpg" class="mr-5 ml-5" alt="Plus tard" width="10%" height="20%">
-        {% for courses in courses %}
+        {% for courses in courses3 %}
             {% if courses.date > dateFinSemaine and courses.date > dateFinSemaineProchaine and courses.stage is same as(0) and courses.status is same as(0) %}
                 <div class="col">
                     <div class="card">
@@ -230,9 +230,6 @@
                         {% else %}
                             <i>Vous devez vous connecter pour vous inscrire</i>
                         {% endif %}
-                        {#{% if courses.date < dateDebutSemaine  %}#}
-
-                        {#{% endif %}#}
                     </div>
                 </div>
             {% endif %}
@@ -240,7 +237,7 @@
 
         <br />
         <div>
-            {{ knp_pagination_render(courses) }}
+            {{ knp_pagination_render(courses3) }}
         </div>
 
     </div>

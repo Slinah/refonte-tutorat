@@ -7,25 +7,19 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Proposition
- *
  * @ORM\Table(name="proposition", indexes={@ORM\Index(name="Fk_Matiere3", columns={"id_matiere"})})
  * @ORM\Entity
  */
 class Proposition
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id_proposition", type="string", length=40, nullable=false)
+     * @ORM\Column(name="id_proposition", type="string", length=40)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */
     private $idProposition;
 
     /**
-     * @var \App\Entity\Personne
-     *
      * @ORM\ManyToOne(targetEntity="Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_createur", referencedColumnName="id_personne")
@@ -34,8 +28,6 @@ class Proposition
     private $idCreateur;
 
     /**
-     * @var \App\Entity\Matiere
-     *
      * @ORM\ManyToOne(targetEntity="Matiere")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_matiere", referencedColumnName="id_matiere")
