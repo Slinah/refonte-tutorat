@@ -21,8 +21,7 @@ class MailMatiereController extends AbstractController
 
 
         $statement = $em->getConnection()->prepare($query);
-        // Set parameters
-//        $statement->bindValue('mail', $receiver);
+
         $statement->execute();
 
         $result = $statement->fetchAll();
