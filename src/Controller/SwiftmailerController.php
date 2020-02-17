@@ -28,6 +28,7 @@ class SwiftmailerController extends AbstractController
 
         $result = $statement->fetchAll();
 
+
         $message = (new \Swift_Message('Cours crée avec succès !'))
             ->setContentType("text/html")
             ->setFrom('tutorathep@gmail.com')
@@ -39,6 +40,7 @@ class SwiftmailerController extends AbstractController
                 )
             )
         ;
+
         $mailer->send($message);
 
         $message = (new \Swift_Message('Un cours vient d être crée'))
@@ -54,7 +56,7 @@ class SwiftmailerController extends AbstractController
         $mailer->send($message);
 
 
-        return  $this->redirectToRoute("courses");
+        return  $this->redirectToRoute("logs");
 
 
     }

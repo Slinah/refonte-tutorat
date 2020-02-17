@@ -13,7 +13,7 @@ class CourExpireController extends AbstractController
      */
     public function sendEmail( \Swift_Mailer $mailer, CoursRepository $coursRepository)
     {
-//        $receiver=$this->getUser()->getMail();
+
         $em = $this->getDoctrine()->getManager();
 
         $dateNow=new \DateTime();
@@ -47,7 +47,7 @@ class CourExpireController extends AbstractController
 
 
 
-        return  $this->redirectToRoute("swiftmailer");
+        return  $this->redirectToRoute("logs");
 
 
     }

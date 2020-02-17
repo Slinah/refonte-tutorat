@@ -27,6 +27,8 @@ class Logs
      */
     private $heure;
 
+
+
     public function getIdLog(): ?string
     {
         return $this->idLog;
@@ -37,11 +39,11 @@ class Logs
         return $this->idCours;
     }
 
-    public function setIdCours(string $idCours): self
+    public function setIdCours(string $idCours)
     {
         $this->idCours = $idCours;
 
-        return $this;
+
     }
 
     public function getHeure(): ?\DateTimeInterface

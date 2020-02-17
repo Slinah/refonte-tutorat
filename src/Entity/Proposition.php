@@ -63,6 +63,11 @@ class Proposition
     private $nbVote = 1;
 
     /**
+     * @ORM\Column(name="dateCreation", type="datetime", nullable=true)
+     */
+    private $dateCreation;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -168,6 +173,18 @@ class Proposition
     public function setNbVote(int $nbVote): self
     {
         $this->nbVote = $nbVote;
+
+        return $this;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->dateCreation;
+    }
+
+    public function setDateCreation(\DateTimeInterface $dateCreation): self
+    {
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }

@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\Matiere;
 use App\Entity\Proposition;
 use App\Form\MatiereType;
+use App\Entity\LogsProposition;
 use App\Form\SuggestCoursesType;
 use App\Repository\PropositionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Validator\Constraints\Date;
 
 class SuggestCoursesController extends AbstractController
 {
@@ -31,8 +33,11 @@ class SuggestCoursesController extends AbstractController
         $proposition = new Proposition();
         $formProposition=$this->createForm(SuggestCoursesType::class, $proposition);
         $formProposition->handleRequest($request);
+        $proposition->setDateCreation(new \DateTime('now'));
 
         if ($formProposition->isSubmitted() && $formProposition->isValid()){
+
+
             //associe la proposition à l'user co
             $connectedUser->getIdProposition()->add($proposition);
             $proposition->setIdCreateur($connectedUser);
@@ -42,7 +47,7 @@ class SuggestCoursesController extends AbstractController
             $em->flush();
             $this->addFlash('success', 'Suggestion ajoutée avec succès !');
 
-            return $this->redirectToRoute("suggest_courses");
+            return $this->redirectToRoute("logs_prop");
         }
         // Fin formulaire ajout proposition
 
