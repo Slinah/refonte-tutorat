@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\QuestionForum;
+use App\Entity\QuestionForumSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -19,32 +20,168 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, QuestionForum::class);
     }
 
-    // /**
-    //  * @return QuestionForum[] Returns an array of QuestionForum objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findQuestionsGeneral(QuestionForumSearch $questionSearch)
     {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('q.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'General'")
+            ->orderBy("q.dateCreated", "DESC");
 
-    /*
-    public function findOneBySomeField($value): ?QuestionForum
-    {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
     }
-    */
+
+    public function findQuestionsMath(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Math'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsLinux(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Linux'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsProgrammation(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Programmation'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsDesign(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Design'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsMarketing(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Marketing'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsReseaux(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Reseaux'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsAltStage(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'AltStage'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsBoite(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Boite'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsAnglais(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Anglais'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
+
+    public function findQuestionsFrancais(QuestionForumSearch $questionSearch)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where("q.matiere = 'Francais'")
+            ->orderBy("q.dateCreated", "DESC");
+
+        if ($questionSearch->getTitle()) {
+            $query = $query
+                ->andWhere('q.title LIKE :title')
+                ->setParameter('title', '%'.$questionSearch->getTitle().'%');
+        }
+
+        return $query ->getQuery() ->getResult();
+    }
 }

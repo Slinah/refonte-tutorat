@@ -2,12 +2,12 @@
 
 namespace App\Controller\forum;
 
+use App\Entity\QuestionForumSearch;
+use App\Form\Search\QuestionsForumSearchType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\Comment;
 use App\Entity\QuestionForum;
-use App\Entity\Vote;
 use App\Form\QuestionType;
-use App\Entity\Personne;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -17,14 +17,26 @@ class GeneralController extends AbstractController
     /**
      * @Route("/forum/general/see", name="see_general")
      */
-    public function seeQuestion()
+    public function seeQuestion(PaginatorInterface $paginator, Request $request)
     {
+        $questionSearch = new QuestionForumSearch();
+        $formQuestionsForumSearch = $this->createForm(QuestionsForumSearchType::class, $questionSearch);
+        $formQuestionsForumSearch->handleRequest($request);
+
         $questionRepository = $this->getDoctrine()
             ->getRepository(QuestionForum::class);
 
-        $questions_forums = $questionRepository->findBy([], ["dateCreated"=> "DESC"], 30);
+        $questions_forums = $questionRepository->findQuestionsGeneral($questionSearch);
+        $questions_forums = $paginator->paginate(
+            $questions_forums,
+            $request->query->getInt('page', 1),
+            30
+        );
 
-        return $this->render('forum/general/see.html.twig', ["questions_forums" => $questions_forums]);
+        return $this->render('forum/general/see.html.twig', [
+            "formQuestionsForumSearch"=>$formQuestionsForumSearch->createView(),
+            "questions_forums" => $questions_forums
+        ]);
     }
 
     /**

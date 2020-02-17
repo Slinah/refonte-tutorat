@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     //// Affichage du formulaire "plus de critères"
+
     //normal
     var searchButton = $('.search-button');
     var divForm = $('.form-div');
@@ -36,7 +37,6 @@ $(document).ready(function() {
     searchButtonMatiere.click(function(){
         divFormMatiere.toggle();
     });
-
 
 //// Affichage des options déroulante
 
@@ -185,6 +185,23 @@ $(document).ready(function() {
 
             default:
                 divValidation.hide();
+        }
+    }).trigger('change');
+
+    //Forum
+    var selectTypeForum = $('.type-search-forum');
+    var divTitreForum = $('.titre-forum-search');
+
+    selectTypeForum.change(function(){
+        console.log(selectTypeForum.val());
+        switch(selectTypeForum.val()){
+
+            case 'titre':
+                divTitreForum.show();
+                break;
+
+            default:
+                divTitre.hide();
         }
     }).trigger('change');
 

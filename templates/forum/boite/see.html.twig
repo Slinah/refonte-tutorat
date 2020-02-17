@@ -11,10 +11,40 @@
 {% endblock %}
 
 {% block body %}
+    {#Barre de recherche#}
+    <div id="divRecherche" style="text-align: center">
+        <ul class="list-inline">
+            <li>
+                <form method="post">
+                    <input type="submit" value="Tous"/>
+                </form>
+            </li>
+            <li><button class="search-button">Plus de critères</button></li>
+        </ul>
+        <div class="form-div">
+            {{ form_start(formQuestionsForumSearch) }}
+            <label>Rechercher par : </label>
+            <select class="type-search-forum">
+                <option value="">Choisissez une option</option>
+                <option value="titre"> Intitule </option>
+            </select>
+            <br /><br />
+
+            <div class="titre-forum-search">
+                {{ form_row(formQuestionsForumSearch.title) }}
+                <br />
+            </div>
+
+            <button>Rechercher</button>
+            {{ form_end(formQuestionsForumSearch) }}
+            <br />
+        </div>
+    </div>
+    {# Fin barre de recherche #}
+
     <div class="list-group mt-5">
 
         {% for question_forum in questions_forums %}
-            {% if question_forum.matiere == 'Boite' %}
                 <a href="{{ path("detail_question", {"id": question_forum.idQuestion}) }}" class="list-group-item list-group-item-action ">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{ question_forum.title }}</h5>
@@ -23,7 +53,9 @@
                     <p class="mb-1"> {{ question_forum.description }}</p>
                     <small>Créé par {{ question_forum.author.nom }} {{ question_forum.author.prenom }}</small>
                 </a>
-            {% endif %}
         {% endfor %}
+        <div>
+            {{ knp_pagination_render(questions_forums) }}
+        </div>
     </div>
 {% endblock %}
