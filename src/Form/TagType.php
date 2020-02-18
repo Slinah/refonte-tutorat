@@ -8,6 +8,7 @@ use App\Entity\PersonneTag;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,6 +24,7 @@ class TagType extends AbstractType
                     return $er->createQueryBuilder('q')
                         ->where("q.validationAdmin=2");
                 }])
+            ->add('submit', SubmitType::class, ["label" => "Ajouter le tag"])
         ;
     }
 

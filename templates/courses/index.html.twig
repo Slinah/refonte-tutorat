@@ -78,12 +78,6 @@
                                 {% for tuteur in tuteur %}
                                     {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
                                         <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
-                                    {#{% elseif courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (0) %}#}
-                                        {#<li>_____</li>#}
-                                        {#<li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>#}
-                                        {#{% if tuteur.idPersonne.idPersonne is same as(app.user.idPersonne) %}#}
-                                             {#/ <a href="{{ path('unsubscribe_courses', { 'id':courses.idCours }) }}">Se désinscrire</a>#}
-                                        {#{% endif %}#}
                                     {% endif %}
                                 {% endfor %}
                                 <li>
@@ -142,11 +136,15 @@
                             <h4>{{ courses.idMatiere }}</h4>
                             <ul>
                                 <li>{{ courses.intitule }}</li>
+                                <li>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</li>
                                 {% for tuteur in tuteur %}
                                     {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
                                         <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
                                     {% endif %}
                                 {% endfor %}
+                                <li>
+                                    <a href="{{ path('details_courses', {'id':courses.idCours}) }}">+ de détails</a>
+                                </li>
                             </ul>
 
                             <div style="text-align: center">
@@ -199,6 +197,7 @@
                             <h4>{{ courses.idMatiere }}</h4>
                             <ul>
                                 <li>{{ courses.intitule }}</li>
+                                <li>{{ courses.date |format_datetime('full', 'none', locale='fr') }} à {{ courses.heure |format_time('short', locale='fr') }}</li>
                                 {% for tuteur in tuteur %}
                                     {% if courses.idCours is same as(tuteur.idCours.idCours) and tuteur.rangPersonne is same as (1) %}
                                         <li>{{ tuteur.idPersonne.nom }} {{ tuteur.idPersonne.prenom }}</li>
