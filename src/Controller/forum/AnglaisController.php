@@ -2,6 +2,9 @@
 
 namespace App\Controller\forum;
 
+use App\Entity\QuestionForumSearch;
+use App\Form\Search\QuestionsForumSearchType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\QuestionForum;
 use App\Form\QuestionType;
@@ -14,14 +17,26 @@ class AnglaisController extends AbstractController
     /**
      * @Route("/forum/anglais/see", name="see_anglais")
      */
-    public function seeQuestion()
+    public function seeQuestion(PaginatorInterface $paginator, Request $request)
     {
+        $questionSearch = new QuestionForumSearch();
+        $formQuestionsForumSearch = $this->createForm(QuestionsForumSearchType::class, $questionSearch);
+        $formQuestionsForumSearch->handleRequest($request);
+
         $questionRepository = $this->getDoctrine()
             ->getRepository(QuestionForum::class);
 
-        $questions_forums = $questionRepository->findBy([], ["dateCreated"=> "DESC"], 30);
+        $questions_forums = $questionRepository->findQuestionsAnglais($questionSearch);
+        $questions_forums = $paginator->paginate(
+            $questions_forums,
+            $request->query->getInt('page', 1),
+            30
+        );
 
-        return $this->render('forum/anglais/see.html.twig', ["questions_forums" => $questions_forums]);
+        return $this->render('forum/anglais/see.html.twig', [
+            "formQuestionsForumSearch"=>$formQuestionsForumSearch->createView(),
+            "questions_forums" => $questions_forums
+        ]);
     }
 
     /**
