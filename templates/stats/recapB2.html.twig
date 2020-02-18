@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">Stats des B2</h1>
+        <p>
+            <a href="{{ path('stats_b1') }}">Recap B1 / </a>
+            <a href="{{ path('stats_b2') }}">Recap B2 / </a>
+            <a href="{{ path('stats_b3') }}">Recap B3 / </a>
+            <a href="{{ path('stats_I1') }}">Recap I1 / </a>
+            <a href="{{ path('stats_I2') }}">Recap I2 / </a>
+            <br />
+            <a href="{{ path('stats_wis1') }}">Recap WIS 1 / </a>
+            <a href="{{ path('stats_wis2') }}">Recap WIS 2 / </a>
+            <a href="{{ path('stats_wis3') }}">Recap WIS 3 / </a>
+        </p>
+    </div>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
