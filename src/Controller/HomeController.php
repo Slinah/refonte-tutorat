@@ -22,4 +22,12 @@ class HomeController extends AbstractController
     {
         return $this->render('home/explanation.html.twig');
     }
+
+    /**
+     * @Route("/rgpd", name="rgpd")
+     */
+    public function rgpd()
+    {
+        return $this->render('registration/rgpd.html.twig');
+    }
 }

@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block titre %}
+    <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+        <h1 class="display-4 pb-5">S'enregistrer</h1>
+
+
+    </div>
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.nom) }}
@@ -14,6 +20,9 @@
         {{ form_row(registrationForm.idClasse) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button class="btn btn-success">Register</button>
+        <button class="button">Register</button>
+
+
     {{ form_end(registrationForm) }}
+    <a href="{{ path("rgpd") }}" class="button">Le RGPD, qu'est ce que c'est ?</a>
 {% endblock %}

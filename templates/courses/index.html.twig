@@ -67,8 +67,8 @@
 
         {% for courses in courses %}
             {% if courses.date<dateFinSemaine and courses.date>dateDebutSemaine and courses.date>dateNow and courses.stage is same as(0) and courses.status is same as(0)%}
-                <div class="col">
-                    <div class="card">
+                <div class="col" >
+                    <div class="card" >
                         <div>
                             <h4>{{ courses.idMatiere }}</h4>
                             <ul>
