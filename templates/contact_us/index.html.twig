@@ -11,4 +11,26 @@
 {% endblock %}
 
 {% block body %}
+    {{ form_start(form) }}
+
+        {{ form_label(form.intitule) }}
+        <br />
+        {{ form_widget(form.intitule) }}
+        <br /><br />
+
+        {{ form_label(form.message) }}
+        <br />
+        {{ form_widget(form.message) }}
+        <br /><br />
+
+        {{ form_label(form.mail) }}
+        <br />
+        {{ form_widget(form.mail) }}
+        <br /><br />
+
+            <button>Ajouter le cours</button>
+
+
+    {{ form_end(form) }}
+
 {% endblock %}

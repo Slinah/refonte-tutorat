@@ -42,6 +42,8 @@ class PersonneRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+
+
     // /**
     //  * @return Personne[] Returns an array of Personne objects
     //  */
