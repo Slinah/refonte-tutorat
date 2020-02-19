@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\PersonneCours;
 use App\Entity\CourseSearch;
+use App\Form\CancelCoursesType;
+use App\Form\CloseCoursesType;
 use App\Form\Search\CourseSearchType;
 use App\Form\UpdateCoursesType;
 use App\Repository\CoursRepository;
@@ -14,7 +16,7 @@ use Symfony\Component\Config\Definition\Exception\DuplicateKeyException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class CoursesController extends AbstractController
 {
@@ -74,7 +76,7 @@ class CoursesController extends AbstractController
 
     /**
      * @Route("/courses/registration-courses/{id}", name="registration_courses")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function RegistrationCourses(CoursRepository $repo, $id)
     {
@@ -102,7 +104,7 @@ class CoursesController extends AbstractController
 
     /**
      * @Route("/courses/unsubscribe-courses/{id}", name="unsubscribe_courses")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function UnsubscribeCourses(PersonneCoursRepository $personneCoursRepo, $id)
     {
@@ -120,7 +122,7 @@ class CoursesController extends AbstractController
 
     /**
      * @Route("/courses/update-courses/{id}", name="update_courses")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function updateCourses(CoursRepository $repo, Request $request, $id)
     {
@@ -145,6 +147,60 @@ class CoursesController extends AbstractController
         return $this->render('courses/updateCourses.html.twig', [
             "courses"=>$courses,
             'form'=>$form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/close-course/{id}", name="close_course")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
+     */
+    public function closeCourse(CoursRepository $repo, $id, Request $request)
+    {
+        $course = $repo->find($id);
+        $course->setStatus(1);
+
+        $form=$this->createForm(CloseCoursesType::class, $course);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($course);
+            $em->flush();
+            $this->addFlash('success', 'Cours / stage clos avec succès !');
+
+            return $this->redirectToRoute("courses");
+        }
+
+        return $this->render('courses/closeCourses.html.twig', [
+            "course"=>$course,
+            'form'=>$form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/cancel-course/{id}", name="cancel_course")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
+     */
+    public function cancelCourse(CoursRepository $repo, $id, Request $request)
+    {
+        $course = $repo->find($id);
+        $course->setStatus(2);
+
+        $form=$this->createForm(CancelCoursesType::class, $course);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($course);
+            $em->flush();
+            $this->addFlash('success', 'Cours / stage annulé avec succès !');
+
+            return $this->redirectToRoute("courses");
+        }
+
+        return $this->render('courses/cancelCourses.html.twig', [
+            "course"=>$course,
+            "form"=>$form->createView()
         ]);
     }
 }

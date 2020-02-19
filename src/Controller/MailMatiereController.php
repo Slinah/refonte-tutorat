@@ -2,30 +2,24 @@
 
 namespace App\Controller;
 
-use App\Repository\CoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MailMatiereController extends AbstractController
 {
     /**
-     * @Route("/mailmatiere", name="mailmatiere")
+     * @Route("/mail-matiere", name="mailmatiere")
      */
-    public function sendEmail( \Swift_Mailer $mailer, CoursRepository $coursRepository)
+    public function sendEmail( \Swift_Mailer $mailer)
     {
         $receiver=$this->getUser()->getMail();
         $em = $this->getDoctrine()->getManager();
-//
 
         $query = 'SELECT intitule from matiere m order by m.dateCreation DESC LIMIT 1;';
 
-
         $statement = $em->getConnection()->prepare($query);
-
         $statement->execute();
-
         $result = $statement->fetchAll();
-
 
         $message = (new \Swift_Message('Votre matière à bien été envoyé'))
             ->setContentType("text/html")
@@ -40,9 +34,6 @@ class MailMatiereController extends AbstractController
         ;
 
         $mailer->send($message);
-//        $this->addFlash('succes','Email envoyé avec succes 1');
-
-
         $message = (new \Swift_Message('Une matiere vient d etre suggéré'))
             ->setContentType("text/html")
             ->setFrom('tutorathep@gmail.com')
@@ -55,10 +46,6 @@ class MailMatiereController extends AbstractController
         ;
         $mailer->send($message);
 
-
-
         return  $this->redirectToRoute("suggest_courses");
-
-
     }
 }

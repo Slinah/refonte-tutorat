@@ -12,13 +12,12 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class MyProfilController extends AbstractController
 {
     /**
      * @Route("/myProfil", name="my_profil")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function index(PersonneCoursRepository $personneCoursRepo, CoursRepository $repository, PaginatorInterface $paginator, PersonneTagRepository $tagsRepos, Request $request)
     {
@@ -62,7 +61,7 @@ class MyProfilController extends AbstractController
 
     /**
      * @Route("/create-tag", name="create_tag")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function createTag(Request $request)
     {
@@ -89,7 +88,7 @@ class MyProfilController extends AbstractController
 
     /**
      * @Route("/delete-tag/{id}", name="delete_tag")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function deleteTag(PersonneTagRepository $repo, $id)
     {

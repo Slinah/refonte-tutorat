@@ -36,7 +36,7 @@ class GiveCoursesType extends AbstractType
                         ->orderBy("q.promo", "ASC");
                 }])
 
-//            ->add('submit', SubmitType::class, ["label" => "Ajouter le cours"])
+            ->add('submit', SubmitType::class, ["label" => "Ajouter le cours"])
         ;
     }
 

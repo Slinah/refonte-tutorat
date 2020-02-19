@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Repository\CoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -11,7 +10,7 @@ class SwiftmailerController extends AbstractController
     /**
      * @Route("/swiftmailer", name="swiftmailer")
      */
-    public function sendEmail( \Swift_Mailer $mailer, CoursRepository $coursRepository)
+    public function sendEmail( \Swift_Mailer $mailer)
     {
         $receiver=$this->getUser()->getMail();
         $em = $this->getDoctrine()->getManager();
@@ -20,14 +19,11 @@ class SwiftmailerController extends AbstractController
                       join personne p on p.id_personne = pc.id_personne 
                       where p.mail = :mail order by c.dateCreation DESC LIMIT 1;';
 
-
         $statement = $em->getConnection()->prepare($query);
-        // Set parameters
         $statement->bindValue('mail', $receiver);
         $statement->execute();
 
         $result = $statement->fetchAll();
-
 
         $message = (new \Swift_Message('Cours crée avec succès !'))
             ->setContentType("text/html")
@@ -42,7 +38,6 @@ class SwiftmailerController extends AbstractController
         ;
 
         $mailer->send($message);
-
         $message = (new \Swift_Message('Un cours vient d être crée'))
             ->setContentType("text/html")
             ->setFrom('tutorathep@gmail.com')
@@ -55,9 +50,6 @@ class SwiftmailerController extends AbstractController
         ;
         $mailer->send($message);
 
-
         return  $this->redirectToRoute("logs");
-
-
     }
 }

@@ -50,12 +50,6 @@
     {{ form_widget(form.idPromo) }}
     <br /><br />
 
-    {% if app.user %}
-        <button>Ajouter le cours</button>
-    {% else %}
-        <i>Il faut être connecter pour ajouter un cours</i>
-    {% endif %}
-
     {{ form_end(form) }}
 
     <p>Il n'y as pas la matière que vous voulez ? C'est en bas de <a href="{{ path('suggest_courses') }}">cette page</a></p>

@@ -56,18 +56,14 @@
         </tbody>
     </table>
 
-    {% if app.user %}
-        <a href="{{ path('registration_courses', { 'id':course.idCours }) }}" class="button">
-            <div>
-                <ul>
-                    <li>
-                        S'inscrire
-                        <span></span><span></span><span></span><span></span>
-                    </li>
-                </ul>
-            </div>
-        </a>
-    {% else %}
-        <i>Vous devez vous connectez pour vous inscrire</i>
-    {% endif %}
+    <a href="{{ path('registration_courses', { 'id':course.idCours }) }}" class="button">
+        <div>
+            <ul>
+                <li>
+                    S'inscrire
+                    <span></span><span></span><span></span><span></span>
+                </li>
+            </ul>
+        </div>
+    </a>
 {% endblock %}

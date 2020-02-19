@@ -13,6 +13,7 @@ use App\Form\PersonneSearchType;
 use App\Form\Search\CourseAdminSearchType;
 use App\Form\Search\InternshipAdminSearchType;
 use App\Form\Search\MatiereAdminSearchType;
+use App\Form\UpdateCoursesType;
 use App\Form\UpdateMatiereType;
 use App\Repository\CoursRepository;
 use App\Repository\MatiereRepository;
@@ -144,10 +145,70 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/close-course/{id}", name="close_course")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @Route("/internship/update-internship-admin/{id}", name="update_internship_admin")
+     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
      */
-    public function closeCourse(CoursRepository $repo, $id, Request $request)
+    public function updateIntershipAdmin(CoursRepository $repo, Request $request, $id)
+    {
+        //chercher objet à modif
+        $internship = $repo->find($id);
+
+        //Création form
+        $form=$this->createForm(UpdateCoursesType::class, $internship);
+
+        //récup données POST
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($internship);
+            $em->flush();
+            $this->addFlash('success', 'Stage modifié avec succès !');
+
+            return $this->redirectToRoute("admin");
+        }
+
+        return $this->render('internship/updateInternship.html.twig', [
+            "internship"=>$internship,
+            'form'=>$form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/courses/update-courses-admin/{id}", name="update_courses_admin")
+     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
+     */
+    public function updateCoursesAdmin(CoursRepository $repo, Request $request, $id)
+    {
+        //chercher objet à modif
+        $courses = $repo->find($id);
+
+        //Création form
+        $form=$this->createForm(UpdateCoursesType::class, $courses);
+
+        //récup données POST
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($courses);
+            $em->flush();
+            $this->addFlash('success', 'Cours modifié avec succès !');
+
+            return $this->redirectToRoute("admin");
+        }
+
+        return $this->render('courses/updateCourses.html.twig', [
+            "courses"=>$courses,
+            'form'=>$form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/close-course-admin/{id}", name="close_course_admin")
+     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
+     */
+    public function closeCourseAdmin(CoursRepository $repo, $id, Request $request)
     {
         $course = $repo->find($id);
         $course->setStatus(1);
@@ -161,20 +222,20 @@ class AdminController extends AbstractController
             $em->flush();
             $this->addFlash('success', 'Cours / stage clos avec succès !');
 
-            return $this->redirectToRoute("courses");
+            return $this->redirectToRoute("admin");
         }
 
-        return $this->render('admin/closeCourses.html.twig', [
+        return $this->render('courses/closeCourses.html.twig', [
             "course"=>$course,
             'form'=>$form->createView()
         ]);
     }
 
     /**
-     * @Route("/cancel-course/{id}", name="cancel_course")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @Route("/cancel-course-admin/{id}", name="cancel_course_admin")
+     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
      */
-    public function cancelCourse(CoursRepository $repo, $id, Request $request)
+    public function cancelCourseAdmin(CoursRepository $repo, $id, Request $request)
     {
         $course = $repo->find($id);
         $course->setStatus(2);
@@ -188,10 +249,10 @@ class AdminController extends AbstractController
             $em->flush();
             $this->addFlash('success', 'Cours / stage annulé avec succès !');
 
-            return $this->redirectToRoute("courses");
+            return $this->redirectToRoute("admin");
         }
 
-        return $this->render('admin/cancelCourses.html.twig', [
+        return $this->render('courses/cancelCourses.html.twig', [
             "course"=>$course,
             "form"=>$form->createView()
         ]);
@@ -201,7 +262,7 @@ class AdminController extends AbstractController
      * @Route("/delete_course/{id}", name="delete_course")
      * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
      */
-    public function deleteCourse(CoursRepository $repo, PersonneCoursRepository $personneCoursRepo, $id)
+    public function deleteCourseAdmin(CoursRepository $repo, PersonneCoursRepository $personneCoursRepo, $id)
     {
         $course = $repo->find($id);
         $personneCoursRepo->DeleteAssociationWithCourses($id);

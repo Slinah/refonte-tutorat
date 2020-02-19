@@ -8,6 +8,7 @@ use App\Entity\Proposition;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,7 +27,8 @@ class SuggestCoursesType extends AbstractType
                     return $er->createQueryBuilder('q')
                         ->orderBy("q.promo", "ASC");
                 }])
-            ;
+            ->add('submit', SubmitType::class, ["label" => "Ajouter la proposition"])
+        ;
     }
 
 

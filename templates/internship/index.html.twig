@@ -87,32 +87,26 @@
                             </ul>
 
                             <div style="text-align: center">
-                                {% if app.user %}
-                                    {% for tuteur in tuteur %}
-                                        {% if internship.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
-                                            <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
-                                            <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
-                                            <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endif %}
+                                {% for tuteur in tuteur %}
+                                    {% if internship.idCours is same as(tuteur.idCours.idCours) and app.user.idPersonne is same as(tuteur.idPersonne.idPersonne) and tuteur.rangPersonne is same as (1) %}
+                                        <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier / </a>
+                                        <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage / </a>
+                                        <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
 
-                        {% if app.user %}
-                            <a href="{{ path('registration_internship', { 'id':internship.idCours }) }}" class="button">
-                                <div>
-                                    <ul>
-                                        <li>
-                                            S'inscrire
-                                            <span></span><span></span><span></span><span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </a>
-                        {% else %}
-                            <i>Vous devez vous connectez pour vous inscrire</i>
-                        {% endif %}
+                        <a href="{{ path('registration_internship', { 'id':internship.idCours }) }}" class="button">
+                            <div>
+                                <ul>
+                                    <li>
+                                        S'inscrire
+                                        <span></span><span></span><span></span><span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
                     </div>
                 </div>
             {% endif %}

@@ -175,16 +175,16 @@
 
                     <td>
                         {% if course.status is same as(0) %}
-                            <a href="{{ path('update_courses', { 'id':course.idCours }) }}">Modifier le cours</a>
+                            <a href="{{ path('update_courses_admin', { 'id':course.idCours }) }}">Modifier le cours</a>
                         {% endif %}
                     </td>
                     <td>{% if course.status is same as(0) %}
-                            <a href="{{ path('close_course', { 'id':course.idCours }) }}">Clore le cours</a>
+                            <a href="{{ path('close_course_admin', { 'id':course.idCours }) }}">Clore le cours</a>
                         {% endif %}
                     </td>
                     <td>
                         {% if course.status is same as(0) %}
-                            <a href="{{ path('cancel_course', { 'id':course.idCours }) }}">Annuler le cours</a>
+                            <a href="{{ path('cancel_course_admin', { 'id':course.idCours }) }}">Annuler le cours</a>
                         {% endif %}
                     </td>
                     <td><a href="{{ path('delete_course', { 'id':course.idCours }) }}">Supprimer le cours</a></td>
@@ -281,16 +281,16 @@
 
                         <td>
                             {% if internship.status is same as(0) %}
-                                <a href="{{ path('update_internship', { 'id':internship.idCours }) }}">Modifier le stage</a>
+                                <a href="{{ path('update_internship_admin', { 'id':internship.idCours }) }}">Modifier le stage</a>
                             {% endif %}
                         </td>
                         <td>{% if internship.status is same as(0) %}
-                                <a href="{{ path('close_course', { 'id':internship.idCours }) }}">Clore le stage</a>
+                                <a href="{{ path('close_course_admin', { 'id':internship.idCours }) }}">Clore le stage</a>
                             {% endif %}
                         </td>
                         <td>
                             {% if internship.status is same as(0) %}
-                                <a href="{{ path('cancel_course', { 'id':internship.idCours }) }}">Annuler le stage</a>
+                                <a href="{{ path('cancel_course_admin', { 'id':internship.idCours }) }}">Annuler le stage</a>
                             {% endif %}
                         </td>
                         <td><a href="{{ path('delete_course', { 'id':internship.idCours }) }}">Supprimer le stage</a></td>
@@ -362,7 +362,12 @@
                             {% endif %}
                         </td>
                         <td><a href="{{ path('update_matiere', { 'id':matiere.idMatiere }) }}">Modifier la matière</a></td>
-                        <td><a href="{{ path('delete_matiere', { 'id':matiere.idMatiere }) }}">Supprimer la matière</a></td>
+
+                        <td>
+                            {% if matiere.validationAdmin is same as(1) %}
+                                <a href="{{ path('delete_matiere', { 'id':matiere.idMatiere }) }}">Supprimer la matière</a>
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

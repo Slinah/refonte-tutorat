@@ -14,7 +14,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class InternshipController extends AbstractController
 {
@@ -60,7 +60,7 @@ class InternshipController extends AbstractController
 
     /**
      * @Route("/internship/registration-internship/{id}", name="registration_internship")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function RegistrationInternship(CoursRepository $repo, $id)
     {
@@ -88,7 +88,7 @@ class InternshipController extends AbstractController
 
     /**
      * @Route("/internship/unsubscribe-internship/{id}", name="unsubscribe_internship")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function UnsubscribeInternship(PersonneCoursRepository $personneCoursRepo, $id)
     {
@@ -106,7 +106,7 @@ class InternshipController extends AbstractController
 
     /**
      * @Route("/internship/add-internship", name="add_internship")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function addIntership(Request $request)
     {
@@ -144,7 +144,7 @@ class InternshipController extends AbstractController
 
     /**
      * @Route("/internship/update-internship/{id}", name="update_internship")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function updateIntership(CoursRepository $repo, Request $request, $id)
     {

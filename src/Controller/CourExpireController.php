@@ -2,18 +2,16 @@
 
 namespace App\Controller;
 
-use App\Repository\CoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CourExpireController extends AbstractController
 {
     /**
-     * @Route("/courexpirer", name="courexpirer")
+     * @Route("/cours-expirer", name="courexpirer")
      */
-    public function sendEmail( \Swift_Mailer $mailer, CoursRepository $coursRepository)
+    public function sendEmail( \Swift_Mailer $mailer)
     {
-
         $em = $this->getDoctrine()->getManager();
 
         $dateNow=new \DateTime();
@@ -21,17 +19,11 @@ class CourExpireController extends AbstractController
 
         $query = 'SELECT intitule, date, heure from cours c where c.date < :date;';
 
-
         $statement = $em->getConnection()->prepare($query);
-        // Set parameters
         $statement->bindValue('date', $date);
         $statement->execute();
 
-
         $result = $statement->fetchAll();
-
-//        $this->addFlash('succes','Email envoyé avec succes 1');
-
 
         $message = (new \Swift_Message('Des cours attendent detre supprimés'))
             ->setContentType("text/html")
@@ -45,10 +37,6 @@ class CourExpireController extends AbstractController
         ;
         $mailer->send($message);
 
-
-
         return  $this->redirectToRoute("logs");
-
-
     }
 }

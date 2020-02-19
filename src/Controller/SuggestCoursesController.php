@@ -5,19 +5,19 @@ namespace App\Controller;
 use App\Entity\Matiere;
 use App\Entity\Proposition;
 use App\Form\MatiereType;
-use App\Entity\LogsProposition;
 use App\Form\SuggestCoursesType;
 use App\Repository\PropositionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Validator\Constraints\Date;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class SuggestCoursesController extends AbstractController
 {
     /**
      * @Route("/suggestCourses", name="suggest_courses")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function index(Request $request, PropositionRepository $repo)
     {
@@ -77,7 +77,7 @@ class SuggestCoursesController extends AbstractController
 
     /**
      * @Route("/vote/{id}", name="vote_suggest")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function VoteSuggest(PropositionRepository $repo, $id)
     {
@@ -107,7 +107,7 @@ class SuggestCoursesController extends AbstractController
 
     /**
      * @Route("/delete-suggest/{id}", name="delete_suggest")
-     * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function deleteSuggest(PropositionRepository $repo, $id)
     {

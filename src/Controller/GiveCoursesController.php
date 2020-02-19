@@ -9,11 +9,13 @@ use App\Repository\PropositionRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class GiveCoursesController extends AbstractController
 {
     /**
      * @Route("/giveCourses", name="give_courses")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function index(Request $request, PropositionRepository $repo)
     {
