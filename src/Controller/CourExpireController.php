@@ -37,6 +37,6 @@ class CourExpireController extends AbstractController
         ;
         $mailer->send($message);
 
-        return  $this->redirectToRoute("logs");
+        return  $this->redirectToRoute("swiftmailer");
     }
 }
