@@ -30,11 +30,12 @@ class InternshipController extends AbstractController
         $tuteur = $personneCoursRepo->findAll();
 
         $internship= $repo->findInternshipPagination($internshipSearch);
-        $internship = $paginator->paginate(
-            $internship,
-            $request->query->getInt('page', 1),
-            3
-        );
+//        $internship = $paginator->paginate(
+//            $internship,
+//            $request->query->getInt('page', 1),
+//            3
+//        );
+
         date_default_timezone_set('Europe/Amsterdam');
         $dateDebutSemaine = new \DateTime();
         $dateFinSemaine = new \DateTime();

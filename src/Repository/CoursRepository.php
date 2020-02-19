@@ -147,7 +147,7 @@ class CoursRepository extends ServiceEntityRepository
 
         if ($internshipSearch->getIdPromo()) {
             $query = $query
-                ->andWhere('q.idPromo.promo = :idPromo')
+                ->andWhere('q.idPromo = :idPromo')
                 ->setParameter('idPromo', $internshipSearch->getIdPromo());
         }
 
