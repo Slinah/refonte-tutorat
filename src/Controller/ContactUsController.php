@@ -21,8 +21,10 @@ class ContactUsController extends AbstractController
             $data = $form->getData();
             $message = (new \Swift_Message('Nouveau message'))
                 ->setContentType("text/html")
-                ->setFrom('tutorathep@gmail.com')
-                ->setTo('tutorathep@gmail.com')          #Envoie à la boite mail admin
+                ->setFrom('scratchoverflow@gmail.com')
+                ->setTo(['cedric.menanteau@epsi.fr' => 'Cedric',            #Envoie à la boite mail admin
+                         'priscillia.dezettre@ecoles-wis.net' => 'Priscillia'
+                ])
                 ->setBody(
                     $this->renderView(
                         'contact_us/mail.html.twig', array('data'=>$data)

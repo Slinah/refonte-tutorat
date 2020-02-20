@@ -27,8 +27,10 @@ class CourExpireController extends AbstractController
 
         $message = (new \Swift_Message('Des cours attendent detre supprimés'))
             ->setContentType("text/html")
-            ->setFrom('tutorathep@gmail.com')
-            ->setTo('tutorathep@gmail.com')          #Envoie à la boite mail admin
+            ->setFrom('scratchoverflow@gmail.com')
+            ->setTo(['cedric.menanteau@epsi.fr' => 'Cedric',            #Envoie à la boite mail admin
+                     'priscillia.dezettre@ecoles-wis.net' => 'Priscillia'
+            ])
             ->setBody(
                 $this->renderView(
                     'cour_expire/index.html.twig', array('result'=>$result)

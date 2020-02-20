@@ -27,7 +27,7 @@ class SwiftmailerController extends AbstractController
 
         $message = (new \Swift_Message('Cours crée avec succès !'))
             ->setContentType("text/html")
-            ->setFrom('tutorathep@gmail.com')
+            ->setFrom('scratchoverflow@gmail.com')
             ->setTo($receiver)     #Envoie à celui qui vient de crée le cours
             ->setBody(
                 $this->renderView(
@@ -40,8 +40,11 @@ class SwiftmailerController extends AbstractController
         $mailer->send($message);
         $message = (new \Swift_Message('Un cours vient d être crée'))
             ->setContentType("text/html")
-            ->setFrom('tutorathep@gmail.com')
-            ->setTo('tutorathep@gmail.com')          #Envoie à la boite mail admin
+            ->setFrom('scratchoverflow@gmail.com')
+            ->setTo(['cedric.menanteau@epsi.fr' => 'Cedric',            #Envoie à la boite mail admin
+                     'priscillia.dezettre@ecoles-wis.net' => 'Priscillia'
+            ])
+
             ->setBody(
                 $this->renderView(
                     'swiftmailer/noticeCreationCours.html.twig', array('result'=>$result)

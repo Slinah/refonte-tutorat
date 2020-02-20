@@ -23,7 +23,7 @@ class MailMatiereController extends AbstractController
 
         $message = (new \Swift_Message('Votre matière à bien été envoyé'))
             ->setContentType("text/html")
-            ->setFrom('tutorathep@gmail.com')
+            ->setFrom('scratchoverflow@gmail.com')
             ->setTo($receiver)     #Envoie à celui qui vient de crée le cours
             ->setBody(
                 $this->renderView(
