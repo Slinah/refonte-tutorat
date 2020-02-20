@@ -71,6 +71,11 @@ class QuestionForum
      */
     private $nbVote = 0;
 
+    /**
+     * @ORM\Column(type="integer", options={"default":0})
+     */
+    private $statut = 0;
+
     public function __construct()
     {
         $this->yes = new ArrayCollection();
@@ -212,6 +217,18 @@ class QuestionForum
     public function setNbVote(int $nbVote): self
     {
         $this->nbVote = $nbVote;
+
+        return $this;
+    }
+
+    public function getStatut(): ?int
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(int $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }
