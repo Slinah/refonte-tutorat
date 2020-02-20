@@ -4,8 +4,12 @@
     <div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
         <h1 class="display-4 pb-5">{{ question.title }}</h1>
     </div>
-    {% if question.Personne.id_personne is same as (app.user.id_personne) %}
-        <a href="{{ path("delete_question", {"id": question.idQuestion}) }}">Clore la question</a>
+    {% if question.Personne.id_personne is same as (app.user.id_personne) or is_granted('ROLE_ADMIN') %}
+        <a href="{{ path("close_question", {"id": question.idQuestion}) }}">Clore la question</a>
+    {% endif %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path("delete_question", {"id": question.idQuestion}) }}">Supprimer la question</a>
     {% endif %}
 {% endblock %}
 

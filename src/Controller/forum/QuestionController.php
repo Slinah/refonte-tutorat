@@ -113,9 +113,9 @@ class QuestionController extends AbstractController {
     }
 
     /**
-     * @Route("/questions/delete/{id}", name="delete_question")
+     * @Route("/questions/close/{id}", name="close_question")
      */
-    public function deleteQuestion(QuestionRepository $repo, $id, Request $request) {
+    public function closeQuestion(QuestionRepository $repo, $id, Request $request) {
         $quest = $repo->find($id);
         $quest->setStatut(1);
 
@@ -123,6 +123,20 @@ class QuestionController extends AbstractController {
         $em->persist($quest);
         $em->flush();
         $this->addFlash('success', 'Question supprimée avec succès');
+
+        return $this->redirectToRoute("forum");
+
+    }
+
+    /**
+     * @Route("/questions/delete/{id}", name="delete_question")
+     */
+    public function deleteQuestion(QuestionRepository $repo, $id, Request $request) {
+        $quest = $repo->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($quest);
+        $em->flush();
+        $this->addFlash('success', 'Matière supprimée avec succès !');
 
         return $this->redirectToRoute("forum");
 
