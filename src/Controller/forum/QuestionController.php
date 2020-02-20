@@ -7,6 +7,7 @@ use App\Entity\QuestionForum;
 use App\Entity\Vote;
 use App\Form\QuestionType;
 use App\Entity\Personne;
+use App\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,44 +46,44 @@ class QuestionController extends AbstractController {
         return $this->redirectToRoute("detail_question", ["id"=>$question->getIdQuestion()]);
     }
 
-    /**
-     * @Route("/questions/create", name="create")
-     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
-     */
-    public function createQuestion(Request $request) {
-        $question = new QuestionForum();
-        $question->setAuthor($this->getUser());
-        $questionForm = $this -> createForm(QuestionType::class, $question);
+//    /**
+//     * @Route("/questions/create", name="create")
+//     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
+//     */
+//    public function createQuestion(Request $request) {
+//        $question = new QuestionForum();
+//        $question->setAuthor($this->getUser());
+//        $questionForm = $this -> createForm(QuestionType::class, $question);
+//
+//        //cette fonction prend les données du formulaire soumis et les injecte dans notre entité $question
+//        $questionForm->handleRequest($request);
+//
+//        if ($questionForm->isSubmitted() && $questionForm->isValid()) {
+//            date_default_timezone_set('Europe/Amsterdam');
+//            $question-> setDateCreated(new \DateTime());
+//
+//            $em = $this->getDoctrine()->getManager();
+//            $em-> persist($question);
+//            $em->flush();
+//            $this->addFlash('success', 'Merci pour votre contribution !');
+//
+//            return $this-> redirectToRoute("last_questions");
+//        }
+//
+//        return $this-> render("forum/question_forum/create.html.twig", ["questionForm"=> $questionForm->createView()]);
+//    }
 
-        //cette fonction prend les données du formulaire soumis et les injecte dans notre entité $question
-        $questionForm->handleRequest($request);
-
-        if ($questionForm->isSubmitted() && $questionForm->isValid()) {
-            date_default_timezone_set('Europe/Amsterdam');
-            $question-> setDateCreated(new \DateTime());
-
-            $em = $this->getDoctrine()->getManager();
-            $em-> persist($question);
-            $em->flush();
-            $this->addFlash('success', 'Merci pour votre contribution !');
-
-            return $this-> redirectToRoute("last_questions");
-        }
-
-        return $this-> render("forum/question_forum/create.html.twig", ["questionForm"=> $questionForm->createView()]);
-    }
-
-    /**
-     * @Route("/questions/recentes", name="last_questions")
-     */
-    public function lastQuestions() {
-        $questionRepository = $this->getDoctrine()
-            ->getRepository(QuestionForum::class);
-
-        $questions_forums = $questionRepository->findBy([], ["dateCreated"=> "DESC"], 30);
-
-        return $this->render('question_forum/last_questions.html.twig', ["questions_forums" => $questions_forums]);
-    }
+//    /**
+//     * @Route("/questions/recentes", name="last_questions")
+//     */
+//    public function lastQuestions() {
+//        $questionRepository = $this->getDoctrine()
+//            ->getRepository(QuestionForum::class);
+//
+//        $questions_forums = $questionRepository->findBy([], ["dateCreated"=> "DESC"], 30);
+//
+//        return $this->render('forum/question_forum/last_questions.html.twig', ["questions_forums" => $questions_forums]);
+//    }
 
     /**
      * @Route("/questions/details/{id}", name="detail_question")
@@ -104,4 +105,22 @@ class QuestionController extends AbstractController {
             "comments" => $comments
         ]);
     }
+
+    /**
+     * @Route("/questions/delete/{id}", name="delete_question")
+     */
+    public function deleteQuestion(QuestionRepository $repo, $id, Request $request) {
+        $quest = $repo->find($id);
+        $quest->setStatut(1);
+
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($quest);
+        $em->flush();
+        $this->addFlash('success', 'Question supprimée avec succès');
+
+        return $this->redirectToRoute("forum");
+
+    }
+
+
 }
