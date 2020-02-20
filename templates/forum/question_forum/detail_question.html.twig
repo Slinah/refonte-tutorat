@@ -59,4 +59,9 @@
         <p class="center">Il n'y as pas encore de commentaire</p>
     {% endfor %}
 
+    <div>
+        <br />
+        {{ knp_pagination_render(comments) }}
+    </div>
+
 {% endblock %}

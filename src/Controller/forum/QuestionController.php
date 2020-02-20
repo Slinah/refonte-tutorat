@@ -9,6 +9,7 @@ use App\Form\QuestionType;
 use App\Entity\Personne;
 use App\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -88,7 +89,7 @@ class QuestionController extends AbstractController {
     /**
      * @Route("/questions/details/{id}", name="detail_question")
      */
-    public function detailQuestion($id) {
+    public function detailQuestion(PaginatorInterface $paginator, Request $request, $id) {
         $questionRepository = $this -> getDoctrine()->getRepository(QuestionForum::class);
         $question = $questionRepository->find($id);
 
@@ -98,7 +99,12 @@ class QuestionController extends AbstractController {
         }
 
         $commentRepo = $this->getDoctrine()->getRepository(Comment::class);
-        $comments = $commentRepo->findBy(["question"=> $question], ["dateCreated"=> "DESC"], 100);
+        $comments = $commentRepo->findBy(["question"=> $question], ["dateCreated"=> "DESC"]);
+        $comments = $paginator->paginate(
+            $comments,
+            $request->query->getInt('page', 1),
+            30
+        );
 
         return $this-> render("forum/question_forum/detail_question.html.twig", [
             "question"=> $question,

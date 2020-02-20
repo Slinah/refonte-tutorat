@@ -18,7 +18,7 @@ class CommentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comment::class);
     }
-    //METHODE A CREER
+
     // /**
     //  * @return Comment[] Returns an array of Comment objects
     //  */
