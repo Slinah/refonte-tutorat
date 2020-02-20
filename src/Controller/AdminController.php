@@ -128,7 +128,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/delete-student/{id}", name="delete_student")
-     * @IsGranted("ROLE_ADMIN", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN"})
      */
     public function deleteStudent(PersonneRepository $repo, PersonneCoursRepository $personneCoursRepo, PropositionRepository $personneSuggestRepo, $id)
     {
@@ -146,7 +146,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/internship/update-internship-admin/{id}", name="update_internship_admin")
-     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN", "ROLE_USER"})
      */
     public function updateIntershipAdmin(CoursRepository $repo, Request $request, $id)
     {
@@ -176,7 +176,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/courses/update-courses-admin/{id}", name="update_courses_admin")
-     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN"})
      */
     public function updateCoursesAdmin(CoursRepository $repo, Request $request, $id)
     {
@@ -206,7 +206,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/close-course-admin/{id}", name="close_course_admin")
-     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN"})
      */
     public function closeCourseAdmin(CoursRepository $repo, $id, Request $request)
     {
@@ -233,7 +233,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/cancel-course-admin/{id}", name="cancel_course_admin")
-     * @Security("is_granted('ROLE_ADMIN')", message="No access! Get out!")
+     * @IsGranted({"ROLE_ADMIN"})
      */
     public function cancelCourseAdmin(CoursRepository $repo, $id, Request $request)
     {

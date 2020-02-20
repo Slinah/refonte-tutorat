@@ -41,6 +41,10 @@
             <div>{{ comment.content }}</div>
             <br />
             <div>Le {{ comment.dateCreated|format_datetime('full', 'short', locale='fr') }}</div>
+
+            {% if app.user.idPersonne is same as(comment.commentAuthor.idPersonne) or is_granted('ROLE_ADMIN') %}
+                <a href="{{ path("update_comment", {'id': comment.idComment}) }}">Modifier</a> / <a href="{{ path("delete_comment", {'id': comment.idComment}) }}">Supprimer</a>
+            {% endif %}
         </article>
     {% else %}
         <p class="center">Il n'y as pas encore de commentaire</p>

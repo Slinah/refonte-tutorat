@@ -97,8 +97,11 @@ class QuestionController extends AbstractController {
         }
 
         $commentRepo = $this->getDoctrine()->getRepository(Comment::class);
-        $comments = $commentRepo->findBy(["question"=> $question], ["dateCreated"=> "ASC"], 100);
+        $comments = $commentRepo->findBy(["question"=> $question], ["dateCreated"=> "DESC"], 100);
 
-        return $this-> render("forum/question_forum/detail_question.html.twig", ["question"=> $question, "comments" => $comments]);
+        return $this-> render("forum/question_forum/detail_question.html.twig", [
+            "question"=> $question,
+            "comments" => $comments
+        ]);
     }
 }
