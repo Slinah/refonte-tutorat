@@ -5,7 +5,7 @@
         <h1 class="display-4 pb-5">{{ question.title }}</h1>
     </div>
     {% if question.Personne.id_personne is same as (app.user.id_personne) %}
-        <a href="{{ path("delete_question", {"id": question.idQuestion}) }}">Supprimer la question</a>
+        <a href="{{ path("delete_question", {"id": question.idQuestion}) }}">Clore la question</a>
     {% endif %}
 {% endblock %}
 
@@ -36,7 +36,9 @@
     <br /> <br />
 
     {# on passe l'id de la question dans l'URL pour savoir à quelle question relier le commentaire qui sera créé #}
-    <a href="{{ path("comment", {'id': question.idQuestion}) }}" style="text-decoration: underline" class="center">Ajouter un commentaire</a>
+    {% if question.statut is same as (0) %}
+        <a href="{{ path("comment", {'id': question.idQuestion}) }}" style="text-decoration: underline" class="center">Ajouter un commentaire</a>
+    {% endif %}
     <br />
     <h2 class="center">Derniers commentaires</h2>
     {% for comment in comments %}
@@ -48,7 +50,9 @@
             <div>Le {{ comment.dateCreated|format_datetime('full', 'short', locale='fr') }}</div>
 
             {% if app.user.idPersonne is same as(comment.commentAuthor.idPersonne) or is_granted('ROLE_ADMIN') %}
-                <a href="{{ path("update_comment", {'id': comment.idComment}) }}">Modifier</a> / <a href="{{ path("delete_comment", {'id': comment.idComment}) }}">Supprimer</a>
+                {% if question.statut is same as (0) %}
+                    <a href="{{ path("update_comment", {'id': comment.idComment}) }}">Modifier</a> / <a href="{{ path("delete_comment", {'id': comment.idComment}) }}">Supprimer</a>
+                {% endif %}
             {% endif %}
         </article>
     {% else %}
